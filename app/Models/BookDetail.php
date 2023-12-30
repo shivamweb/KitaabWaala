@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Models;
+
+use App\Enums\BookStatusEnum;
+use App\Enums\BookStockStatusEnum;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Uuid;
+use Illuminate\Support\Facades\Log;
+
+class BookDetail extends Model
+{
+    protected $fillable = [
+        'image',
+        'book_name',
+        'status',
+        'stock_status',
+        'price',
+        'class_id',
+        'description',
+    ];
+    protected static function boot()
+    {
+        parent::boot();
+        static::creating(function ($model) {
+            $model->uuid = Uuid::uuid4()->toString();
+        });
+    }
+    public function AddBookDetail(array $addbook, $imagePath)
+    {
+        try {
+            return $this->create([
+                'uuid'           => Uuid::uuid4()->toString(),
+                'image'          => $imagePath,
+                'book_name'      => $addbook['book_name'],
+                'status'        => BookStatusEnum::Available,
+                'stock_status'        => BookStockStatusEnum::INSTOCK,
+                'price'          => $addbook['price'],
+                'class_id'          => $addbook['class_id'],
+                'description'    =>$addbook['description'],
+            ]);
+        } catch (\Throwable $e) {
+            Log::error('[BookDetail][AddBookDetail] Error creating book detail: ' . $e->getMessage());
+        }
+    }
+}
