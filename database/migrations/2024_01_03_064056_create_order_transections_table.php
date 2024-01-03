@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('school_details', function (Blueprint $table) {
-            $table->text('designation')->nullable();
+        Schema::create('order_transections', function (Blueprint $table) {
+            $table->id();
+            $table->uuid('uuid')->unique();
+            $table->integer('order_id');
+            $table->string('transection_id');
+            $table->integer('amount');
+            $table->timestamps();
         });
     }
 
@@ -21,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('order_transections');
     }
 };
