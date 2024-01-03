@@ -5,5 +5,5 @@ namespace App\Enums;
 class BookStatusEnum
 {
     public const Available = 'available';
-    public const Unavailable = 'unavailableb';
+    public const Unavailable = 'unavailable';
 }
