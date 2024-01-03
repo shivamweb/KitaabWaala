@@ -71,16 +71,7 @@
                                 </div>
                             </form>
                         </li>
-                        <li class="onhover-dropdown"><a class="txt-dark" href="javascript:void(0)">
-                                <h6>EN</h6>
-                            </a>
-                            <ul class="language-dropdown onhover-show-div p-20">
-                                <li><a href="javascript:void(0)" data-lng="pt"><i class="flag-icon flag-icon-uy"></i> Portuguese</a></li>
-                                <li><a href="javascript:void(0)" data-lng="es"><i class="flag-icon flag-icon-um"></i> Spanish</a></li>
-                                <li><a href="javascript:void(0)" data-lng="en"><i class="flag-icon flag-icon-is"></i> English</a></li>
-                                <li><a href="javascript:void(0)" data-lng="fr"><i class="flag-icon flag-icon-nz"></i> French</a></li>
-                            </ul>
-                        </li>
+                      
                         <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
                         <li class="onhover-dropdown"><i data-feather="bell"></i><span class="badge badge-pill badge-primary pull-right notification-badge">3</span><span class="dot"></span>
                             <ul class="notification-dropdown custom-scrollbar onhover-show-div p-0">
@@ -191,7 +182,7 @@
                         <li><a class="sidebar-header" href="#"><i data-feather="dollar-sign"></i><span>Inventory</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
                                 <li><a href="place-neworder"><i class="fa fa-circle"></i>Place New Book Order</a></li>
-                                <li><a href="list-order"><i class="fa fa-circle"></i>List All Books </a></li>
+                                
                             </ul>
                         </li>
                         <li><a class="sidebar-header" href="#"><i data-feather="tag"></i><span>Inbox</span><i class="fa fa-angle-right pull-right"></i></a>
@@ -202,7 +193,7 @@
                         </li>
                         <li><a class="sidebar-header" href="javascript:void(0)"><i data-feather="clipboard"></i><span>Reports</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
-                                <li><a href="pages-list.html"><i class="fa fa-circle"></i>Stock Reports</a></li>
+                                
                                 <li><a href="page-create.html"><i class="fa fa-circle"></i>Purchase Reports</a></li>
                             </ul>
                         </li>

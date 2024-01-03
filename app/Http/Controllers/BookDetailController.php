@@ -74,12 +74,12 @@ class BookDetailController extends Controller
         $bookdetails = $this->bookdetails->where('uuid', $uuid)->first();
         return view('school.view-book-detail', compact('bookdetails', 'status', 'message'));
     }
-    public function placeNewBookOrder(Request $request)
+    public function fetchpurchaselist(Request $request)
     {
         $status = null;
         $message = null;
         $bookdetails = $this->bookdetails->all();
-        return view('school.place-neworder', compact('bookdetails'))->render();
+        return view('school.my-purchase-list', compact('bookdetails'))->render();
     }
     public function listbookforadmin()
     {
@@ -97,6 +97,6 @@ class BookDetailController extends Controller
         $uuid = $adminSession['uuid'];
         $school = $this->schoolDetails->where('uuid', $uuid)->first();
         $bookdetails = $this->bookSchool->where('school_id', $school->id)->with('book')->get();
-        return view('school.my-purchase-list', compact('bookdetails'))->render();
+        return view('school.place-neworder', compact('bookdetails'))->render();
     }
 }

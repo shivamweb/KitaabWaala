@@ -203,7 +203,7 @@
 
                         <li><a class="sidebar-header" href="#"><i data-feather="settings"></i><span>Settings</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
-                                <li><a href="../admin/profile"><i class="fa fa-circle"></i>Profile</a></li>
+                                <li><a href="../../admin/profile"><i class="fa fa-circle"></i>Profile</a></li>
                             </ul>
                         </li>
                         <li><a class="sidebar-header" href="../admin-logout"><i data-feather="log-in"></i><span>Logout</span></a>
