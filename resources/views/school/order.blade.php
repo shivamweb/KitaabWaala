@@ -40,12 +40,12 @@
                         <thead>
                             <tr>
                                 <th>Order Id</th>
-                                <th>Product</th>
                                 <th>Payment Status</th>
                                 <th>Payment Method</th>
                                 <th>Order Status</th>
-                                <th>Date</th>
                                 <th>Total</th>
+                                <th>Remaining Amount:</th>
+                                <th>Date</th>
                                 <th>View</th>
                             </tr>
                         </thead>
@@ -53,14 +53,9 @@
                             @foreach($orders as $order)
                             <tr>
                                 <td>{{$order->id}}</td>
-                                <td></td>
                                 <td>
-                                    @if($order->payment_status === \App\Enums\PaymentStatusEnum::CASH_ON_DELIVERED)
-                                    <span class="badge badge-secondary">Cash On Delivery</span>
-                                    @elseif($order->payment_status === \App\Enums\PaymentStatusEnum::PAID)
+                                    @if($order->payment_status === \App\Enums\PaymentStatusEnum::PAID)
                                     <span class="badge badge-success">Paid</span>
-                                    @elseif($order->payment_status === \App\Enums\PaymentStatusEnum::PAYMENT_FAILED)
-                                    <span class="badge badge-danger">Payment Failed</span>
                                     @else
                                     <span class="badge badge-warning">Pending</span>
                                     @endif
@@ -69,6 +64,8 @@
                                 <td>
                                     @if($order->order_status === \App\Enums\OrderStatusEnum::DELIVERED)
                                     <span class="badge badge-success">DELIVERED</span>
+                                    @elseif($order->order_status === \App\Enums\OrderStatusEnum::APPROVED)
+                                    <span class="badge badge-primary">APPROVED</span>
                                     @elseif($order->order_status === \App\Enums\OrderStatusEnum::SHIPPED)
                                     <span class="badge badge-primary">SHIPPED</span>
                                     @elseif($order->order_status === \App\Enums\OrderStatusEnum::PROCESSING)
@@ -79,8 +76,9 @@
                                     <span class="badge badge-warning">PENDING</span>
                                     @endif
                                 </td>
-                                <td>{{$order->created_at}}</td>
                                 <td>&#8377;{{$order->total_Amount}}</td>
+                                <td>&#8377;{{$order->remaining_Amount}}</td>
+                                <td>{{$order->created_at}}</td>
                                 <td><a href="/school/invoice/{{$order->id}}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
                             </tr>
                             @endforeach

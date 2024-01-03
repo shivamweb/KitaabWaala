@@ -19,36 +19,39 @@ class OrderController extends Controller
 {
     use SessionTrait;
 
-    private $schoolDetails, $cart, $order, $orderItem, $bookDetail;
+    private $schoolDetails, $cart, $order, $orderItem, $bookDetail, $orderTransection;
 
     public function __construct(
         SchoolDetail $schoolDetails,
         Cart $cart,
         Order $order,
         OrderItem $orderItem,
-        BookDetail $bookDetail
+        BookDetail $bookDetail,
+        OrderTransection $orderTransection
     ) {
         $this->schoolDetails = $schoolDetails;
         $this->cart = $cart;
         $this->order = $order;
         $this->orderItem = $orderItem;
         $this->bookDetail = $bookDetail;
+        $this->orderTransection = $orderTransection;
     }
 
     public function checkout(Request $request)
     {
         try {
-            $adminSession = $this->getSchoolSession($request);
-            $uuid = $adminSession['uuid'];
+            $schoolSession = $this->getSchoolSession($request);
+            $uuid = $schoolSession['uuid'];
             $school = $this->schoolDetails->where('uuid', $uuid)->first();
             $cartItems = $this->cart->where('school_id', $school->id)->get();
 
             $order = $this->order->create([
-                'school_id'      => $school->id,
-                'payment_status' => PaymentStatusEnum::PENDING,
-                'payment_method' => PaymentMethodEnum::CASH_ON_DELIVERED,
-                'order_status'   => OrderStatusEnum::PENDING,
-                'total_Amount'   => $cartItems->sum('total_price'),
+                'school_id'        => $school->id,
+                'payment_status'   => PaymentStatusEnum::PENDING,
+                'payment_method'   => PaymentMethodEnum::CASH_ON_DELIVERED,
+                'order_status'     => OrderStatusEnum::PENDING,
+                'total_Amount'     => $cartItems->sum('total_price'),
+                'remaining_Amount' => $cartItems->sum('total_price'),
             ]);
 
             foreach ($cartItems as $cartItem) {
@@ -84,19 +87,33 @@ class OrderController extends Controller
         $message = null;
         $order = $this->order->where('id', $orderId, 'school')->first();
         if (!$order) {
+            return redirect()->back()->with('status', 'error')->with('message', 'Order not found.');
+        }
+        $school = $order->school;
+        $orderItems = $order->orderItems()->with('orderProduct')->get();
+        return view('admin.invoice', compact('order', 'orderItems', 'status', 'school', 'message'));
+    }
+
+    public function viewInvoiceToAdmin(int $orderId)
+    {
+        $status = null;
+        $message = null;
+        $order = $this->order->where('id', $orderId, 'school')->first();
+        if (!$order) {
+            return redirect()->back()->with('status', 'error')->with('message', 'Order not found.');
         }
         $school = $order->school;
         $orderItems = $order->orderItems()->with('orderProduct')->get();
         return view('school.invoice', compact('order', 'orderItems', 'status', 'school', 'message'));
     }
 
+
     public function orderListToSchool(Request $request)
     {
         $status = null;
-
         $message = null;
-        $adminSession = $this->getSchoolSession($request);
-        $uuid = $adminSession['uuid'];
+        $schoolSession = $this->getSchoolSession($request);
+        $uuid = $schoolSession['uuid'];
         $school = $this->schoolDetails->where('uuid', $uuid)->first();
         $orders = $this->order->where('school_id', $school->id)->get();
 
@@ -130,5 +147,101 @@ class OrderController extends Controller
         return response()->json(['message' => 'Status updated successfully']);
     }
 
-   
+    public function viewTransection(Request $request)
+    {
+        $status = null;
+        $message = null;
+        $schoolSession = $this->getSchoolSession($request);
+        $uuid = $schoolSession['uuid'];
+        $school = $this->schoolDetails->where('uuid', $uuid)->first();
+        $orders = $this->order->where('school_id', $school->id)->get();
+        $transections = $this->orderTransection->get();
+        $firstOrder = $orders->first();
+        $remainingAmount = $firstOrder ? $firstOrder->remaining_amount : null;
+
+        return view('school.transactions', compact('transections', 'orders', 'remainingAmount'))->render();
+    }
+
+    public function storeTransaction(Request $request)
+    {
+
+        try {
+
+            $validatedData = $request->validate([
+                'order_id'       => 'required',
+                'transection_id' => 'required',
+                'amount'         => 'required',
+            ]);
+
+            $order = $this->order->find($validatedData['order_id']);
+
+            if (!$order) {
+                return redirect()->back()->with('status', 'error')->with('message', 'Order not found.');
+            }
+
+            if ($order->remaining_Amount >= $validatedData['amount']) {
+                $order->remaining_Amount -= $validatedData['amount'];
+                $order->save();
+
+                $orderTransection = new $this->orderTransection([
+                    'transection_id' => $validatedData['transection_id'],
+                    'amount'         => $validatedData['amount'],
+                ]);
+                $order->orderTransections()->save($orderTransection);
+
+                return redirect()->back()->with('status', 'success')->with('message', 'Transaction added successfully.');
+            } else {
+
+                return redirect()->back()->with('status', 'error')->with('message', 'Insufficient remaining amount.');
+            }
+        } catch (\Exception $e) {
+            Log::error('[OrderController][storeTransaction] Error Adding Transections ' . 'Request=' . $request . ', Exception=' . $e->getMessage());
+            return redirect()->back()->with('status', 'error')->with('message', 'Error Adding Transections');
+        }
+    }
+
+    // public function updateStatus(Request $request)
+    // {
+    //     $orderId = $request->input('orderId');
+    //     $statusType = $request->input('statusType');
+    //     $statusValue = $request->input('statusValue');
+
+    //     $order = Order::find($orderId);
+
+    //     if (!$order) {
+    //         return response()->json(['error' => 'Order not found.'], 404);
+    //     }
+
+    //     $orderItems = OrderItem::where('order_id', $orderId)->with('orderProduct')->get();
+
+    //     switch ($statusType) {
+    //         case 'paymentStatus':
+    //             $order->payment_status = $statusValue;
+    //             break;
+    //         case 'paymentMethod':
+    //             $order->payment_method = $statusValue;
+    //             break;
+    //         case 'orderStatus':
+    //             $order->order_status = $statusValue;
+
+    //             // Manage bookdetails quantities based on the order status
+    //             foreach ($orderItems as $orderItem) {
+    //                 $bookDetail = $orderItem->orderProduct;
+
+    //                 if ($bookDetail) {
+    //                     if ($statusValue == 'approved') {
+    //                         // Decrease bookdetails quantity
+    //                         $bookDetail->decrement('quantity', $orderItem->quantity);
+    //                     }
+    //                 }
+    //             }
+    //             break;
+    //         default:
+    //             return response()->json(['error' => 'Invalid status type'], 400);
+    //     }
+
+    //     $order->save();
+
+    //     return response()->json(['message' => 'Status updated successfully']);
+    // }
 }

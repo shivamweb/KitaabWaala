@@ -56,9 +56,7 @@
                                 <td>{{$order->school->school_name}}</td>
                                 <td>
                                     <select class="form-select" id="paymentStatus" data-order-id="{{ $order->id }}" name="paymentStatus">
-                                        <option value="{{ \App\Enums\PaymentStatusEnum::CASH_ON_DELIVERED }}" @if ($order->payment_status == \App\Enums\PaymentStatusEnum::CASH_ON_DELIVERED ) selected @endif>CASH ON DELIVERED</option>
                                         <option value="{{ \App\Enums\PaymentStatusEnum::PAID }}" @if ($order->payment_status == \App\Enums\PaymentStatusEnum::PAID) selected @endif>PAID</option>
-                                        <option value="{{ \App\Enums\PaymentStatusEnum::PAYMENT_FAILED }}" @if ($order->payment_status == \App\Enums\PaymentStatusEnum::PAYMENT_FAILED) selected @endif>PAYMENT_FAILED</option>
                                         <option value="{{ \App\Enums\PaymentStatusEnum::PENDING }}" @if ($order->payment_status == \App\Enums\PaymentStatusEnum::PENDING) selected @endif>PENDING</option>
                                     </select>
                                 </td>
@@ -70,13 +68,14 @@
                                 <td>
                                     <select class="form-select" id="orderStatus" data-order-id="{{ $order->id }}" name="orderStatus">
                                         <option value="{{ \App\Enums\OrderStatusEnum::DELIVERED }}" @if ($order->order_status == \App\Enums\OrderStatusEnum::DELIVERED ) selected @endif>DELIVERED</option>
+                                        <option value="{{ \App\Enums\OrderStatusEnum::APPROVED }}" @if ($order->order_status == \App\Enums\OrderStatusEnum::APPROVED ) selected @endif>APPROVED</option>
                                         <option value="{{ \App\Enums\OrderStatusEnum::SHIPPED }}" @if ($order->order_status == \App\Enums\OrderStatusEnum::SHIPPED) selected @endif>SHIPPED</option>
                                         <option value="{{ \App\Enums\OrderStatusEnum::PROCESSING }}" @if ($order->order_status == \App\Enums\OrderStatusEnum::PROCESSING) selected @endif>PROCESSING</option>
                                         <option value="{{ \App\Enums\OrderStatusEnum::CANCELLED }}" @if ($order->order_status == \App\Enums\OrderStatusEnum::CANCELLED) selected @endif>CANCELLED</option>
                                         <option value="{{ \App\Enums\OrderStatusEnum::PENDING }}" @if ($order->order_status == \App\Enums\OrderStatusEnum::PENDING) selected @endif>PENDING</option>
                                     </select>
                                 </td>
-                                <td><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                                <td><a href="/admin/invoiceToAdmin/{{$order->id}}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
                                 <td>Dec 10,18</td>
                                 <td>$54671</td>
                             </tr>
