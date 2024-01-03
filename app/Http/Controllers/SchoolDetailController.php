@@ -170,9 +170,13 @@ class SchoolDetailController extends Controller
             $schoolSession = $this->getSchoolSession($request);
             $uuid = $schoolSession['uuid'];
             $this->validate($request, [
-                'school_document'    => 'required',
+                'school_doc_image'    => 'required',
 
             ]);
+            $imagefile = $request->file('school_doc_image');  // Corrected input name
+            $filename = time() . '_' . $imagefile->getClientOriginalName();
+            $imagePath = 'SchoolDocImage/' . $filename;
+            $imagefile->move(public_path('SchoolDocImage/'), $filename);
 
             $schooldocument = $request->all();
             $this->schooldetail->completeSchoolDocument($schooldocument, $uuid);
@@ -212,7 +216,7 @@ class SchoolDetailController extends Controller
         } catch (\Throwable $e) {
 
             Log::error('[SchoolDetailController][addschool] Error School is not added ' . ', Exception=' . $e->getMessage());
-            return redirect()->back()->with('error', 'An error occurred during adding school.');
+            return redirect()->back()->with('status', 'error')->with('error', 'An error occurred during adding school.');
         }
     }
     public function viewSchool()

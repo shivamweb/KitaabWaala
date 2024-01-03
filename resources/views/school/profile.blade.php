@@ -141,7 +141,10 @@
 
                                             <tr>
                                                 <td>School Document:</td>
-                                                <td><input type="text" id="school_document" name="school_document"></td>
+                                                <td>
+                                                    <input type="file" id="school_doc_image" name="school_doc_image" accept="image/*" onchange="previewImage(this, 'documentPreview')">
+                                                    <img id="documentPreview" src="{{asset($schooldetails->school_doc_image)}}" alt="School Document Preview" style="display: none; max-width: 200px; max-height: 200px; margin-top: 10px;">
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>

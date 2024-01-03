@@ -26,7 +26,7 @@ class SchoolDetail extends Model
         'faculity_email',
         'faculity_mobileno',
         'faculity_gender',
-        'school_document',
+        'school_doc_image',
         'designation',
 
     ];
@@ -75,7 +75,7 @@ class SchoolDetail extends Model
     {
       try {
         $schoolDocumentUpdated = $this->where('uuid', $uuid)->update([
-          "school_document"      => $schooldocument['school_document'],
+          "school_doc_image"      => $schooldocument['school_doc_image'],
           
         ]);
       } catch (\Throwable $e) {

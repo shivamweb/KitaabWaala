@@ -51,7 +51,7 @@
         <!-- Page Header Start-->
         <div class="page-main-header">
             <div class="main-header-left">
-                <div class="logo-wrapper"><a href="dashboard"><img class="blur-up lazyloaded" src="../../../assets/images/logo/logo.png" alt=""></a></div>
+                <div class="logo-wrapper"><a href="dashboard"><img class="blur-up lazyloaded" src="../../../assets/images/logo/logo.png" style="width:60px;" alt=""></a></div>
             </div>
             <div class="main-header-right ">
                 <div class="mobile-sidebar">
