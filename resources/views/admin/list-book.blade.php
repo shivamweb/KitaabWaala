@@ -47,12 +47,11 @@
                             <tr>
                             @foreach($bookdetails as $bookdetail)
                   
-                    
                                 <td>{{$bookdetail->id}}</td>
                                 <td>{{$bookdetail->book_name}}</td>
                                 <td>{{$bookdetail->status}}</td>
                                 <td>{{$bookdetail->price}}</td>
-                                <td>{{$bookdetail->class}}</td>
+                                <td>{{$bookdetail->class_id}}</td>
                                
                             </tr>
                           @endforeach
@@ -63,10 +62,6 @@
                 </div>
             </div>
             <!-- Container-fluid Ends-->
-
-
-
-
 
 
 @endsection

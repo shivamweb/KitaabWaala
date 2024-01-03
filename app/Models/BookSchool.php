@@ -11,4 +11,9 @@ class BookSchool extends Model
         'book_id','school_id'
     ];
 
+    public function book()
+    {
+        return $this->belongsTo(BookDetail::class, 'book_id');
+    }
+
 }

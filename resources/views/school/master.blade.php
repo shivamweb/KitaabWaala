@@ -15,6 +15,7 @@
     <!-- Google font-->
     <link href="../../../../fonts.googleapis.com/css23b4.css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="../../../../fonts.googleapis.com/css7d83.css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Font Awesome-->
     <link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.css">
@@ -149,7 +150,7 @@
                         </li>
                         <li><a href="javascript:void(0)"><i class="right_side_toggle" data-feather="message-square"></i><span class="dot"></span></a></li>
                         <li class="onhover-dropdown">
-                            <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="../assets/images/dashboard/man.png" alt="header-user">
+                            <div class="media align-items-center" id="iconDiv"><img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="../assets/images/dashboard/man.png" alt="header-user">
                                 <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
                             </div>
                             <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
@@ -172,11 +173,11 @@
             <!-- Page Sidebar Start-->
             <div class="page-sidebar">
                 <div class="sidebar custom-scrollbar">
-                    <div class="sidebar-user text-center">
+                    <div class="sidebar-user text-center" id="iconDiv">
                         <div><img class="img-60 rounded-circle lazyloaded blur-up" src="../assets/images/dashboard/man.png" alt="#">
                         </div>
-                        <h6 class="mt-3 f-14">JOHN</h6>
-                        <p>Ux Designer</p>
+                        <h6 class="mt-3 f-14" id="companyName">JOHN</h6>
+                        <p id="vendorName">Ux Designer</p>
                     </div>
                     <ul class="sidebar-menu">
                         <li><a class="sidebar-header" href="dashboard"><i data-feather="home"></i><span>Dashboard</span></a></li>
@@ -233,107 +234,20 @@
                     <div class="container p-0">
                         <div class="modal-header p-l-20 p-r-20">
                             <div class="col-sm-8 p-0">
-                                <h6 class="modal-title font-weight-bold">FRIEND LIST</h6>
+                                <h6 class="modal-title font-weight-bold">Cart List</h6>
                             </div>
-                            <div class="col-sm-4 text-end p-0"><i class="me-2" data-feather="settings"></i></div>
+                            <button id="checkoutButton" class="btn btn-primary" type="submit">Checkout</button>
                         </div>
-                    </div>
-                    <div class="friend-list-search mt-0">
-                        <input type="text" placeholder="search friend"><i class="fa fa-search"></i>
                     </div>
                     <div class="p-l-30 p-r-30">
                         <div class="chat-box">
-                            <div class="people-list friend-list">
-                                <ul class="list">
+                            <div class="people-list">
+                                <ul class="list" id="cartProductsContainer">
                                     <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/user.png" alt="">
                                         <div class="status-circle online"></div>
                                         <div class="about">
                                             <div class="name">Vincent Porter</div>
                                             <div class="status"> Online</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/user1.jpg" alt="">
-                                        <div class="status-circle away"></div>
-                                        <div class="about">
-                                            <div class="name">Ain Chavez</div>
-                                            <div class="status"> 28 minutes ago</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/user2.jpg" alt="">
-                                        <div class="status-circle online"></div>
-                                        <div class="about">
-                                            <div class="name">Kori Thomas</div>
-                                            <div class="status"> Online</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/user3.jpg" alt="">
-                                        <div class="status-circle online"></div>
-                                        <div class="about">
-                                            <div class="name">Erica Hughes</div>
-                                            <div class="status"> Online</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/man.png" alt="">
-                                        <div class="status-circle offline"></div>
-                                        <div class="about">
-                                            <div class="name">Ginger Johnston</div>
-                                            <div class="status"> 2 minutes ago</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/user5.jpg" alt="">
-                                        <div class="status-circle away"></div>
-                                        <div class="about">
-                                            <div class="name">Prasanth Anand</div>
-                                            <div class="status"> 2 hour ago</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/designer.jpg" alt="">
-                                        <div class="status-circle online"></div>
-                                        <div class="about">
-                                            <div class="name">Hileri Jecno</div>
-                                            <div class="status"> Online</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/user3.jpg" alt="">
-                                        <div class="status-circle online"></div>
-                                        <div class="about">
-                                            <div class="name">Erica Hughes</div>
-                                            <div class="status"> Online</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/man.png" alt="">
-                                        <div class="status-circle offline"></div>
-                                        <div class="about">
-                                            <div class="name">Ginger Johnston</div>
-                                            <div class="status"> 2 minutes ago</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/user5.jpg" alt="">
-                                        <div class="status-circle away"></div>
-                                        <div class="about">
-                                            <div class="name">Prasanth Anand</div>
-                                            <div class="status"> 2 hour ago</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/user3.jpg" alt="">
-                                        <div class="status-circle online"></div>
-                                        <div class="about">
-                                            <div class="name">Erica Hughes</div>
-                                            <div class="status"> Online</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/man.png" alt="">
-                                        <div class="status-circle offline"></div>
-                                        <div class="about">
-                                            <div class="name">Ginger Johnston</div>
-                                            <div class="status"> 2 minutes ago</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/user5.jpg" alt="">
-                                        <div class="status-circle away"></div>
-                                        <div class="about">
-                                            <div class="name">Prasanth Anand</div>
-                                            <div class="status"> 2 hour ago</div>
                                         </div>
                                     </li>
                                 </ul>
@@ -389,7 +303,7 @@
     <script src="../../assets/js/jsgrid/griddata-transactions.js"></script>
     <script src="../../assets/js/jsgrid/jsgrid-transactions.js"></script>
     <!-- Jsgrid js-->
- 
+
     <script src="../../assets/js/jsgrid/griddata-productlist-digital.js"></script>
     <script src="../../assets/js/jsgrid/jsgrid-list.js"></script>
     <!--Customizer admin-->
@@ -407,5 +321,105 @@
     <script src="../../assets/js/admin-script.js"></script>
 
 </body>
+
+<script>
+    $(document).ready(function() {
+        // Function to fetch cart products and update HTML
+        function fetchCartProducts() {
+            $.ajax({
+                url: '/school/get-cart-products',
+                type: 'GET',
+                success: function(response) {
+                    var cartProductsContainer = $('#cartProductsContainer');
+                    cartProductsContainer.empty(); // Clear existing content
+
+                    // Loop through the cart products and append to the container
+                    $.each(response.cartProducts, function(index, cartProduct) {
+                        var listItem = '<li class="clearfix"><img class="rounded-circle user-image" src="' + '../' + cartProduct.book.image + '" alt="">' +
+                            '<div class="about">' +
+                            '<div class="status">Quantity:' + cartProduct.quantity + '</div>' +
+                            '<div class="status">Price Per Unit: &#8377;' + cartProduct.price + '</div>' +
+                            '<div class="status">Total Price: &#8377;' + cartProduct.total_price + '</div>' +
+                            '</div>' +
+                            '<div class="status-circle online"></div>' +
+                            '<div class="name"><span>' + cartProduct.book.book_name + '</span></div>' +
+                            '</li>';
+
+                        cartProductsContainer.append(listItem);
+                    });
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        fetchCartProducts();
+        setInterval(fetchCartProducts, 3000);
+
+        function checkout() {
+
+            $.ajax({
+                url: '/school/checkout',
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    console.log(response);
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Order Placed',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        $('#checkoutButton').click(function() {
+            checkout();
+        });
+    });
+</script>
+<script>
+    function fetchAndRenderSchoolDetails() {
+        $.ajax({
+            url: '../../school/fetchSchoolDetails',
+            type: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                updateSetting('icon', 'iconDiv', response);
+            },
+        });
+    }
+
+    function updateSetting(mediaName, divId, response) {
+        if (response.SchoolDetails) {
+            var SchoolDetails = response.SchoolDetails;
+
+            // Assuming 'media_url' is the correct key in your vendor details
+            var mediaUrl = SchoolDetails.image;
+
+            if (mediaUrl && divId === 'iconDiv') {
+                $('#' + divId + ' img').attr('src', '../../' + mediaUrl);
+            }
+            // Update the vendor name
+            var schoolName = SchoolDetails.school_name;
+            var facultyName = SchoolDetails.faculity_name;
+            if (vendorName && companyName) {
+                $('#vendorName').text(facultyName);
+                $('#companyName').text(schoolName);
+            }
+        }
+    }
+
+    $(document).ready(function() {
+        fetchAndRenderSchoolDetails();
+    });
+</script>
 
 </html>

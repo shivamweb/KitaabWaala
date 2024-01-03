@@ -19,6 +19,9 @@ class BookDetail extends Model
         'price',
         'class_id',
         'description',
+        'part',
+        'publisher',
+        'quantity'
     ];
     protected static function boot()
     {
@@ -39,6 +42,9 @@ class BookDetail extends Model
                 'price'          => $addbook['price'],
                 'class_id'          => $addbook['class_id'],
                 'description'    =>$addbook['description'],
+                'part'    =>$addbook['part'],
+                'publisher'    =>$addbook['publisher'],
+                'quantity'    =>$addbook['quantity'],
             ]);
         } catch (\Throwable $e) {
             Log::error('[BookDetail][AddBookDetail] Error creating book detail: ' . $e->getMessage());
