@@ -26,84 +26,55 @@
 </div>
 <div class="container-fluid">
     <div class="row products-admin ratio_asos">
-        @foreach($bookdetails as $bookdetail)
+         @foreach($bookdetails as $bookdetail)
         <div class="col-xl-3 col-sm-6">
             <div class="card product">
-                <div class="card-body">
-                    <div class="product-box p-0">
-                        <div class="product-imgbox">
-                            <div class="product-front">
-                                <img src="{{asset($bookdetail->book->image)}}" class="img-fluid  " alt="product">
-                            </div>
-                        </div>
-                        <div class="product-detail detail-inline p-0">
-                            <div class="detail-title">
-                                <div class="detail-left">
-                                    <h6 class="price-title">
-                                        {{$bookdetail->book->book_name}}
-                                    </h6>
-                                    </a>
+               
+                    @if($bookdetail)
+                        <div class="card-body">
+                            <div class="product-box p-0">
+                                <div class="product-imgbox">
+                                    <div class="product-front">
+                                        @if($bookdetail->image)
+                                            <img src="{{ asset($bookdetail->image) }}" class="img-fluid" alt="product">
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="detail-right">
-                                    {{$bookdetail->book->price}}
-                                    <div class="price">
-                                        <div class="price">
-                                            {{$bookdetail->book->class}}
+                                <div class="product-detail detail-inline p-0">
+                                    <div class="detail-title">
+                                        <div class="detail-left">
+                                            <a href="javascript:void(0)">
+                                                <h6 class="price-title">
+                                                     {{ $bookdetail->book_name }}
+                                                </h6>
+                                            </a>
+                                        </div>
+                                        <div class="detail-right">
+                                           Price: {{ $bookdetail->price }}
+                                            <!-- <div class="price">
+                                               Class: {{ $bookdetail->class }}
+                                            </div> -->
+                                        </div>
+                                        <div class="form-group mb-0">
+                                            <div class="product-buttons text-center">
+                                                <a href="/school/view-book-detail/{{ $bookdetail->uuid }}"><button type="submit" id="submit-button" class="btn btn-primary">View Book</button></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="product-detail detail-inline p-0">
-                            <div class="qty-box">
-                                <div class="input-group" style="padding-left: 17px; padding-bottom:7%">
-                                    <button class="qty-minus"></button>
-                                    <input name="quantity" id="quantity" class="qty-adj form-control" type="number" value="1" />
-                                    <button class="qty-plus"></button>
-                                </div>
-                            </div>
-                            <div style="padding-left: 28px;">
-                            <button type="submit" id="addToCartBtn_{{ $bookdetail->book->id }}" class="btn btn-primary add-to-cart" data-book-id="{{ $bookdetail->book->id }}">Add To Cart</button> </div>
-                        </div>
-                    </div>
-                </div>
+                    @endif
+               
             </div>
         </div>
-        @endforeach
+         @endforeach
     </div>
 </div>
 
+<!-- Container-fluid Ends-->
 <link rel="stylesheet" type="text/css" href="../assets/css/themify-icons.css">
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-<script>
-    $(document).ready(function () {
-        $('.add-to-cart').on('click', function () {
-            var bookId = $(this).data('book-id');
-            var quantity = $(this).closest('.product-box').find('.qty-adj').val();
-            var price = {{ $bookdetail->book->price ?? 0 }}; 
-
-            $.ajax({
-                url: '/school/add-to-cart',
-                type: 'POST',
-                data: {
-                    book_id: bookId,
-                    quantity: quantity,
-                    price: price, 
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function (response) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Product Added to Cart!',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                },
-            });
-        });
-    });
-</script>
 
 
 

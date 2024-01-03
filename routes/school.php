@@ -30,9 +30,7 @@ Route::group(['prefix' => 'school'], function () {
         return view('school.approved-bookList');
     });
 
-    Route::get('/my-purchase-list', function () {
-        return view('school.my-purchase-list');
-    });
+  
     Route::get('/transactions', function () {
         return view('school.transactions');
     });
@@ -50,9 +48,9 @@ Route::group(['prefix' => 'school'], function () {
     Route::get('/show-login', [SchoolDetailController::class, 'showSchoolLoginForm']);
     Route::post('/school-signin', [SchoolDetailController::class, 'Schoolsignin'])->name('School-Login');
     Route::post('/register', [SchoolDetailController::class, 'createSchool'])->name('School-register');
-    Route::get('/my-purchase-list', [BookDetailController::class, 'fetchBookDetail'])->name('fetchBookDetail');
+    Route::get('/place-neworder', [BookDetailController::class, 'fetchBookDetail'])->name('fetchBookDetail');
     Route::get('view-book-detail/{uuid}', [BookDetailController::class, 'viewBookDetails'])->name('BookDetail');
-    Route::get('/place-neworder', [BookDetailController::class, 'placeNewBookOrder'])->name('Place-New-Order');
+    Route::get('/my-purchase-list', [BookDetailController::class, 'fetchpurchaselist'])->name('Place-New-Order');
     Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('addToCart');
     Route::get('/get-cart-products', [CartController::class, 'getCartProducts'])->name('getCartProducts');
     Route::post('/checkout', [OrderController::class, 'checkout'])->name('checkout');

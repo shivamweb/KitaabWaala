@@ -2,95 +2,147 @@
 
 @section('title', 'Dashboard')
 @section('content')
+<!-- Container-fluid starts-->
 <div class="container-fluid">
     <div class="page-header">
         <div class="row">
             <div class="col-lg-6">
                 <div class="page-header-left">
-                    <h3>View Book Detail
-                        <small>Kitaabwaala Seller panel</small>
+                    <h3>View Book
+                        <small>Kitaabwaala School</small>
                     </h3>
                 </div>
             </div>
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
-                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a>
-                    </li>
-                   
-                    <li class="breadcrumb-item active">View Book Detail</li>
+                    <li class="breadcrumb-item"><a href="dashboard"><i data-feather="home"></i></a></li>
+                 
+                    <li class="breadcrumb-item active">View Book</li>
                 </ol>
             </div>
         </div>
     </div>
 </div>
-
+<!-- Container-fluid Ends-->
+<!-- Container-fluid starts-->
 <div class="container-fluid">
-    <div class="row product-adding">
-        <div class="col-xl-12">
+    <div class="row">
+        <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>General</h5>
+                    <h5>Add Product</h5>
                 </div>
                 <div class="card-body">
-                    <div class="digital-add needs-validation">
-                       
-                            <div class="col-xl-12">
-                                <div class="card">
-                                    <div class="container-fluid">
+                    <div class="row product-adding">
+                      
+                            <div class="row">
+                                <div class="col-xl-5">
+                                    <div class="add-product">
                                         <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="row product-adding">
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            <h5>Add Product Image</h5>
-                                                            <div class="card-body">
+                                            <div class="col-xl-9 xl-50 col-sm-6 col-9">
+                                                <div class="item"><img id="imgPreview1" src="{{ asset($bookdetails->image) }}"alt="" class="blur-up lazyloaded" style="width: 104%;height:378px;" disabled></div>
+                                            </div>
+                                            <div class="col-xl-3 xl-50 col-sm-6 col-3">
+                                                <ul class="file-upload-product">
+                                                    <li>
+                                                        <div class="box-input-file"><input class="upload" type="file" name="image" multiple onchange="previewImage(this, 'imgPreview1');" disabled><i class="fa fa-plus"></i></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-7">
 
-                                                                <div id="file-input-container">
-                                                                    <div class="row mt-3 mt-lg-4">
-                                                                       
-                                                                        <div class="col-lg-6">
-                                                                            <img id="imgpreview" src="{{ asset($bookdetails->image) }}" alt="Preview" style="height: 200px; width:200px; padding-bottom:2px">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div class="row product-adding">
-                                                                <div class="col-xl-12">
-                                                                    <div class="add-product">
-                                                                        <div class="card">
-                                                                            <div class="card-header">
-                                                                                <h5>Book Details</h5>
-                                                                            </div>
-                                                                            <div class="card-body">
-                                                                                <div class="digital-add needs-validation">
-                                                                                    <div class="form-group">
-                                                                                        <label for="metadata" class="col-form-label pt-0">Book Name</label>
-                                                                                        <input class="form-control" name="book_name" value="{{$bookdetails->book_name}}" id="book_name" type="text">
-                                                                                    </div>
-                                                                                    <div class="form-group">
-                                                                                        <label for="metadata" class="col-form-label pt-0">Price</label>
-                                                                                        <input class="form-control" name="price" value="{{$bookdetails->price}}"id="price" type="text">
-                                                                                    </div>
-                                                                                    <div class="form-group">
-                                                                                        <label for="metadata" class="col-form-label pt-0">Class</label>
-                                                                                        <input class="form-control" name="class" value="{{$bookdetails->class}}" id="class" type="text">
-                                                                                    </div>
-                                                                                    <div class="form-group">
-                                                                                        <label for="metadata" class="col-form-label pt-0">Status</label>
-                                                                                        <input class="form-control" name="status" value="{{$bookdetails->status}}" id="status" type="text">
-                                                                                    </div>
-                                                                                    <div class="form-group">
-                                                                                        <label class="col-form-label">BookDescription</label>
-                                                                                        <textarea rows="4" cols="12" name="description" value="{{$bookdetails->description}}"></textarea>
-                                                                                        <!-- <div class="form-group mb-0">
-                                                                                            <div class="product-buttons text-center">
-                                                                                                <button type="submit" id="submit-button" class="btn btn-primary">Add</button>
-                                                                                                <button type="button" class="btn btn-light">Discard</button>
-                                                                                            </div>
-                                                                                        </div> -->
-                                                                                    </div>
+                                    <div class="form">
+                                        <div class="form-group mb-3  row">
+                                            <div class="col-xl-3 col-sm-4 mb-0">
+                                                <label for="validationCustom01">Book Name :</label>
+                                            </div>
+                                            <div class="col-xl-8 col-sm-7">
+                                                <input class="form-control "value="{{$bookdetails->book_name}}" id="book_name" name="book_name" type="text" required=""disabled>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group mb-3  row">
+                                            <div class="col-xl-3 col-sm-4 mb-0">
+                                                <label for="validationCustom01">Price:</label>
+                                            </div>
+                                            <div class="col-xl-8 col-sm-7">
+                                                <input class="form-control " value="{{$bookdetails->price}}" id="price" name="price" type="text" required=""disabled>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group mb-3 row">
+                                            <div class="col-xl-3 col-sm-4 mb-0">
+                                                <label for="validationCustom02">Part :</label>
+                                            </div>
+                                            <div class="col-xl-8 col-sm-7">
+                                                <input class="form-control "value="{{$bookdetails->part}}" id="validationCustom02" name="part" type="text" required=""disabled>
+                                              
+                                            </div>
+                                        </div>
+                                        <div class="form-group mb-3 row">
+                                            <div class="col-xl-3 col-sm-4 mb-0">
+                                                <label for="validationCustomUsername">Publisher :</label>
+                                            </div>
+
+                                            <div class="col-xl-8 col-sm-7">
+                                                <input class="form-control " value="{{$bookdetails->publisher}}"  id="validationCustomUsername" name="publisher" type="text" required=""disabled>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="form-group row">
+                                            <div class="col-xl-3 col-sm-4 mb-0">
+                                                <label for="exampleFormControlSelect1">Select Class :</label>
+                                            </div>
+                                            <div class="col-xl-8 col-sm-7">
+                                                 <input class="form-control " value="{{$bookdetails->class_id}}"  id="validationCustomUsername" name="class_id" type="text" required=""disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-xl-3 col-sm-4 mb-0">
+                                                <label for="exampleFormControlSelect1">Select Status :</label>
+                                            </div>
+                                            <div class="col-xl-8 col-sm-7">
+                                            <input class="form-control " value="{{$bookdetails->status}}"  id="validationCustomUsername" name="status" type="text" required=""disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-xl-3 col-sm-4 mb-0">
+                                                <label for="exampleFormControlSelect1">Select Stock Status :</label>
+                                            </div>
+                                            <div class="col-xl-8 col-sm-7">
+                                            <input class="form-control " value="{{$bookdetails->stock_status}}"  id="validationCustomUsername" name="stock_status" type="text" required=""disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-xl-3 col-sm-4 mb-0">
+                                                <label>Total Books :</label>
+                                            </div>
+                                            <div class="col-xl-9 col-xl-8 col-sm-7 ps-0">
+                                                <fieldset class="qty-box ">
+                                                    <div class="input-group">
+                                                        <input class="touchspin" value="{{$bookdetails->quantity}}"name="quantity"  disabled>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-sm-4">Add Description :</label>
+                                            <div class="col-xl-8 col-sm-7 ps-0 description-sm">
+                                                <textarea id="description" value="{{$bookdetails->description}}"name="description" cols="10" rows="4"disabled></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="offset-xl-3 offset-sm-4">
+                                        <button type="submit" id="submit-button" class="btn btn-primary">Add</button>
+                                        <button type="button" class="btn btn-light">Discard</button>
+                                    </div>
+                                </div>
+                            </div>
                         
                     </div>
                 </div>
@@ -98,8 +150,23 @@
         </div>
     </div>
 </div>
+<!-- Container-fluid Ends-->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- touchspin js-->
+<script src="../assets/js/touchspin/vendors.min.js"></script>
+<script src="../assets/js/touchspin/touchspin.js"></script>
+<script src="../assets/js/touchspin/input-groups.min.js"></script>
+<!-- ckeditor js-->
+<script src="../assets/js/editor/ckeditor/ckeditor.js"></script>
+<script src="../assets/js/editor/ckeditor/styles.js"></script>
+<script src="../assets/js/editor/ckeditor/adapters/jquery.js"></script>
+<script src="../assets/js/editor/ckeditor/ckeditor.custom.js"></script>
+
+<!-- Zoom js-->
+<!-- <script src="../assets/js/jquery.elevatezoom.js"></script>
+<script src="../assets/js/zoom-scripts.js"></script> -->
+
 <script>
     function previewImage(input, previewId) {
         const file = input.files[0];

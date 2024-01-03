@@ -52,7 +52,6 @@ class SchoolDetail extends Model
             "city"              => $addschool['city'],
             "address"              => $addschool['address'],
             "pin_code"           => $addschool['pin_code'],
-        
             "school_zone"               => $addschool['school_zone'],
 
         ]);

@@ -41,7 +41,7 @@
                                     <div class="add-product">
                                         <div class="row">
                                             <div class="col-xl-9 xl-50 col-sm-6 col-9">
-                                                <div class="item"><img id="imgPreview1" src="../assets/images/avtar/defaultProduct.jpeg" alt="" class="blur-up lazyloaded" style="width: 104%;height:378px;"></div>
+                                                <div class="item"><img id="imgPreview1" src="../assets/images/default/book.jpg" alt="" class="blur-up lazyloaded" style="width: 104%;height:378px;"></div>
                                             </div>
                                             <div class="col-xl-3 xl-50 col-sm-6 col-3">
                                                 <ul class="file-upload-product">
@@ -80,7 +80,7 @@
                                             </div>
                                             <div class="col-xl-8 col-sm-7">
                                                 <input class="form-control " id="validationCustom02" name="part" type="text" required="">
-                                                <div class="valid-feedback">Looks good!</div>
+                                              
                                             </div>
                                         </div>
                                         <div class="form-group mb-3 row">
@@ -134,7 +134,7 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-xl-3 col-sm-4 mb-0">
-                                                <label>Total Products :</label>
+                                                <label>Total Books :</label>
                                             </div>
                                             <div class="col-xl-9 col-xl-8 col-sm-7 ps-0">
                                                 <fieldset class="qty-box ">
@@ -178,8 +178,8 @@
 <script src="../assets/js/editor/ckeditor/ckeditor.custom.js"></script>
 
 <!-- Zoom js-->
-<script src="../assets/js/jquery.elevatezoom.js"></script>
-<script src="../assets/js/zoom-scripts.js"></script>
+<!-- <script src="../assets/js/jquery.elevatezoom.js"></script>
+<script src="../assets/js/zoom-scripts.js"></script> -->
 
 <script>
     function previewImage(input, previewId) {

@@ -39,6 +39,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/list-school', [SchoolDetailController::class, 'fetchschoolListforAdmin'])->name('School-list');
     Route::get('/view-schooldetail/{uuid}', [SchoolDetailController::class, 'viewSchoolDetails'])->name('schoolDetail');
     Route::post('/view-school', [SchoolDetailController::class, 'addschoolforAdmin'])->name('School');
+    Route::delete('/delete-school/{uuid}', [SchoolDetailController::class, 'deleteSchool'])->name('Delete');
 
     Route::get('/notification', [NotificationController::class, 'showNotificationsAdmin'])->name('show.admin.notifications');
     Route::get('/getNotifications',  [NotificationController::class, 'getNotifications']);

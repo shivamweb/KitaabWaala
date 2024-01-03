@@ -11,13 +11,13 @@
             <div class="col-lg-6">
                 <div class="page-header-left">
                     <h3>Dashboard
-                        <small>KitaabWaala Admin panel</small>
+                        <small>KitaabWaala Admin </small>
                     </h3>
                 </div>
             </div>
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
-                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a>
+                    <li class="breadcrumb-item"><a href="dashboard"><i data-feather="home"></i></a>
                     </li>
                     <li class="breadcrumb-item active">Dashboard</li>
                 </ol>
@@ -34,7 +34,7 @@
             <div class="card o-hidden  widget-cards">
                 <div class="bg-secondary card-body">
                     <div class="media static-top-widget">
-                        <div class="media-body"><span class="m-0">Products</span>
+                        <div class="media-body"><span class="m-0">Books</span>
                             <h3 class="mb-0">$ <span class="counter">9856</span><small> This
                                     Month</small></h3>
                         </div>
@@ -49,7 +49,7 @@
             <div class="card o-hidden widget-cards">
                 <div class="bg-primary card-body">
                     <div class="media static-top-widget">
-                        <div class="media-body"><span class="m-0">Messages</span>
+                        <div class="media-body"><span class="m-0">Schools</span>
                             <h3 class="mb-0">$ <span class="counter">893</span><small> This
                                     Month</small></h3>
                         </div>
@@ -64,7 +64,7 @@
             <div class="card o-hidden widget-cards">
                 <div class="bg-warning card-body">
                     <div class="media static-top-widget">
-                        <div class="media-body"><span class="m-0">Earnings</span>
+                        <div class="media-body"><span class="m-0">Orders</span>
                             <h3 class="mb-0">$ <span class="counter">6659</span><small> This
                                     Month</small></h3>
                         </div>
@@ -75,11 +75,11 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-md-6 xl-50">
+        <!-- <div class="col-xl-3 col-md-6 xl-50">
             <div class="card o-hidden widget-cards">
                 <div class="bg-success card-body">
                     <div class="media static-top-widget">
-                        <div class="media-body"><span class="m-0">New Vendors</span>
+                        <div class="media-body"><span class="m-0">Stock</span>
                             <h3 class="mb-0">$ <span class="counter">45631</span><small> This
                                     Month</small></h3>
                         </div>
@@ -89,8 +89,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-xl-4 xl-100">
+        </div> -->
+        <!-- <div class="col-xl-4 xl-100">
             <div class="card height-equal">
                 <div class="card-header">
                     <h5>Order Activity</h5>
@@ -199,17 +199,17 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="col-xl-8 xl-100">
             <div class="card btn-months">
                 <div class="card-header">
-                    <h5>This Month Revenue</h5>
+                    <h5>Stock Reports</h5>
                     <div class="dashboard-btn-groups">
-                        <div class="btn-group" role="group" aria-label="Basic example">
+                        <!-- <div class="btn-group" role="group" aria-label="Basic example">
                             <button class="btn btn-outline-light btn-js" type="button">Day</button>
                             <button class="btn btn-outline-light btn-js" type="button">Week</button>
                             <button class="btn btn-outline-light btn-js active" type="button">Month</button>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="card-header-right">
                         <ul class="list-unstyled card-option">
@@ -236,7 +236,7 @@
         <div class="col-xl-6 xl-100">
             <div class="card">
                 <div class="card-header">
-                    <h5>Product Value</h5>
+                    <h5>Sales Reports</h5>
                     <div class="chart-value-box pull-right">
                         <div class="value-square-box-success"></div><span class="f-12 f-w-600">Physical</span>
                         <!-- <div class="value-square-box-secondary ms-3"></div><span class="f-12 f-w-600">Digital</span> -->
@@ -263,7 +263,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-6 xl-100">
+        <!-- <div class="col-xl-6 xl-100">
             <div class="card">
                 <div class="card-header">
                     <h5>Latest Orders</h5>
@@ -375,17 +375,17 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="col-sm-12">
             <div class="card btn-months">
                 <div class="card-header">
-                    <h5>Buy / Sell</h5>
+                    <h5>Expense Reports</h5>
                     <div class="dashboard-btn-groups">
-                        <div class="btn-group" role="group" aria-label="Basic example">
+                        <!-- <div class="btn-group" role="group" aria-label="Basic example">
                             <button class="btn btn-outline-light btn-js1" type="button">Day</button>
                             <button class="btn btn-outline-light btn-js1" type="button">Week</button>
                             <button class="btn btn-outline-light btn-js1 active" type="button">Month</button>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="card-header-right">
                         <ul class="list-unstyled card-option">
@@ -409,7 +409,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-4 xl-50">
+        <!-- <div class="col-xl-4 xl-50">
             <div class="card customers-card">
                 <div class="card-header">
                     <h5>New Customers</h5>
@@ -439,8 +439,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-xl-8 xl-50">
+        </div> -->
+        <!-- <div class="col-xl-8 xl-50">
             <div class="card height-equal">
                 <div class="card-header">
                     <h5>Empolyee Status</h5>
@@ -639,145 +639,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Top Selling Country</h5>
-                    <div class="card-header-right">
-                        <ul class="list-unstyled card-option">
-                            <li><i class="icofont icofont-simple-left"></i></li>
-                            <li><i class="view-html fa fa-code"></i></li>
-                            <li><i class="icofont icofont-maximize full-card"></i></li>
-                            <li><i class="icofont icofont-minus minimize-card"></i></li>
-                            <li><i class="icofont icofont-refresh reload-card"></i></li>
-                            <li><i class="icofont icofont-error close-card"></i></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-xl-8">
-                            <div class="jvector-map-height" id="world"></div>
-                        </div>
-                        <div class="col-xl-4">
-                            <div class="table-responsive map-table">
-                                <table class="table mb-0">
-                                    <thead>
-                                        <tr>
-                                            <th>Country</th>
-                                            <th>2018</th>
-                                            <th>2019</th>
-                                            <th>Change</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Bhopal</td>
-                                            <td>1,048</td>
-                                            <td>2,213</td>
-                                            <td>6.8%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Saudi Arbia</td>
-                                            <td>576</td>
-                                            <td>1,297</td>
-                                            <td>4.3%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kazakstan</td>
-                                            <td>879</td>
-                                            <td>1,985</td>
-                                            <td>7.0%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Canada</td>
-                                            <td>1,871</td>
-                                            <td>2,546</td>
-                                            <td>6.2%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brazil</td>
-                                            <td>957</td>
-                                            <td>1,975</td>
-                                            <td>5.6%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Russia</td>
-                                            <td>1,480</td>
-                                            <td>1,631</td>
-                                            <td>8.7%</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="code-box-copy">
-                        <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#example-hea6" title="" data-original-title="Copy"><i class="icofont icofont-copy-alt"></i></button>
-                        <pre class=" language-html"><code class=" language-html" id="example-head6">
-&lt;div class="row"&gt;
-    &lt;div class="col-xl-8"&gt;
-       &lt;div class="jvector-map-height" id="world"&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="col-xl-4"&gt;
-       &lt;div class="table-responsive map-table"&gt;
-          &lt;table class="table"&gt;
-             &lt;thead&gt;
-                &lt;tr&gt;
-                   &lt;th&gt;Country&lt;/th&gt;
-                   &lt;th&gt;2018&lt;/th&gt;
-                   &lt;th&gt;2019&lt;/th&gt;
-                   &lt;th&gt;Change&lt;/th&gt;
-                &lt;/tr&gt;
-             &lt;/thead&gt;
-             &lt;tbody&gt;
-                &lt;tr&gt;
-                   &lt;td&gt;Bhopal&lt;/td&gt;
-                   &lt;td&gt;1,048&lt;/td&gt;
-                   &lt;td&gt;2,213&lt;/td&gt;
-                   &lt;td&gt;6.8%&lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;tr&gt;
-                   &lt;td&gt;Saudi Arbia&lt;/td&gt;
-                   &lt;td&gt;576&lt;/td&gt;
-                   &lt;td&gt;1,297&lt;/td&gt;
-                   &lt;td&gt;4.3%&lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;tr&gt;
-                   &lt;td&gt;Kazakstan&lt;/td&gt;
-                   &lt;td&gt;879&lt;/td&gt;
-                   &lt;td&gt;1,985&lt;/td&gt;
-                   &lt;td&gt;7.0%&lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;tr&gt;
-                    &lt;td&gt;Canada&lt;/td&gt;
-                    &lt;td&gt;1,871&lt;/td&gt;
-                    &lt;td&gt;2,546&lt;/td&gt;
-                    &lt;td&gt;6.2%&lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;tr&gt;
-                    &lt;td&gt;Brazil&lt;/td&gt;
-                    &lt;td&gt;957&lt;/td&gt;
-                    &lt;td&gt;1,975&lt;/td&gt;
-                    &lt;td&gt;5.6%&lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;tr&gt;
-                   &lt;td&gt;Russia&lt;/td&gt;
-                   &lt;td&gt;1,480&lt;/td&gt;
-                   &lt;td&gt;1,631&lt;/td&gt;
-                   &lt;td&gt;8.7%&lt;/td&gt;
-                &lt;/tr&gt;
-             &lt;/tbody&gt;
-          &lt;/table&gt;
-       &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-                                    </code></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </div> -->
+
 
     </div>
 </div>

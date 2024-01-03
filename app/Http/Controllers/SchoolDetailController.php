@@ -194,31 +194,31 @@ class SchoolDetailController extends Controller
 
     public function addschoolforAdmin(Request $request)
     {
-
         try {
             $this->validate($request, [
                 'school_name'   => 'required',
-                'email'         => 'required',
-                'password'      => 'required',
+                'email'         => 'required|email',
+                'password'      => 'required|min:8',
                 'mobile_number' => 'required',
                 'country'       => 'required',
                 'state'         => 'required',
                 'address'       => 'required',
                 'pin_code'      => 'required',
                 'school_zone'   => 'required',
-
             ]);
 
             $addschoolforadmin = $request->all();
 
+            // Assuming 'addschoolforadmin' is a method in the SchoolDetail model
             $this->schooldetail->addschoolforadmin($addschoolforadmin);
+
             return redirect()->back()->with('status', 'success')->with('message', 'School added successfully.');
         } catch (\Throwable $e) {
-
-            Log::error('[SchoolDetailController][addschool] Error School is not added ' . ', Exception=' . $e->getMessage());
+            Log::error('[SchoolDetailController][addschoolforAdmin] Error School is not added ' . ', Exception=' . $e->getMessage());
             return redirect()->back()->with('status', 'error')->with('error', 'An error occurred during adding school.');
         }
     }
+
     public function viewSchool()
     {
         $status = null;
@@ -332,17 +332,33 @@ class SchoolDetailController extends Controller
     }
 
     public function fetchSchoolDetails(Request $request)
-  {
-    try {
-      $status = null;
-      $message = null;
-      $vendorSession = $this->getSchoolSession($request);
-      $uuid = $vendorSession['uuid'];
-      $SchoolDetails = $this->schooldetail->where('uuid', $uuid)->first();
-      return new JsonResponse(['SchoolDetails' => $SchoolDetails, 'status' => $status, 'message' => $message]);
-    } catch (\Exception $e) {
-      Log::error('[SchoolDetailController][fetchSchoolDetails] Error: ' . $e->getMessage());
-      return new JsonResponse(['status' => 'error', 'message' => 'Error fetching school details.']);
+    {
+        try {
+            $status = null;
+            $message = null;
+            $vendorSession = $this->getSchoolSession($request);
+            $uuid = $vendorSession['uuid'];
+            $SchoolDetails = $this->schooldetail->where('uuid', $uuid)->first();
+            return new JsonResponse(['SchoolDetails' => $SchoolDetails, 'status' => $status, 'message' => $message]);
+        } catch (\Exception $e) {
+            Log::error('[SchoolDetailController][fetchSchoolDetails] Error: ' . $e->getMessage());
+            return new JsonResponse(['status' => 'error', 'message' => 'Error fetching school details.']);
+        }
     }
-  }
+    public function deleteSchool($uuid)
+    {
+        try {
+            $school = $this->schooldetail->where('uuid', $uuid)->first();
+
+            if (!$school) {
+                return redirect()->back()->with('error', 'School not found.');
+            }
+
+            $school->delete();
+            return redirect()->back()->with('status', 'success')->with('message', 'School deleted successfully.');
+        } catch (\Exception $e) {
+            Log::error('[SchoolDetailController][deleteSchool] Error deleting school: ' . 'UUID=' . $uuid . ', Exception=' . $e->getMessage());
+            return redirect()->back()->with('status', 'error')->with('message', 'Error deleting school.');
+        }
+    }
 }
