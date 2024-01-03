@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Log;
 use App\Models\SchoolDetail;
 use App\Traits\SessionTrait;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 
@@ -66,7 +67,7 @@ class SchoolDetailController extends Controller
     {
         try {
             $this->validate($request, [
-                'school_name'            => 'required',
+                'school_name'          => 'required',
                 'email'                => 'required|email|unique:school_details,email',
                 'password'             => 'required|min:8|',
 
@@ -111,7 +112,7 @@ class SchoolDetailController extends Controller
                 'address' => 'required',
                 'pin_code' => 'required',
                 'school_zone' => 'required',
-               
+
                 'image.*'      => 'image|mimes:jpeg,png,jpg,svg|max:2048|dimensions:width=232,height=218',
             ]);
             $imagefile = $request->file('image');
@@ -124,7 +125,7 @@ class SchoolDetailController extends Controller
 
             return redirect()->back()->with('status', 'success')->with('message', 'School profile completed');
         } catch (ValidationException $e) {
-         
+
             $errors = $e->validator->getMessageBag();
             Log::error('[SchoolDetailController][storeSchoolProfile]Validation error: ' . 'Request=' . $request . ', Errors =' . implode(', ', $errors->all()));
             return redirect()->back()->with('status', 'error')->with('message', 'Profile not completed successfully !')->with('errors', $errors);
@@ -192,26 +193,21 @@ class SchoolDetailController extends Controller
 
         try {
             $this->validate($request, [
-                'school_name' => 'required',
-                'image' => 'required',
-                'email'  => 'required',
-                'password' => 'required',
+                'school_name'   => 'required',
+                'email'         => 'required',
+                'password'      => 'required',
                 'mobile_number' => 'required',
-                'country' => 'required',
-                'state' => 'required',
-                'address' => 'required',
-                'pin_code' => 'required',
-                'school_zone' => 'required',
+                'country'       => 'required',
+                'state'         => 'required',
+                'address'       => 'required',
+                'pin_code'      => 'required',
+                'school_zone'   => 'required',
 
             ]);
-            $imagefile = $request->file('image');
-            $filename = time() . '_' . $imagefile->getClientOriginalName();
-            $imagePath = 'SchoolImage/' . $filename;
-            $imagefile->move(public_path('SchoolImage/'), $filename);
 
-            $newSchoolData = $request->all();
+            $addschoolforadmin = $request->all();
 
-            $this->schooldetail->addschoolforadmin($newSchoolData, $imagePath);
+            $this->schooldetail->addschoolforadmin($addschoolforadmin);
             return redirect()->back()->with('status', 'success')->with('message', 'School added successfully.');
         } catch (\Throwable $e) {
 
@@ -276,11 +272,10 @@ class SchoolDetailController extends Controller
             return redirect('/admin/list-school')->with('status', 'success')->with('message', 'Product updated successfully.');
         } catch (ValidationException $e) {
             $errors = $e->validator->getMessageBag();
-            Log::error('[SchoolDetailController][updateSchool] Validation error: ' . 'Request=' . $request . 'Id=' . $id . ', Errors =' . implode(', ', $errors->all()));
+            Log::error('[SchoolDetailController][updateSchool] Validation error: ' . 'Request=' . $request . ', Errors =' . implode(', ', $errors->all()));
             return redirect()->back()->with('status', 'error')->with('message', 'Product not updated.')->with('errors', $errors);
         } catch (\Exception $e) {
-
-            Log::error('[SchoolDetailController][updateSchool] Error updating product: ' . 'Request=' . $request . 'Id=' . $id . ', Exception=' . $e->getMessage());
+            Log::error('[SchoolDetailController][updateSchool] Error updating product: ' . 'Request=' . $request . 'Id=' . ', Exception=' . $e->getMessage());
             return redirect()->back()->with('status', 'error')->with('message', 'Product not updated.');
         }
     }
@@ -303,9 +298,47 @@ class SchoolDetailController extends Controller
             $this->bookSchool->where('school_id', $schoolId)->where('book_id', $bookId)->delete();
             return response()->json(['status' => 'success', 'message' => 'Book removed for the school successfully']);
         } catch (\Exception $e) {
-          
-            // Handle exceptions if needed
+            Log::error('[SchoolDetailController][addBookToSchool] Error updating books for the school: ' . 'Request=' . $request . ', Exception=' . $e->getMessage());
             return response()->json(['status' => 'error', 'message' => 'Error updating books for the school']);
         }
     }
+
+    public function removeBookFromSchool(Request $request)
+    {
+
+        $request->validate([
+            'book_id'   => 'required|integer',
+            'school_id' => 'required|integer',
+        ]);
+
+        $this->bookSchool->where('book_id', $request->book_id)
+            ->where('school_id', $request->school_id)
+            ->delete();
+
+        return response()->json(['message' => 'Book removed from school']);
+    }
+
+    public function isBookAssociatedWithSchool(Request $request, $bookId)
+    {
+        $isAssociated = $this->bookSchool->where('book_id', $bookId)
+            ->where('school_id', $request->input('school_id'))
+            ->exists();
+
+        return response()->json(['isAssociated' => $isAssociated]);
+    }
+
+    public function fetchSchoolDetails(Request $request)
+  {
+    try {
+      $status = null;
+      $message = null;
+      $vendorSession = $this->getSchoolSession($request);
+      $uuid = $vendorSession['uuid'];
+      $SchoolDetails = $this->schooldetail->where('uuid', $uuid)->first();
+      return new JsonResponse(['SchoolDetails' => $SchoolDetails, 'status' => $status, 'message' => $message]);
+    } catch (\Exception $e) {
+      Log::error('[SchoolDetailController][fetchSchoolDetails] Error: ' . $e->getMessage());
+      return new JsonResponse(['status' => 'error', 'message' => 'Error fetching school details.']);
+    }
+  }
 }

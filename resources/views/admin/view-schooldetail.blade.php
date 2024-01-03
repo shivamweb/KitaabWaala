@@ -220,27 +220,37 @@
 </script>
 <script>
     $(document).ready(function() {
-        // Bind the change event to form-check-input checkboxes
-        $('.form-check-input').on('change', function(e) {
+        setInterval(function() {
+            $('.form-check-input').each(function() {
+                var book_id = $(this).data('book-id');
+                var isBookAdded = isBookAssociatedWithSchool(book_id, '{{ $schooldetails->id }}');
+                $(this).prop('checked', isBookAdded);
+            });
+        }, 5000);
+       
+        // Bind the click event to form-check-input checkboxes
+        $('.form-check-input').on('click', function(e) {
             e.preventDefault();
             var book_id = $(this).data('book-id');
             var isCheckboxChecked = $(this).is(':checked');
 
             // Update the URL to match your route
+            var url = isCheckboxChecked ? '/admin/addBookToSchool' : '/admin/removeBookFromSchool';
+
+            // Include book_id and isCheckboxChecked in the data
             $.ajax({
                 type: 'POST',
-                // Update the URL to match the correct route
-                url: '/admin/addBookToSchool',
+                url: url,
                 data: {
                     book_id: book_id,
-                    isAnyCheckboxChecked: isCheckboxChecked,
+                    isAnyCheckboxChecked: isCheckboxChecked, // Pass checkbox status
                     school_id: '{{ $schooldetails->id }}',
                     _token: '{{ csrf_token() }}'
                 },
-
                 success: function(data) {
                     // Handle the success response if needed
                     console.log(data.message);
+
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
@@ -248,25 +258,54 @@
                         showConfirmButton: false,
                         timer: 1500,
                         type: "info",
-                      
                         customClass: 'swal-wide',
                         showCancelButton: true,
-                        showConfirmButton:false,
-                        width: '400px' ,
-                        height : '200px',
-                        
+                        showConfirmButton: false,
+                        width: '400px',
+                        height: '200px',
+                        onClose: function() {
+                            // Reload the page after the Swal modal is closed
+                            window.location.href = window.location.href;
+                        }
                     });
                 },
                 error: function(error) {
                     // Handle the error response if needed
-                    console.error('Error adding books to school:', error);
-                    alert('Error adding book to school');
+                    console.error('Error adding/removing book to/from school:', error);
+                    alert('Error adding/removing book to/from school');
                 }
-
             });
         });
+
+        // Function to check if a book is associated with the school
+        function isBookAssociatedWithSchool(bookId, schoolId) {
+            // Make an AJAX request to check if the book is associated with the school
+            var isAssociated = false;
+
+            // Replace with the actual URL and adjust data if needed
+            $.ajax({
+                type: 'GET',
+                url: '/admin/isBookAssociatedWithSchool/' + bookId,
+                data: {
+                    school_id: schoolId
+                }, // Pass the school ID
+                async: false,
+                success: function(response) {
+                    isAssociated = response.isAssociated;
+                },
+                error: function(error) {
+                    console.error('Error checking book association with school:', error);
+                }
+            });
+
+            return isAssociated;
+        }
     });
 </script>
+
+
+
+
 
 
 

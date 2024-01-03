@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminDetailController;
 use App\Http\Controllers\BookDetailController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SchoolDetailController;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Route;
@@ -18,11 +19,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     });
-   
+
     Route::get('/add-notification', function () {
         return view('admin.add-notification');
     });
@@ -32,7 +34,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/profile', [AdminDetailController::class, 'showAdminProfile']);
     Route::post('/storeAdminProfile', [AdminDetailController::class, 'storeAdminProfile'])->name('storeAdminProfile');
     Route::get('/admin-logout', [AdminDetailController::class, 'Adminlogout'])->name('admin-logout');
-    
+
     Route::get('/Schoolview', [SchoolDetailController::class, 'viewSchool'])->name('ViewSchool');
     Route::get('/list-school', [SchoolDetailController::class, 'fetchschoolListforAdmin'])->name('School-list');
     Route::get('/view-schooldetail/{uuid}', [SchoolDetailController::class, 'viewSchoolDetails'])->name('schoolDetail');
@@ -46,9 +48,13 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/view-book', [BookDetailController::class, 'viewBook'])->name('ViewBook');
     Route::get('/list-book', [BookDetailController::class, 'listbookforadmin'])->name('Book-list');
     Route::post('/add-class', [ClassesController::class, 'addClassforadmin'])->name('addClass');
-    
+
     Route::get('/class', [ClassesController::class, 'listClassforadmin'])->name('class');
     Route::get('/editSchool/{uuid}', [SchoolDetailController::class, 'editSchool'])->name('editSchool');
     Route::post('/updateSchool/{uuid}', [SchoolDetailController::class, 'updateSchool'])->name('updateSchool');
-   Route::post('/addBookToSchool', [SchoolDetailController::class, 'addBookToSchool'])->name('addBookToSchool');
+    Route::post('/addBookToSchool', [SchoolDetailController::class, 'addBookToSchool'])->name('addBookToSchool');
+    Route::get('/order', [OrderController::class, 'orderListToAdmin']);
+    Route::post('/removeBookFromSchool', [SchoolDetailController::class, 'removeBookFromSchool'])->name('removeBookFromSchool');
+    Route::get('/isBookAssociatedWithSchool/{bookId}', [SchoolDetailController::class, 'isBookAssociatedWithSchool'])->name('isBookAssociatedWithSchool');
+    Route::post('/update-status', [OrderController::class, 'updateStatus'])->name('update-status');
 });

@@ -10,6 +10,7 @@ class Classes extends Model
     protected $fillable = [
         'class'
     ];
+    
     public function books()
     {
         return $this->hasMany(BookDetail::class, 'class_id');

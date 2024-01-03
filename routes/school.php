@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BookDetailController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SchoolDetailController;
 use App\Http\Controllers\SchoolLoginController;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +21,6 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'school'], function () {
     Route::get('/dashboard', function () {
         return view('school.dashboard');
-    });
-    Route::get('/order', function () {
-        return view('school.order');
     });
     Route::get('/dashboard', function () {
         return view('school.dashboard');
@@ -54,4 +53,13 @@ Route::group(['prefix' => 'school'], function () {
     Route::get('/my-purchase-list', [BookDetailController::class, 'fetchBookDetail'])->name('fetchBookDetail');
     Route::get('view-book-detail/{uuid}', [BookDetailController::class, 'viewBookDetails'])->name('BookDetail');
     Route::get('/place-neworder', [BookDetailController::class, 'placeNewBookOrder'])->name('Place-New-Order');
+    Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('addToCart');
+    Route::get('/get-cart-products', [CartController::class, 'getCartProducts'])->name('getCartProducts');
+    Route::post('/checkout', [OrderController::class, 'checkout'])->name('checkout');
+    Route::get('/order', [OrderController::class, 'orderListToSchool']);
+    Route::get('/invoice/{orderId}', [OrderController::class, 'viewInvoiceToSchool']);
+
+    Route::get('/fetchSchoolDetails', [SchoolDetailController::class, 'fetchSchoolDetails'])->name('fetchSchoolDetails');
+
+    
 });

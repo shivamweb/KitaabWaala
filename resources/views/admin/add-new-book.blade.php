@@ -2,114 +2,161 @@
 
 @section('title', 'Dashboard')
 @section('content')
+<!-- Container-fluid starts-->
 <div class="container-fluid">
     <div class="page-header">
         <div class="row">
             <div class="col-lg-6">
                 <div class="page-header-left">
-                    <h3> Add Book
-                        <small>Kitaabwaala Seller panel</small>
+                    <h3>Add Products
+                        <small>Bigdeal Admin panel</small>
                     </h3>
                 </div>
             </div>
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
-                    <li class="breadcrumb-item"><a href="dashboard"><i data-feather="home"></i></a>
-                    </li>
-
-                    <li class="breadcrumb-item active"> Add Book</li>
+                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                    <li class="breadcrumb-item">Physical</li>
+                    <li class="breadcrumb-item active">Add Product</li>
                 </ol>
             </div>
         </div>
     </div>
 </div>
-
+<!-- Container-fluid Ends-->
+<!-- Container-fluid starts-->
 <div class="container-fluid">
-    <div class="row product-adding">
-        <div class="col-xl-12">
+    <div class="row">
+        <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>General</h5>
+                    <h5>Add Product</h5>
                 </div>
                 <div class="card-body">
-                    <div class="digital-add needs-validation">
+                    <div class="row product-adding">
                         <form method="POST" action="{{ route('Book Detail') }}" enctype="multipart/form-data">
                             @csrf
+                            <div class="row">
+                                <div class="col-xl-5">
+                                    <div class="add-product">
+                                        <div class="row">
+                                            <div class="col-xl-9 xl-50 col-sm-6 col-9">
+                                                <div class="item"><img id="imgPreview1" src="../assets/images/avtar/defaultProduct.jpeg" alt="" class="blur-up lazyloaded" style="width: 104%;height:378px;"></div>
+                                            </div>
+                                            <div class="col-xl-3 xl-50 col-sm-6 col-3">
+                                                <ul class="file-upload-product">
+                                                    <li>
+                                                        <div class="box-input-file"><input class="upload" type="file" name="image" multiple onchange="previewImage(this, 'imgPreview1');"><i class="fa fa-plus"></i></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-7">
 
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="row product-adding">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <h5>Add Product Image</h5>
-                                                    <div class="card-body">
+                                    <div class="form">
+                                        <div class="form-group mb-3  row">
+                                            <div class="col-xl-3 col-sm-4 mb-0">
+                                                <label for="validationCustom01">Book Name :</label>
+                                            </div>
+                                            <div class="col-xl-8 col-sm-7">
+                                                <input class="form-control " id="book_name" name="book_name" type="text" required="">
 
-                                                        <div id="file-input-container">
-                                                            <div class="row mt-3 mt-lg-4">
-                                                                <div class="col-lg-6">
-                                                                    <input type="file" id="image" name="image" multiple onchange="previewImage(this, 'imgpreview');">
-                                                                </div>
-                                                                <div class="col-lg-6">
-                                                                    <img id="imgpreview" src="../assets/images/avtar/defaultProduct.jpeg" alt="Preview" style="height: 200px; width:200px; padding-bottom:2px">
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mb-3  row">
+                                            <div class="col-xl-3 col-sm-4 mb-0">
+                                                <label for="validationCustom01">Price:</label>
+                                            </div>
+                                            <div class="col-xl-8 col-sm-7">
+                                                <input class="form-control " id="price" name="price" type="text" required="">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group mb-3 row">
+                                            <div class="col-xl-3 col-sm-4 mb-0">
+                                                <label for="validationCustom02">Part :</label>
+                                            </div>
+                                            <div class="col-xl-8 col-sm-7">
+                                                <input class="form-control " id="validationCustom02" name="part" type="text" required="">
+                                                <div class="valid-feedback">Looks good!</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mb-3 row">
+                                            <div class="col-xl-3 col-sm-4 mb-0">
+                                                <label for="validationCustomUsername">Publisher :</label>
+                                            </div>
+
+                                            <div class="col-xl-8 col-sm-7">
+                                                <input class="form-control " id="validationCustomUsername" name="publisher" type="text" required="">
+                                                <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="form-group row">
+                                            <div class="col-xl-3 col-sm-4 mb-0">
+                                                <label for="exampleFormControlSelect1">Select Class :</label>
+                                            </div>
+                                            <div class="col-xl-8 col-sm-7">
+                                                <select class="custom-select form-control" name="class_id">
+                                                    <option value="">--Select Class--</option>
+                                                    @foreach($classes as $class)
+                                                    <option value="{{$class->id}}">{{$class->class}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-xl-3 col-sm-4 mb-0">
+                                                <label for="exampleFormControlSelect1">Select Status :</label>
+                                            </div>
+                                            <div class="col-xl-8 col-sm-7">
+                                                <select class="custom-select form-control" name="status">
+                                                    <option value="">--Select--</option>
+                                                    <option value="{{ \App\Enums\BookStatusEnum::Available }}">Available</option>
+                                                    <option value="{{ \App\Enums\BookStatusEnum::Unavailable }}">Unavailable</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-xl-3 col-sm-4 mb-0">
+                                                <label for="exampleFormControlSelect1">Select Stock Status :</label>
+                                            </div>
+                                            <div class="col-xl-8 col-sm-7">
+                                                <select class="custom-select form-control" name="stock_status">
+                                                    <option value="">--Select--</option>
+                                                    <option value="{{ \App\Enums\BookStockStatusEnum::INSTOCK }}">INSTOCK</option>
+                                                    <option value="{{ \App\Enums\BookStockStatusEnum::OUT_OF_STOCK }}">OUT_OF_STOCK</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-xl-3 col-sm-4 mb-0">
+                                                <label>Total Products :</label>
+                                            </div>
+                                            <div class="col-xl-9 col-xl-8 col-sm-7 ps-0">
+                                                <fieldset class="qty-box ">
+                                                    <div class="input-group">
+                                                        <input class="touchspin" name="quantity" type="text" value="1">
                                                     </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="row product-adding">
-                                                        <div class="col-xl-12">
-                                                            <div class="add-product">
-                                                                <div class="card">
-                                                                    <div class="card-header">
-                                                                        <h5>Book Details</h5>
-                                                                    </div>
-                                                                    <div class="card-body">
-                                                                        <div class="digital-add needs-validation">
-                                                                            <div class="form-group">
-                                                                                <label for="metadata" class="col-form-label pt-0">Book Name</label>
-                                                                                <input class="form-control" name="book_name" id="book_name" type="text">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <label for="metadata" class="col-form-label pt-0">Price</label>
-                                                                                <input class="form-control" name="price" id="price" type="text">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <label for="category_id" class="col-form-label pt-0"><span>*</span>Class</label>
-                                                                                <select class="custom-select form-control" name="class_id" id="class_id">
-                                                                                    <option value="">--Select Class--</option>
-                                                                                    @foreach($classes as $class)
-                                                                                    <option value="{{$class->id}}">{{$class->class}}</option>
-                                                                                    @endforeach
-                                                                                </select>
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <label class="col-form-label"><span>*</span> Status</label>
-                                                                                <select class="custom-select form-control" name="status">
-                                                                                    <option value="">--Select--</option>
-                                                                                    <option value="{{ \App\Enums\BookStatusEnum::Available }}">Available</option>
-                                                                                    <option value="{{ \App\Enums\BookStatusEnum::Unavailable }}">Unavailable</option>
-                                                                                </select>
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <label class="col-form-label"><span>*</span>Stock Status</label>
-                                                                                <select class="custom-select form-control" name="stock_status">
-                                                                                    <option value="">--Select--</option>
-                                                                                    <option value="{{ \App\Enums\BookStockStatusEnum::INSTOCK }}">INSTOCK</option>
-                                                                                    <option value="{{ \App\Enums\BookStockStatusEnum::OUT_OF_STOCK }}">OUT_OF_STOCK</option>
-                                                                                </select>
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <label class="col-form-label">BookDescription</label>
-                                                                                <textarea rows="4" cols="12" name="description"></textarea>
-                                                                                <div class="form-group mb-0">
-                                                                                    <div class="product-buttons text-center">
-                                                                                        <button type="submit" id="submit-button" class="btn btn-primary">Add</button>
-                                                                                        <button type="button" class="btn btn-light">Discard</button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-sm-4">Add Description :</label>
+                                            <div class="col-xl-8 col-sm-7 ps-0 description-sm">
+                                                <textarea id="description" name="description" cols="10" rows="4"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="offset-xl-3 offset-sm-4">
+                                        <button type="submit" id="submit-button" class="btn btn-primary">Add</button>
+                                        <button type="button" class="btn btn-light">Discard</button>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -117,8 +164,23 @@
         </div>
     </div>
 </div>
+<!-- Container-fluid Ends-->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- touchspin js-->
+<script src="../assets/js/touchspin/vendors.min.js"></script>
+<script src="../assets/js/touchspin/touchspin.js"></script>
+<script src="../assets/js/touchspin/input-groups.min.js"></script>
+<!-- ckeditor js-->
+<script src="../assets/js/editor/ckeditor/ckeditor.js"></script>
+<script src="../assets/js/editor/ckeditor/styles.js"></script>
+<script src="../assets/js/editor/ckeditor/adapters/jquery.js"></script>
+<script src="../assets/js/editor/ckeditor/ckeditor.custom.js"></script>
+
+<!-- Zoom js-->
+<script src="../assets/js/jquery.elevatezoom.js"></script>
+<script src="../assets/js/zoom-scripts.js"></script>
+
 <script>
     function previewImage(input, previewId) {
         const file = input.files[0];

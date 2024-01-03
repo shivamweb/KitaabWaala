@@ -17,29 +17,30 @@
     <link href="../../../../fonts.googleapis.com/css7d83.css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Font Awesome-->
-    <link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/font-awesome.css">
 
     <!-- Flag icon-->
-    <link rel="stylesheet" type="text/css" href="../../assets/css/flag-icon.css">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/flag-icon.css">
 
     <!-- ico-font-->
-    <link rel="stylesheet" type="text/css" href="../../assets/css/icofont.css">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/icofont.css">
 
     <!-- Prism css-->
-    <link rel="stylesheet" type="text/css" href="../../assets/css/prism.css">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/prism.css">
 
+    <link rel="stylesheet" type="text/css" href="../../../../../assets/css/jsgrid.css">
     <!-- Chartist css -->
-    <link rel="stylesheet" type="text/css" href="../../assets/css/chartist.css">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/chartist.css">
     <!-- Datatable css-->
-    <link rel="stylesheet" type="text/css" href="../../assets/css/datatables.css">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/datatables.css">
     <!-- vector map css -->
-    <link rel="stylesheet" type="text/css" href="../../assets/css/vector-map.css">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/vector-map.css">
 
     <!-- Bootstrap css-->
-    <link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/bootstrap.css">
 
     <!-- App css-->
-    <link rel="stylesheet" type="text/css" href="../../assets/css/admin.css">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/admin.css">
 </head>
 
 <body>
@@ -50,7 +51,7 @@
         <!-- Page Header Start-->
         <div class="page-main-header">
             <div class="main-header-left">
-                <div class="logo-wrapper"><a href="dashboard"><img class="blur-up lazyloaded" src="../assets/images/logo/logo.png" alt=""></a></div>
+                <div class="logo-wrapper"><a href="dashboard"><img class="blur-up lazyloaded" src="../../../assets/images/logo/logo.png" alt=""></a></div>
             </div>
             <div class="main-header-right ">
                 <div class="mobile-sidebar">
@@ -161,27 +162,27 @@
             <!-- Page Sidebar Start-->
             <div class="page-sidebar">
                 <div class="sidebar custom-scrollbar">
-                   
+
                     <ul class="sidebar-menu">
                         <li><a class="sidebar-header" href="dashboard"><i data-feather="home"></i><span>Dashboard</span></a></li>
                         <li><a class="sidebar-header" href="#"><i data-feather="dollar-sign"></i><span>School</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
-                                <li><a href="/admin/Schoolview"><i class="fa fa-circle"></i>Add New School</a></li>
-                                <li><a href="/admin/list-school"><i class="fa fa-circle"></i>All School List</a></li>
+                                <li><a href="../../admin/Schoolview"><i class="fa fa-circle"></i>Add New School</a></li>
+                                <li><a href="../../admin/list-school"><i class="fa fa-circle"></i>All School List</a></li>
 
                             </ul>
                         </li>
                         <li><a class="sidebar-header" href="#"><i data-feather="dollar-sign"></i><span>Order History</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
-                                <li><a href="order.html"><i class="fa fa-circle"></i>Received Orders</a></li>
+                                <li><a href="../../admin/order"><i class="fa fa-circle"></i>Received Orders</a></li>
                                 <li><a href="transactions.html"><i class="fa fa-circle"></i>Transactions</a></li>
 
                             </ul>
                         </li>
                         <li><a class="sidebar-header" href="#"><i data-feather="dollar-sign"></i><span>Inventory</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
-                                <li><a href="/admin/view-book"><i class="fa fa-circle"></i>Add New Book</a></li>
-                                <li><a href="/admin/list-book"><i class="fa fa-circle"></i>List All Book</a></li>
+                                <li><a href="../../admin/view-book"><i class="fa fa-circle"></i>Add New Book</a></li>
+                                <li><a href="../../admin/list-book"><i class="fa fa-circle"></i>List All Book</a></li>
                                 <li><a href="transactions.html"><i class="fa fa-circle"></i>Manage Stocks</a></li>
                             </ul>
                         </li>
@@ -192,7 +193,6 @@
                                 <li><a href="coupon-create.html"><i class="fa fa-circle"></i>List All Notication </a></li>
                             </ul>
                         </li>
-
                         <li><a class="sidebar-header" href="#"><i data-feather="chrome"></i><span>Reports</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
                                 <li><a href="translations.html"><i class="fa fa-circle"></i>Stock Reports</a></li>
@@ -203,7 +203,7 @@
 
                         <li><a class="sidebar-header" href="#"><i data-feather="settings"></i><span>Settings</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
-                                <li><a href="../profile"><i class="fa fa-circle"></i>Profile</a></li>
+                                <li><a href="../admin/profile"><i class="fa fa-circle"></i>Profile</a></li>
                             </ul>
                         </li>
                         <li><a class="sidebar-header" href="../admin-logout"><i data-feather="log-in"></i><span>Logout</span></a>
@@ -349,76 +349,76 @@
                     </div>
                 </div>
             </footer>
-            <!-- footer end-->
         </div>
-
     </div>
 
     <!-- latest jquery-->
-    <script src="../../assets/js/jquery-3.3.1.min.js"></script>
+    <script src="../../../../assets/js/jquery-3.3.1.min.js"></script>
 
     <!-- Bootstrap js-->
-    <script src="../../assets/js/popper.min.js"></script>
-    <script src="../../assets/js/bootstrap.js"></script>
+    <script src="../../../../assets/js/popper.min.js"></script>
+    <script src="../../../../assets/js/bootstrap.js"></script>
 
     <!-- feather icon js-->
-    <script src="../../assets/js/icons/feather-icon/feather.min.js"></script>
-    <script src="../../assets/js/icons/feather-icon/feather-icon.js"></script>
+    <script src="../../../../assets/js/icons/feather-icon/feather.min.js"></script>
+    <script src="../../../../assets/js/icons/feather-icon/feather-icon.js"></script>
 
     <!-- Sidebar jquery-->
-    <script src="../../assets/js/sidebar-menu.js"></script>
+    <script src="../../../../assets/js/sidebar-menu.js"></script>
     <!-- Datatables js-->
-    <script src="../../assets/js/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../assets/js/datatables/custom-basic.js"></script>
+    <script src="../../../../assets/js/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../../../assets/js/datatables/custom-basic.js"></script>
     <!--chartist js-->
-    <script src="../../assets/js/chart/chartist/chartist.js"></script>
+    <script src="../../../../assets/js/chart/chartist/chartist.js"></script>
 
 
     <!-- lazyload js-->
-    <script src="../../assets/js/lazysizes.min.js"></script>
+    <script src="../../../../assets/js/lazysizes.min.js"></script>
 
     <!--copycode js-->
-    <script src="../../assets/js/prism/prism.min.js"></script>
-    <script src="../../assets/js/clipboard/clipboard.min.js"></script>
-    <script src="../../assets/js/custom-card/custom-card.js"></script>
+    <script src="../../../../assets/js/prism/prism.min.js"></script>
+    <script src="../../../../assets/js/clipboard/clipboard.min.js"></script>
+    <script src="../../../../assets/js/custom-card/custom-card.js"></script>
 
     <!--counter js-->
-    <script src="../../assets/js/counter/jquery.waypoints.min.js"></script>
-    <script src="../../assets/js/counter/jquery.counterup.min.js"></script>
-    <script src="../../assets/js/counter/counter-custom.js"></script>
+    <script src="../../../../assets/js/counter/jquery.waypoints.min.js"></script>
+    <script src="../../../../assets/js/counter/jquery.counterup.min.js"></script>
+    <script src="../../../../assets/js/counter/counter-custom.js"></script>
 
     <!--Customizer admin-->
-    <script src="../../assets/js/admin-customizer.js"></script>
+    <script src="../../../../assets/js/admin-customizer.js"></script>
 
     <!--map js-->
-    <script src="../../assets/js/vector-map/jquery-jvectormap-2.0.2.min.js"></script>
-    <script src="../../assets/js/vector-map/map/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="../../../../assets/js/vector-map/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="../../../../assets/js/vector-map/map/jquery-jvectormap-world-mill-en.js"></script>
 
     <!--apex chart js-->
-    <script src="../../assets/js/chart/apex-chart/apex-chart.js"></script>
+    <script src="../../../../assets/js/chart/apex-chart/apex-chart.js"></script>
     <script src="../../assets/js/chart/apex-chart/stock-prices.js"></script>
 
     <!--chartjs js-->
-    <script src="../../assets/js/chart/flot-chart/excanvas.js"></script>
-    <script src="../../assets/js/chart/flot-chart/jquery.flot.js"></script>
-    <script src="../../assets/js/chart/flot-chart/jquery.flot.time.js"></script>
-    <script src="../../assets/js/chart/flot-chart/jquery.flot.categories.js"></script>
-    <script src="../../assets/js/chart/flot-chart/jquery.flot.stack.js"></script>
-    <script src="../../assets/js/chart/flot-chart/jquery.flot.pie.js"></script>
+    <script src="../../../../assets/js/chart/flot-chart/excanvas.js"></script>
+    <script src="../../../../assets/js/chart/flot-chart/jquery.flot.js"></script>
+    <script src="../../../../assets/js/chart/flot-chart/jquery.flot.time.js"></script>
+    <script src="../../../../assets/js/chart/flot-chart/jquery.flot.categories.js"></script>
+    <script src="../../../../assets/js/chart/flot-chart/jquery.flot.stack.js"></script>
+    <script src="../../../../assets/js/chart/flot-chart/jquery.flot.pie.js"></script>
     <!--dashboard custom js-->
-    <script src="../../assets/js/dashboard/default.js"></script>
+    <script src="../../../../assets/js/dashboard/default.js"></script>
 
     <!--right sidebar js-->
-    <script src="../../assets/js/chat-menu.js"></script>
+    <script src="../../../../assets/js/chat-menu.js"></script>
 
     <!--height equal js-->
-    <script src="../../assets/js/equal-height.js"></script>
-
+    <script src="../../../../../assets/js/equal-height.js"></script>
+    <script src="../../../../../assets/js/jsgrid/jsgrid.min.js"></script>
+    <script src="../../../../assets/js/jsgrid/griddata-invoice.js"></script>
+    <script src="../../../../assets/js/jsgrid/jsgrid-invoice.js"></script>
     <!-- lazyload js-->
-    <script src="../../assets/js/lazysizes.min.js"></script>
+    <script src="../../../../assets/js/lazysizes.min.js"></script>
 
     <!--script admin-->
-    <script src="../../assets/js/admin-script.js"></script>
+    <script src="../../../../assets/js/admin-script.js"></script>
 
 </body>
 

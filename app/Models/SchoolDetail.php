@@ -52,6 +52,7 @@ class SchoolDetail extends Model
             "city"              => $addschool['city'],
             "address"              => $addschool['address'],
             "pin_code"           => $addschool['pin_code'],
+        
             "school_zone"               => $addschool['school_zone'],
 
         ]);
@@ -64,6 +65,7 @@ class SchoolDetail extends Model
           "faculity_email"   => $schoolfaculitydetail['faculity_email'],
           "faculity_mobileno"   => $schoolfaculitydetail['faculity_mobileno'],
           "faculity_gender"   => $schoolfaculitydetail['faculity_gender'],
+          "designation"           => $schoolfaculitydetail['designation'],
         ]);
       } catch (\Throwable $e) {
         Log::error('[SchoolDetail][completeSchoolFaculityDetail] Error creating book detail: ' . $e->getMessage());
@@ -81,12 +83,11 @@ class SchoolDetail extends Model
       }
     }
 
-    public function addschoolforadmin(array $addschoolforadmin ,$imagePath)
+    public function addschoolforadmin(array $addschoolforadmin )
     {
         try {
             return $this->create([
                 'uuid'           => Uuid::uuid4()->toString(),
-                'image'          => $imagePath,
                 'school_name'      => $addschoolforadmin['school_name'],
                 'email'         => $addschoolforadmin['email'],
                 'mobile_number'          => $addschoolforadmin['mobile_number'],
