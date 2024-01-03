@@ -9,6 +9,7 @@ use App\Models\BookDetail;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\OrderTransection;
 use App\Models\SchoolDetail;
 use App\Traits\SessionTrait;
 use Illuminate\Http\Request;
@@ -92,7 +93,7 @@ class OrderController extends Controller
     public function orderListToSchool(Request $request)
     {
         $status = null;
-        
+
         $message = null;
         $adminSession = $this->getSchoolSession($request);
         $uuid = $adminSession['uuid'];
@@ -128,4 +129,6 @@ class OrderController extends Controller
 
         return response()->json(['message' => 'Status updated successfully']);
     }
+
+   
 }
