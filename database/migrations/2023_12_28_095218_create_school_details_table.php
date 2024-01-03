@@ -23,13 +23,14 @@ return new class extends Migration
             $table->string('state')->nullable();
             $table->string('address')->nullable();
             $table->integer('pin_code')->nullable();
-            $table->text('city')->nullable(); 
-             $table->text('school_zone')->nullable();
-             $table->text('faculity_name')->nullable();
-             $table->text('faculity_email')->nullable();
-             $table->text('faculity_mobileno')->nullable();
-             $table->text('faculity_gender')->nullable();
-             $table->text('school_document')->nullable();
+            $table->text('city')->nullable();
+            $table->text('school_zone')->nullable();
+            $table->text('faculity_name')->nullable();
+            $table->text('faculity_email')->nullable();
+            $table->text('faculity_mobileno')->nullable();
+            $table->text('faculity_gender')->nullable();
+            $table->string('school_doc_image')->nullable();
+            $table->text('designation')->nullable();
             $table->timestamps();
         });
     }

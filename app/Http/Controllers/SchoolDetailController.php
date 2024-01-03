@@ -84,7 +84,7 @@ class SchoolDetailController extends Controller
 
             $errors = $e->validator->getMessageBag();
             Log::error('[SchoolDetailController][createSchool]Validation error: ' . 'Request=' . $request . ', Errors =' . implode(', ', $errors->all()));
-            return redirect()->back()->with('status', 'error')->with('message', 'Buyer not registered successfully !')->with('errors', $errors);
+            return redirect()->back()->with('status', 'error')->with('message', 'School not registered successfully !')->with('errors', $errors);
         }
     }
     public function showProfile(Request $request)
