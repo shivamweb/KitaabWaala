@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = [
-        'school_id','payment_status','payment_method','order_status','total_Amount'
+        'school_id', 'payment_status', 'payment_method', 'order_status', 'total_Amount', 'remaining_Amount'
     ];
 
     protected static function boot()
@@ -29,5 +29,9 @@ class Order extends Model
     {
         return $this->belongsTo(SchoolDetail::class, 'school_id');
     }
-   
+
+    public function orderTransections()
+    {
+        return $this->hasMany(OrderTransection::class);
+    }
 }

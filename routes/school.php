@@ -25,19 +25,16 @@ Route::group(['prefix' => 'school'], function () {
     Route::get('/dashboard', function () {
         return view('school.dashboard');
     });
-    
+
     Route::get('/approved-bookList', function () {
         return view('school.approved-bookList');
     });
 
-  
-    Route::get('/transactions', function () {
-        return view('school.transactions');
-    });
+
     Route::get('/purchase-book', function () {
         return view('school.purchase-book');
     });
-    
+
     Route::get('/list-order', function () {
         return view('school.list-order');
     });
@@ -58,6 +55,11 @@ Route::group(['prefix' => 'school'], function () {
     Route::get('/invoice/{orderId}', [OrderController::class, 'viewInvoiceToSchool']);
 
     Route::get('/fetchSchoolDetails', [SchoolDetailController::class, 'fetchSchoolDetails'])->name('fetchSchoolDetails');
+    Route::post('/storeTransaction', [OrderController::class, 'storeTransaction'])->name('storeTransaction');
 
-    
+    Route::get('/transactions', function () {
+        return view('school.transactions');
+    });
+
+    Route::get('/transactions', [OrderController::class, 'viewTransection'])->name('viewTransection');
 });
