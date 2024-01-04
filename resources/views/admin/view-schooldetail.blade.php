@@ -226,7 +226,7 @@
                 var isBookAdded = isBookAssociatedWithSchool(book_id, '{{ $schooldetails->id }}');
                 $(this).prop('checked', isBookAdded);
             });
-        }, 5000);
+        }, 1000);
        
         // Bind the click event to form-check-input checkboxes
         $('.form-check-input').on('click', function(e) {

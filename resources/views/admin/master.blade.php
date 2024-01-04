@@ -175,7 +175,7 @@
                         <li><a class="sidebar-header" href="#"><i data-feather="dollar-sign"></i><span>Order History</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
                                 <li><a href="../../admin/order"><i class="fa fa-circle"></i>Received Orders</a></li>
-                                <li><a href="transactions.html"><i class="fa fa-circle"></i>Transactions</a></li>
+                                <li><a href="../../admin/transactions"><i class="fa fa-circle"></i>Transactions</a></li>
 
                             </ul>
                         </li>
@@ -183,7 +183,7 @@
                             <ul class="sidebar-submenu">
                                 <li><a href="../../admin/view-book"><i class="fa fa-circle"></i>Add New Book</a></li>
                                 <li><a href="../../admin/list-book"><i class="fa fa-circle"></i>List All Book</a></li>
-                                <li><a href="transactions.html"><i class="fa fa-circle"></i>Manage Stocks</a></li>
+                                <li><a href="#"><i class="fa fa-circle"></i>Manage Stocks</a></li>
                             </ul>
                         </li>
                         <li><a class="sidebar-header" href="/admin/class"><i data-feather="bar-chart"></i><span>Add-Class</span></a></li>

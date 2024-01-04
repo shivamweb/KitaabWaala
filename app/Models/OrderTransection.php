@@ -18,5 +18,8 @@ class OrderTransection extends Model
             $model->uuid = Uuid::uuid4()->toString();
         });
     }
-   
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'order_id');
+    }
 }

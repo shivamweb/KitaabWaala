@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="page-header-left">
-                    <h3>Class
+                    <h3>Transections
                         <small>Hill Cell Seller panel</small>
                     </h3>
                 </div>
@@ -16,7 +16,7 @@
                 <ol class="breadcrumb pull-right">
                     <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
                     <li class="breadcrumb-item">Admin</li>
-                    <li class="breadcrumb-item active">Class</li>
+                    <li class="breadcrumb-item active">Transections</li>
                 </ol>
             </div>
         </div>
@@ -27,7 +27,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>Class</h5>
+                    <h5>Transections</h5>
                 </div>
                 <div class="card-body">
                     <div class="btn-popup pull-right">
@@ -36,7 +36,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title f-w-600" id="exampleModalLabel">Add Class</h5>
+                                        <h5 class="modal-title f-w-600" id="exampleModalLabel">Add Transections</h5>
                                         <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     </div>
                                     <div class="modal-body">
@@ -46,7 +46,7 @@
                                                 <div class="form-group">
                                                     <label for="class" class="mb-1">Invoice Id :</label>
                                                     <select class="form-select" id="invoice_id" name="order_id">
-                                                    <option value="--">--Select Amount--</option>
+                                                        <option value="--">--Select Invoice Id--</option>
                                                         @foreach($orders as $order)
                                                         <option value="{{ $order->id }}" data-remaining-amount="{{ $order->remaining_Amount }}">{{ $order->id }}</option>
                                                         @endforeach
@@ -86,15 +86,23 @@
                         <table class="display" id="basic-1">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Class</th>
+                                    <th>OrderId</th>
+                                    <th>TransectionId</th>
+                                    <th>Remaining Amount</th>
+                                    <th>Paid Amount</th>
+                                    <th>Total Amount</th>
+                                    <th>Transection Date</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($transections as $transection)
                                 <tr>
-                                    <td>{{$transection->id}}</td>
-                                    <td></td>
+                                    <td>{{$transection->order_id}}</td>
+                                    <td>{{$transection->transection_id}}</td>
+                                    <td>{{$transection->order->remaining_Amount}}</td>
+                                    <td>{{$transection->amount}}</td>
+                                    <td>{{$transection->order->total_Amount}}</td>
+                                    <td>{{$transection->created_at}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
