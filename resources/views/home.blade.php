@@ -42,7 +42,7 @@
   <!-- loader start -->
       <div class="loader-wrapper">
         <div>
-          <img src="../assets/images/grocery/loader.gif" alt="loader">
+          <img src="../assets/images/logo/logo.png" alt="loader">
         </div>
       </div>
       <!-- loader end -->

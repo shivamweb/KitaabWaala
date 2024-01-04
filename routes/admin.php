@@ -59,4 +59,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/isBookAssociatedWithSchool/{bookId}', [SchoolDetailController::class, 'isBookAssociatedWithSchool'])->name('isBookAssociatedWithSchool');
     Route::post('/update-status', [OrderController::class, 'updateStatus'])->name('update-status');
     Route::get('/invoiceToAdmin/{orderId}', [OrderController::class, 'viewInvoiceToAdmin']);
+
+    Route::get('/transactions', [OrderController::class, 'viewTransectionToAdmin'])->name('viewTransectionToAdmin');
 });

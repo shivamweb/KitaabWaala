@@ -61,5 +61,5 @@ Route::group(['prefix' => 'school'], function () {
         return view('school.transactions');
     });
 
-    Route::get('/transactions', [OrderController::class, 'viewTransection'])->name('viewTransection');
+    Route::get('/transactions', [OrderController::class, 'viewTransectionToSchool'])->name('viewTransection');
 });

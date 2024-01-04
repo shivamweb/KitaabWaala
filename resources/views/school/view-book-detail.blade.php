@@ -53,7 +53,6 @@
                                     </div>
                                 </div>
                                 <div class="col-xl-7">
-
                                     <div class="form">
                                         <div class="form-group mb-3  row">
                                             <div class="col-xl-3 col-sm-4 mb-0">
@@ -133,7 +132,7 @@
                                         <div class="form-group row">
                                             <label class="col-xl-3 col-sm-4">Add Description :</label>
                                             <div class="col-xl-8 col-sm-7 ps-0 description-sm">
-                                                <textarea id="description" value="{{$bookdetails->description}}"name="description" cols="10" rows="4"disabled></textarea>
+                                                <textarea id="description" name="description" cols="10" rows="4"disabled>{{$bookdetails->description}}</textarea>
                                             </div>
                                         </div>
                                     </div>

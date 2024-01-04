@@ -77,7 +77,8 @@ class OrderController extends Controller
     {
         $status = null;
         $message = null;
-        $orders = $this->order->get();
+        $orders = $this->order->with('school')->get();
+        $orders->load('school');
         return view('admin.order', compact('orders'))->render();
     }
 
@@ -91,7 +92,7 @@ class OrderController extends Controller
         }
         $school = $order->school;
         $orderItems = $order->orderItems()->with('orderProduct')->get();
-        return view('admin.invoice', compact('order', 'orderItems', 'status', 'school', 'message'));
+        return view('school.invoice', compact('order', 'orderItems', 'status', 'school', 'message'));
     }
 
     public function viewInvoiceToAdmin(int $orderId)
@@ -104,7 +105,7 @@ class OrderController extends Controller
         }
         $school = $order->school;
         $orderItems = $order->orderItems()->with('orderProduct')->get();
-        return view('school.invoice', compact('order', 'orderItems', 'status', 'school', 'message'));
+        return view('admin.invoice', compact('order', 'orderItems', 'status', 'school', 'message'));
     }
 
 
@@ -147,7 +148,7 @@ class OrderController extends Controller
         return response()->json(['message' => 'Status updated successfully']);
     }
 
-    public function viewTransection(Request $request)
+    public function viewTransectionToSchool(Request $request)
     {
         $status = null;
         $message = null;
@@ -155,18 +156,26 @@ class OrderController extends Controller
         $uuid = $schoolSession['uuid'];
         $school = $this->schoolDetails->where('uuid', $uuid)->first();
         $orders = $this->order->where('school_id', $school->id)->get();
-        $transections = $this->orderTransection->get();
-        $firstOrder = $orders->first();
-        $remainingAmount = $firstOrder ? $firstOrder->remaining_amount : null;
+        $transections = $this->orderTransection->with('order')->get();
+        $remainingAmount = $orders->first() ? $orders->first()->remaining_amount : null;
 
-        return view('school.transactions', compact('transections', 'orders', 'remainingAmount'))->render();
+        return view('school.transactions', compact('transections', 'orders', 'remainingAmount'));
+    }
+
+    public function viewTransectionToAdmin(Request $request)
+    {
+        $status = null;
+        $message = null;
+        $orders = $this->order->with('school')->get();
+        $transections = $this->orderTransection->with('order')->get();
+        $remainingAmount = $orders->first() ? $orders->first()->remaining_amount : null;
+
+        return view('admin.transactions', compact('transections', 'orders', 'remainingAmount'));
     }
 
     public function storeTransaction(Request $request)
     {
-
         try {
-
             $validatedData = $request->validate([
                 'order_id'       => 'required',
                 'transection_id' => 'required',

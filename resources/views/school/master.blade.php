@@ -71,7 +71,7 @@
                                 </div>
                             </form>
                         </li>
-                      
+
                         <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
                         <li class="onhover-dropdown"><i data-feather="bell"></i><span class="badge badge-pill badge-primary pull-right notification-badge">3</span><span class="dot"></span>
                             <ul class="notification-dropdown custom-scrollbar onhover-show-div p-0">
@@ -182,7 +182,7 @@
                         <li><a class="sidebar-header" href="#"><i data-feather="dollar-sign"></i><span>Inventory</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
                                 <li><a href="place-neworder"><i class="fa fa-circle"></i>Place New Book Order</a></li>
-                                
+
                             </ul>
                         </li>
                         <li><a class="sidebar-header" href="#"><i data-feather="tag"></i><span>Inbox</span><i class="fa fa-angle-right pull-right"></i></a>
@@ -193,11 +193,10 @@
                         </li>
                         <li><a class="sidebar-header" href="javascript:void(0)"><i data-feather="clipboard"></i><span>Reports</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
-                                
+
                                 <li><a href="page-create.html"><i class="fa fa-circle"></i>Purchase Reports</a></li>
                             </ul>
                         </li>
-
                         <li><a class="sidebar-header" href="#"><i data-feather="user-plus"></i><span>Order History</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
                                 <li><a href="order"><i class="fa fa-circle"></i>Orders</a></li>

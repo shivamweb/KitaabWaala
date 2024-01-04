@@ -67,7 +67,7 @@
                                                     {{$school->email}}
                                                 </li>
                                                 <li>
-                                                    480 Red Banglos, PX 95848, UK
+                                                    <span>{{$school->address}}<span>, <span>{{$school->pin_code}}<span>, <span>{{$school->state}}<span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -80,7 +80,7 @@
                                                 <span>
                                                     <i class="fa fa-map-marker"></i>
                                                 </span>
-                                                Big Deal Store Demo Store India-3654123
+                                                KetaabWaala India-3654123
                                             </li>
                                             <li>
                                                 <span>
@@ -92,13 +92,13 @@
                                                 <span>
                                                     <i class="fa fa-envelope"></i>
                                                 </span>
-                                                Support@Bigdeal.Com
+                                               ketaabwaala@gmail.com
                                             </li>
                                             <li>
                                                 <span>
                                                     <i class="fa fa-globe"></i>
                                                 </span>
-                                                www.bigdeal.com
+                                               www.ketaabwaala.com
                                             </li>
                                         </ul>
                                     </div>
@@ -176,14 +176,6 @@
                                         <div class="col-md-4 offset-8">
                                             <div class="total-right">
                                                 <ul>
-                                                    <li>
-                                                        subtotal
-                                                        <span>&#8377;{{$order->total_Amount}}</span>
-                                                    </li>
-                                                    <li>
-                                                        Taxt VT 15%
-                                                        <span>$1,300.00</span>
-                                                    </li>
                                                     <li>
                                                         grand total
                                                         <span>&#8377;{{$order->total_Amount}}</span>
