@@ -220,21 +220,21 @@
 </script>
 <script>
     $(document).ready(function() {
-        setInterval(function() {
-            $('.form-check-input').each(function() {
-                var book_id = $(this).data('book-id');
-                var isBookAdded = isBookAssociatedWithSchool(book_id, '{{ $schooldetails->id }}');
-                $(this).prop('checked', isBookAdded);
-            });
-        }, 1000);
-       
+        // Check the checkboxes once on page load
+        checkBookAssociations();
+
         // Bind the click event to form-check-input checkboxes
         $('.form-check-input').on('click', function(e) {
             e.preventDefault();
-            var book_id = $(this).data('book-id');
-            var isCheckboxChecked = $(this).is(':checked');
+            checkAndUpdateAssociation($(this));
+            // Reload the page after the checkbox is clicked
+            window.location.reload();
+        });
 
-            // Update the URL to match your route
+        // Function to check and update book association
+        function checkAndUpdateAssociation(checkbox) {
+            var book_id = checkbox.data('book-id');
+            var isCheckboxChecked = checkbox.is(':checked');
             var url = isCheckboxChecked ? '/admin/addBookToSchool' : '/admin/removeBookFromSchool';
 
             // Include book_id and isCheckboxChecked in the data
@@ -275,7 +275,17 @@
                     alert('Error adding/removing book to/from school');
                 }
             });
-        });
+        }
+
+        // Function to check if a book is associated with the school
+        function checkBookAssociations() {
+            $('.form-check-input').each(function() {
+                var checkbox = $(this);
+                var book_id = checkbox.data('book-id');
+                var isBookAdded = isBookAssociatedWithSchool(book_id, '{{ $schooldetails->id }}');
+                checkbox.prop('checked', isBookAdded);
+            });
+        }
 
         // Function to check if a book is associated with the school
         function isBookAssociatedWithSchool(bookId, schoolId) {
@@ -302,6 +312,7 @@
         }
     });
 </script>
+
 
 
 

@@ -23,6 +23,7 @@ class BookDetail extends Model
         'publisher',
         'quantity'
     ];
+
     protected static function boot()
     {
         parent::boot();
@@ -30,6 +31,12 @@ class BookDetail extends Model
             $model->uuid = Uuid::uuid4()->toString();
         });
     }
+
+    public function class()
+    {
+        return $this->belongsTo(Classes::class, 'class_id');
+    }
+
     public function AddBookDetail(array $addbook, $imagePath)
     {
         try {
@@ -37,14 +44,14 @@ class BookDetail extends Model
                 'uuid'           => Uuid::uuid4()->toString(),
                 'image'          => $imagePath,
                 'book_name'      => $addbook['book_name'],
-                'status'        => BookStatusEnum::Available,
-                'stock_status'        => BookStockStatusEnum::INSTOCK,
+                'status'         => BookStatusEnum::Available,
+                'stock_status'   => BookStockStatusEnum::INSTOCK,
                 'price'          => $addbook['price'],
-                'class_id'          => $addbook['class_id'],
-                'description'    =>$addbook['description'],
-                'part'    =>$addbook['part'],
-                'publisher'    =>$addbook['publisher'],
-                'quantity'    =>$addbook['quantity'],
+                'class_id'       => $addbook['class_id'],
+                'description'    => $addbook['description'],
+                'part'           => $addbook['part'],
+                'publisher'      => $addbook['publisher'],
+                'quantity'       => $addbook['quantity'],
             ]);
         } catch (\Throwable $e) {
             Log::error('[BookDetail][AddBookDetail] Error creating book detail: ' . $e->getMessage());

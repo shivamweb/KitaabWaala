@@ -3,7 +3,6 @@
 @section('title', 'Dashboard')
 @section('content')
 
-<!-- Container-fluid starts-->
 <div class="container-fluid">
     <div class="page-header">
         <div class="row">
@@ -24,10 +23,6 @@
         </div>
     </div>
 </div>
-<!-- Container-fluid Ends-->
-
-
-<!-- Container-fluid starts-->
 <div class="container-fluid">
     <div class="row products-admin ratio_asos">
         @foreach($bookdetails as $bookdetail)
@@ -49,10 +44,10 @@
                                     </a>
                                 </div>
                                 <div class="detail-right">
-                                    {{$bookdetail->book->price}}
+                                   Price: &#8377;{{$bookdetail->book->price}}
                                     <div class="price">
                                         <div class="price">
-                                            {{$bookdetail->book->class}}
+                                            {{ $bookdetail->book->class->class }}
                                         </div>
                                     </div>
                                 </div>
@@ -67,7 +62,8 @@
                                 </div>
                             </div>
                             <div style="padding-left: 28px;">
-                            <button type="submit" id="addToCartBtn_{{ $bookdetail->book->id }}" class="btn btn-primary add-to-cart" data-book-id="{{ $bookdetail->book->id }}">Add To Cart</button> </div>
+                                <button type="submit" id="addToCartBtn_{{ $bookdetail->book->id }}" class="btn btn-primary add-to-cart" data-book-id="{{ $bookdetail->book->id }}">Add To Cart</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -81,11 +77,11 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
-    $(document).ready(function () {
-        $('.add-to-cart').on('click', function () {
+    $(document).ready(function() {
+        $('.add-to-cart').on('click', function() {
             var bookId = $(this).data('book-id');
             var quantity = $(this).closest('.product-box').find('.qty-adj').val();
-            var price = {{ $bookdetail->book->price ?? 0 }}; 
+            var price = {{ $bookdetail->book->price ?? 0 }};
 
             $.ajax({
                 url: '/school/add-to-cart',
@@ -93,10 +89,10 @@
                 data: {
                     book_id: bookId,
                     quantity: quantity,
-                    price: price, 
+                    price: price,
                     _token: '{{ csrf_token() }}'
                 },
-                success: function (response) {
+                success: function(response) {
                     Swal.fire({
                         icon: 'success',
                         title: 'Product Added to Cart!',
@@ -108,5 +104,4 @@
         });
     });
 </script>
-
 @endsection

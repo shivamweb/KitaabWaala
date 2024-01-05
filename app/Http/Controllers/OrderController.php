@@ -121,32 +121,32 @@ class OrderController extends Controller
         return view('school.order', compact('orders'))->render();
     }
 
-    public function updateStatus(Request $request)
-    {
-        $orderId = $request->input('orderId');
-        $statusType = $request->input('statusType');
-        $statusValue = $request->input('statusValue');
+    // public function updateStatus(Request $request)
+    // {
+    //     $orderId = $request->input('orderId');
+    //     $statusType = $request->input('statusType');
+    //     $statusValue = $request->input('statusValue');
 
-        $order = $this->order->find($orderId);
+    //     $order = $this->order->find($orderId);
 
-        switch ($statusType) {
-            case 'paymentStatus':
-                $order->payment_status = $statusValue;
-                break;
-            case 'paymentMethod':
-                $order->payment_method = $statusValue;
-                break;
-            case 'orderStatus':
-                $order->order_status = $statusValue;
-                break;
-            default:
-                return response()->json(['error' => 'Invalid status type'], 400);
-        }
+    //     switch ($statusType) {
+    //         case 'paymentStatus':
+    //             $order->payment_status = $statusValue;
+    //             break;
+    //         case 'paymentMethod':
+    //             $order->payment_method = $statusValue;
+    //             break;
+    //         case 'orderStatus':
+    //             $order->order_status = $statusValue;
+    //             break;
+    //         default:
+    //             return response()->json(['error' => 'Invalid status type'], 400);
+    //     }
 
-        $order->save();
+    //     $order->save();
 
-        return response()->json(['message' => 'Status updated successfully']);
-    }
+    //     return response()->json(['message' => 'Status updated successfully']);
+    // }
 
     public function viewTransectionToSchool(Request $request)
     {
@@ -253,4 +253,58 @@ class OrderController extends Controller
 
     //     return response()->json(['message' => 'Status updated successfully']);
     // }
+
+    public function updateStatus(Request $request)
+    {
+        $orderId = $request->input('orderId');
+        $statusType = $request->input('statusType');
+        $statusValue = $request->input('statusValue');
+
+        $order = $this->order->find($orderId);
+
+        switch ($statusType) {
+            case 'paymentStatus':
+                $order->payment_status = $statusValue;
+                break;
+            case 'paymentMethod':
+                $order->payment_method = $statusValue;
+                break;
+            case 'orderStatus':
+                // Check if the status is being updated to 'approved'
+                if ($statusValue === OrderStatusEnum::APPROVED) {
+                    // Check if order item quantity is greater than book quantity
+                    $insufficientQuantity = $this->checkOrderItemQuantity($order);
+
+                    // If quantity is insufficient, return an alert
+                    if ($insufficientQuantity) {
+                        return response()->json(['error' => 'Insufficient book quantity'], 400);
+                    }
+                }
+
+                $order->order_status = $statusValue;
+                break;
+            default:
+                return response()->json(['error' => 'Invalid status type'], 400);
+        }
+
+        $order->save();
+
+        return response()->json(['message' => 'Status updated successfully']);
+    }
+
+    // Helper function to check order item quantity
+    private function checkOrderItemQuantity($order)
+    {
+        foreach ($order->orderItems as $orderItem) {
+            $bookDetails = $this->bookDetail::where('id', $orderItem->book_id)->first();
+
+            // If book quantity in the table is less than the order item quantity, return true
+            if ($bookDetails->quantity < $orderItem->quantity) {
+                return true;
+            }
+        }
+
+        // If all order item quantities are within book quantity, return false
+        return false;
+    }
 }

@@ -148,7 +148,7 @@
                                     <thead>
                                         <tr>
                                             <th>no.</th>
-                                            <th>item detail</th>
+                                            <th>item Name</th>
                                             <th>qty</th>
                                             <th>price</th>
                                             <th>amout</th>
@@ -162,7 +162,6 @@
                                                 <h3>
                                                     {{$orderItem->orderProduct->book_name}}
                                                 </h3>
-                                                <p>{{$orderItem->orderProduct->description}}</p>
                                             </td>
                                             <td>{{$orderItem->quantity}}</td>
                                             <td>&#8377;{{$orderItem->price}}</td>
