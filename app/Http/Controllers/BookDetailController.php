@@ -85,7 +85,7 @@ class BookDetailController extends Controller
     {
         $status = null;
         $message = null;
-        $bookdetails = $this->bookdetails->all();
+        $bookdetails = $this->bookdetails->with('class')->get();
         return view('admin.list-book', compact('bookdetails'))->render();
     }
 
@@ -96,7 +96,14 @@ class BookDetailController extends Controller
         $adminSession = $this->getSchoolSession($request);
         $uuid = $adminSession['uuid'];
         $school = $this->schoolDetails->where('uuid', $uuid)->first();
-        $bookdetails = $this->bookSchool->where('school_id', $school->id)->with('book')->get();
+        
+        $bookdetails = $this->bookSchool
+            ->where('school_id', $school->id)
+            ->with('book.class') // Include the necessary relationships
+            ->get();
+    
+        // dd($bookdetails);
         return view('school.place-neworder', compact('bookdetails'))->render();
     }
+    
 }

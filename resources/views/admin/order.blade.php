@@ -44,9 +44,10 @@
                                 <th>Payment Status</th>
                                 <th>Payment Method</th>
                                 <th>Order Status</th>
-                                <th>View</th>
-                                <th>Date</th>
                                 <th>Total</th>
+                                <th>Remaining Amount</th>
+                                <th>Date</th>
+                                <th>View</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -75,9 +76,10 @@
                                         <option value="{{ \App\Enums\OrderStatusEnum::PENDING }}" @if ($order->order_status == \App\Enums\OrderStatusEnum::PENDING) selected @endif>PENDING</option>
                                     </select>
                                 </td>
+                                <td>&#8377;{{$order->total_Amount}}</td>
+                                <td>&#8377;{{$order->remaining_Amount}}</td>
+                                <td>{{$order->created_at}}</td>
                                 <td><a href="/admin/invoiceToAdmin/{{$order->id}}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
-                                <td>Dec 10,18</td>
-                                <td>$54671</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -156,8 +158,11 @@
                     // Handle error with an error alert
                     Swal.fire({
                         title: 'Error!',
-                        text: 'Error updating status',
+                        text: 'Insufficient book quantity',
                         icon: 'error',
+                    }).then(function() {
+                        // Reload the page after the alert is closed
+                        window.location.reload();
                     });
                 },
             });
