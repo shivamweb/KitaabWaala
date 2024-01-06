@@ -47,8 +47,7 @@ Route::group(['prefix' => 'school'], function () {
     Route::post('/register', [SchoolDetailController::class, 'createSchool'])->name('School-register');
     Route::get('/place-neworder', [BookDetailController::class, 'fetchBookDetail'])->name('fetchBookDetail');
     Route::get('view-book-detail/{uuid}', [BookDetailController::class, 'viewBookDetails'])->name('BookDetail');
-    Route::get('/my-purchase-list', [BookDetailController::class, 'fetchpurchaselist'])->name('Place-New-Order');
-    Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('addToCart');
+   Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('addToCart');
     Route::get('/get-cart-products', [CartController::class, 'getCartProducts'])->name('getCartProducts');
     Route::post('/checkout', [OrderController::class, 'checkout'])->name('checkout');
     Route::get('/order', [OrderController::class, 'orderListToSchool']);
@@ -62,4 +61,6 @@ Route::group(['prefix' => 'school'], function () {
     });
 
     Route::get('/transactions', [OrderController::class, 'viewTransectionToSchool'])->name('viewTransection');
+    Route::get('/purchasedBooksList', [BookDetailController::class, 'purchasedBooksList']);
+
 });

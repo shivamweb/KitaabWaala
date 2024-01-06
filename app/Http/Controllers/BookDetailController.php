@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BookDetail;
 use App\Models\BookSchool;
 use App\Models\Classes;
+use App\Models\Order;
 use App\Models\SchoolDetail;
 use App\Traits\SessionTrait;
 use Illuminate\Http\Request;
@@ -14,17 +15,19 @@ class BookDetailController extends Controller
 {
     use SessionTrait;
 
-    private $bookdetails, $classes, $bookSchool, $schoolDetails;
+    private $bookdetails, $classes, $bookSchool, $schoolDetails, $orders;
     public function __construct(
         BookDetail $bookdetail,
         Classes $class,
         BookSchool $bookSchool,
         SchoolDetail $schoolDetails,
+        Order $orders,
     ) {
         $this->bookdetails = $bookdetail;
         $this->classes = $class;
         $this->bookSchool = $bookSchool;
         $this->schoolDetails = $schoolDetails;
+        $this->orders = $orders;
     }
 
     public function addbookDetails(Request $request)
@@ -74,13 +77,7 @@ class BookDetailController extends Controller
         $bookdetails = $this->bookdetails->where('uuid', $uuid)->first();
         return view('school.view-book-detail', compact('bookdetails', 'status', 'message'));
     }
-    public function fetchpurchaselist(Request $request)
-    {
-        $status = null;
-        $message = null;
-        $bookdetails = $this->bookdetails->all();
-        return view('school.my-purchase-list', compact('bookdetails'))->render();
-    }
+
     public function listbookforadmin()
     {
         $status = null;
@@ -96,14 +93,49 @@ class BookDetailController extends Controller
         $adminSession = $this->getSchoolSession($request);
         $uuid = $adminSession['uuid'];
         $school = $this->schoolDetails->where('uuid', $uuid)->first();
-        
+
         $bookdetails = $this->bookSchool
             ->where('school_id', $school->id)
             ->with('book.class') // Include the necessary relationships
             ->get();
-    
+
         // dd($bookdetails);
         return view('school.place-neworder', compact('bookdetails'))->render();
+    }
+
+    public function purchasedBooksList(Request $request)
+    {
+        $adminSession = $this->getSchoolSession($request);
+        $uuid = $adminSession['uuid'];
+        $school = $this->schoolDetails->where('uuid', $uuid)->first();
+    
+        // Fetch orders associated with the school
+        $orders = $this->orders->where('school_id', $school->id)->with('orderItems.orderProduct')->get();
+    
+        // Extract book details from order items
+        $purchasedBooks = [];
+        $bookTracker = [];
+    
+        foreach ($orders as $order) {
+            foreach ($order->orderItems as $orderItem) {
+                $book = $orderItem->orderProduct;
+    
+                // Check if the book has already been added to the list
+                if (!isset($bookTracker[$book->uuid])) {
+                    $purchasedBooks[] = [
+                        'title'   => $book->book_name,
+                        'image'   => $book->image,
+                        'price'   => $book->price,
+                        'uuid'    => $book->uuid,
+                    ];
+    
+                    // Mark the book as added in the tracker
+                    $bookTracker[$book->uuid] = true;
+                }
+            }
+        }
+    
+        return view('school.my-purchase-list', ['purchasedBooks' => $purchasedBooks]);
     }
     
 }

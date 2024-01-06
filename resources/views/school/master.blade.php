@@ -175,7 +175,7 @@
                         <li><a class="sidebar-header" href="javascript:void(0)"><i data-feather="box"></i> <span>BookList</span><i class="fa fa-angle-right pull-right"></i></a>
 
                             <ul class="sidebar-submenu">
-                                <li><a href="my-purchase-list"><i class="fa fa-circle"></i>My Purchase List</a></li>
+                                <li><a href="purchasedBooksList"><i class="fa fa-circle"></i>My Purchase List</a></li>
                                 <li><a href="approved-bookList"><i class="fa fa-circle"></i>Approved Book List</a></li>
                             </ul>
                         </li>

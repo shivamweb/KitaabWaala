@@ -104,4 +104,9 @@ class SchoolDetail extends Model
       Log::error('[SchoolDetail][addschoolforadmin] Error creating book detail: ' . $e->getMessage());
     }
   }
+
+  public function orders()
+  {
+      return $this->hasMany(Order::class);
+  }
 }
