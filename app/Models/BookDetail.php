@@ -57,4 +57,8 @@ class BookDetail extends Model
             Log::error('[BookDetail][AddBookDetail] Error creating book detail: ' . $e->getMessage());
         }
     }
+    public function book()
+    {
+        return $this->belongsTo(BookDetail::class);
+    }
 }

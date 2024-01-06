@@ -26,17 +26,17 @@
 </div>
 <div class="container-fluid">
     <div class="row products-admin ratio_asos">
-         @foreach($bookdetails as $bookdetail)
+         @foreach($purchasedBooks as $purchasedBook)
         <div class="col-xl-3 col-sm-6">
             <div class="card product">
                
-                    @if($bookdetail)
+                    @if($purchasedBook)
                         <div class="card-body">
                             <div class="product-box p-0">
                                 <div class="product-imgbox">
                                     <div class="product-front">
-                                        @if($bookdetail->image)
-                                            <img src="{{ asset($bookdetail->image) }}" class="img-fluid" alt="product">
+                                        @if($purchasedBook['image'] )
+                                            <img src="{{ asset($purchasedBook['image']) }}" class="img-fluid" alt="product">
                                         @endif
                                     </div>
                                 </div>
@@ -45,19 +45,17 @@
                                         <div class="detail-left">
                                             <a href="javascript:void(0)">
                                                 <h6 class="price-title">
-                                                     {{ $bookdetail->book_name }}
+                                                {{ $purchasedBook['title'] }}
                                                 </h6>
                                             </a>
                                         </div>
                                         <div class="detail-right">
-                                           Price: {{ $bookdetail->price }}
-                                            <!-- <div class="price">
-                                               Class: {{ $bookdetail->class }}
-                                            </div> -->
+                                           Price:  {{ $purchasedBook['price'] }}
+                                            
                                         </div>
                                         <div class="form-group mb-0">
                                             <div class="product-buttons text-center">
-                                                <a href="/school/view-book-detail/{{ $bookdetail->uuid }}"><button type="submit" id="submit-button" class="btn btn-primary">View Book</button></a>
+                                                <a href="/school/view-book-detail/{{ $purchasedBook['uuid'] }}"><button type="submit" id="submit-button" class="btn btn-primary">View Book</button></a>
                                             </div>
                                         </div>
                                     </div>
