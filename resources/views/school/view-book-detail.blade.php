@@ -16,7 +16,7 @@
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
                     <li class="breadcrumb-item"><a href="dashboard"><i data-feather="home"></i></a></li>
-                 
+
                     <li class="breadcrumb-item active">View Book</li>
                 </ol>
             </div>
@@ -34,115 +34,111 @@
                 </div>
                 <div class="card-body">
                     <div class="row product-adding">
-                      
-                            <div class="row">
-                                <div class="col-xl-5">
-                                    <div class="add-product">
-                                        <div class="row">
-                                            <div class="col-xl-9 xl-50 col-sm-6 col-9">
-                                                <div class="item"><img id="imgPreview1" src="{{ asset($bookdetails->image) }}"alt="" class="blur-up lazyloaded" style="width: 104%;height:378px;" disabled></div>
-                                            </div>
-                                            <div class="col-xl-3 xl-50 col-sm-6 col-3">
-                                                <ul class="file-upload-product">
-                                                    <li>
-                                                        <div class="box-input-file"><input class="upload" type="file" name="image" multiple onchange="previewImage(this, 'imgPreview1');" disabled><i class="fa fa-plus"></i></div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-7">
-                                    <div class="form">
-                                        <div class="form-group mb-3  row">
-                                            <div class="col-xl-3 col-sm-4 mb-0">
-                                                <label for="validationCustom01">Book Name :</label>
-                                            </div>
-                                            <div class="col-xl-8 col-sm-7">
-                                                <input class="form-control "value="{{$bookdetails->book_name}}" id="book_name" name="book_name" type="text" required=""disabled>
 
-                                            </div>
+                        <div class="row">
+                            <div class="col-xl-5">
+                                <div class="add-product">
+                                    <div class="row">
+                                        <div class="col-xl-9 xl-50 col-sm-6 col-9">
+                                            <div class="item"><img id="imgPreview1" src="{{ asset($bookdetails->image) }}" alt="" class="blur-up lazyloaded" style="width: 104%;height:378px;" disabled></div>
                                         </div>
-                                        <div class="form-group mb-3  row">
-                                            <div class="col-xl-3 col-sm-4 mb-0">
-                                                <label for="validationCustom01">Price:</label>
-                                            </div>
-                                            <div class="col-xl-8 col-sm-7">
-                                                <input class="form-control " value="{{$bookdetails->price}}" id="price" name="price" type="text" required=""disabled>
-
-                                            </div>
+                                        <div class="col-xl-3 xl-50 col-sm-6 col-3">
+                                            <ul class="file-upload-product">
+                                                <li>
+                                                    <div class="box-input-file"><input class="upload" type="file" name="image" multiple onchange="previewImage(this, 'imgPreview1');" disabled><i class="fa fa-plus"></i></div>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <div class="form-group mb-3 row">
-                                            <div class="col-xl-3 col-sm-4 mb-0">
-                                                <label for="validationCustom02">Part :</label>
-                                            </div>
-                                            <div class="col-xl-8 col-sm-7">
-                                                <input class="form-control "value="{{$bookdetails->part}}" id="validationCustom02" name="part" type="text" required=""disabled>
-                                              
-                                            </div>
-                                        </div>
-                                        <div class="form-group mb-3 row">
-                                            <div class="col-xl-3 col-sm-4 mb-0">
-                                                <label for="validationCustomUsername">Publisher :</label>
-                                            </div>
-
-                                            <div class="col-xl-8 col-sm-7">
-                                                <input class="form-control " value="{{$bookdetails->publisher}}"  id="validationCustomUsername" name="publisher" type="text" required=""disabled>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form">
-                                        <div class="form-group row">
-                                            <div class="col-xl-3 col-sm-4 mb-0">
-                                                <label for="exampleFormControlSelect1">Select Class :</label>
-                                            </div>
-                                            <div class="col-xl-8 col-sm-7">
-                                                 <input class="form-control " value="{{$bookdetails->class_id}}"  id="validationCustomUsername" name="class_id" type="text" required=""disabled>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-xl-3 col-sm-4 mb-0">
-                                                <label for="exampleFormControlSelect1">Select Status :</label>
-                                            </div>
-                                            <div class="col-xl-8 col-sm-7">
-                                            <input class="form-control " value="{{$bookdetails->status}}"  id="validationCustomUsername" name="status" type="text" required=""disabled>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-xl-3 col-sm-4 mb-0">
-                                                <label for="exampleFormControlSelect1">Select Stock Status :</label>
-                                            </div>
-                                            <div class="col-xl-8 col-sm-7">
-                                            <input class="form-control " value="{{$bookdetails->stock_status}}"  id="validationCustomUsername" name="stock_status" type="text" required=""disabled>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-xl-3 col-sm-4 mb-0">
-                                                <label>Total Books :</label>
-                                            </div>
-                                            <div class="col-xl-9 col-xl-8 col-sm-7 ps-0">
-                                                <fieldset class="qty-box ">
-                                                    <div class="input-group">
-                                                        <input class="touchspin" value="{{$bookdetails->quantity}}"name="quantity"  disabled>
-                                                    </div>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-xl-3 col-sm-4">Add Description :</label>
-                                            <div class="col-xl-8 col-sm-7 ps-0 description-sm">
-                                                <textarea id="description" name="description" cols="10" rows="4"disabled>{{$bookdetails->description}}</textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="offset-xl-3 offset-sm-4">
-                                        <button type="submit" id="submit-button" class="btn btn-primary">Add</button>
-                                        <button type="button" class="btn btn-light">Discard</button>
                                     </div>
                                 </div>
                             </div>
-                        
+                            <div class="col-xl-7">
+                                <div class="form">
+                                    <div class="form-group mb-3  row">
+                                        <div class="col-xl-3 col-sm-4 mb-0">
+                                            <label for="validationCustom01">Book Name :</label>
+                                        </div>
+                                        <div class="col-xl-8 col-sm-7">
+                                            <input class="form-control " value="{{$bookdetails->book_name}}" id="book_name" name="book_name" type="text" required="" disabled>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3  row">
+                                        <div class="col-xl-3 col-sm-4 mb-0">
+                                            <label for="validationCustom01">Price:</label>
+                                        </div>
+                                        <div class="col-xl-8 col-sm-7">
+                                            <input class="form-control " value="{{$bookdetails->price}}" id="price" name="price" type="text" required="" disabled>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3 row">
+                                        <div class="col-xl-3 col-sm-4 mb-0">
+                                            <label for="validationCustom02">Part :</label>
+                                        </div>
+                                        <div class="col-xl-8 col-sm-7">
+                                            <input class="form-control " value="{{$bookdetails->part}}" id="validationCustom02" name="part" type="text" required="" disabled>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3 row">
+                                        <div class="col-xl-3 col-sm-4 mb-0">
+                                            <label for="validationCustomUsername">Publisher :</label>
+                                        </div>
+
+                                        <div class="col-xl-8 col-sm-7">
+                                            <input class="form-control " value="{{$bookdetails->publisher}}" id="validationCustomUsername" name="publisher" type="text" required="" disabled>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form">
+                                    <div class="form-group row">
+                                        <div class="col-xl-3 col-sm-4 mb-0">
+                                            <label for="exampleFormControlSelect1">Select Class :</label>
+                                        </div>
+                                        <div class="col-xl-8 col-sm-7">
+                                            <input class="form-control " value="{{$bookdetails->class_id}}" id="validationCustomUsername" name="class_id" type="text" required="" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-xl-3 col-sm-4 mb-0">
+                                            <label for="exampleFormControlSelect1">Select Status :</label>
+                                        </div>
+                                        <div class="col-xl-8 col-sm-7">
+                                            <input class="form-control " value="{{$bookdetails->status}}" id="validationCustomUsername" name="status" type="text" required="" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-xl-3 col-sm-4 mb-0">
+                                            <label for="exampleFormControlSelect1">Select Stock Status :</label>
+                                        </div>
+                                        <div class="col-xl-8 col-sm-7">
+                                            <input class="form-control " value="{{$bookdetails->stock_status}}" id="validationCustomUsername" name="stock_status" type="text" required="" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-xl-3 col-sm-4 mb-0">
+                                            <label>Total Books :</label>
+                                        </div>
+                                        <div class="col-xl-2 col-sm-6">
+                                            <input class="form-control" value="{{$bookdetails->quantity}}" name="quantity" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-sm-4">Add Description :</label>
+                                        <div class="col-xl-8 col-sm-7">
+                                            <textarea id="description" class="form-control" name="description" cols="100" rows="4" disabled>{{$bookdetails->description}}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="offset-xl-3 offset-sm-4">
+                                    <button type="submit" id="submit-button" class="btn btn-primary">Add</button>
+                                    <button type="button" class="btn btn-light">Discard</button>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

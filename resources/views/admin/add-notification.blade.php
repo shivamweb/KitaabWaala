@@ -17,7 +17,6 @@
                 <ol class="breadcrumb pull-right">
                     <li class="breadcrumb-item"><a href="dashboard"><i data-feather="home"></i></a>
                     </li>
-                  
                     <li class="breadcrumb-item active">Add Notification</li>
                 </ol>
             </div>
@@ -73,7 +72,7 @@
                     text: message
                 }).then(function() {
                     // Redirect to a desired URL
-                    window.location.href = '/admin/notificationAdd'; // Replace with your desired URL
+                    window.location.href = '/admin/notificationAddView'; // Replace with your desired URL
                 });
             } else if (status === 'error') {
                 if (errors.length > 0) {
@@ -90,7 +89,7 @@
                         html: errorMessage
                     }).then(function() {
                         // Redirect to a desired URL after the user clicks "OK"
-                        window.location.href = '/admin/notificationAdd'; // Replace with your desired URL
+                        window.location.href = '/admin/notificationAddView'; // Replace with your desired URL
                     });
                 } else {
                     // Display a SweetAlert with general error message

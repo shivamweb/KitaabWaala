@@ -189,8 +189,8 @@
                         <li><a class="sidebar-header" href="/admin/class"><i data-feather="bar-chart"></i><span>Add-Class</span></a></li>
                         <li><a class="sidebar-header" href="#"><i data-feather="tag"></i><span>Notification</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
-                                <li><a href="add-notification"><i class="fa fa-circle"></i>Add New Notification</a></li>
-                                <li><a href="coupon-create.html"><i class="fa fa-circle"></i>List All Notication </a></li>
+                                <li><a href="notificationAddView"><i class="fa fa-circle"></i>Add New Notification</a></li>
+                                <li><a href="notification"><i class="fa fa-circle"></i>List All Notication </a></li>
                             </ul>
                         </li>
                         <li><a class="sidebar-header" href="#"><i data-feather="chrome"></i><span>Reports</span><i class="fa fa-angle-right pull-right"></i></a>

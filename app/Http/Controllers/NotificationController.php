@@ -63,14 +63,14 @@ class NotificationController extends Controller
                 ]);
             }
 
-            return redirect('/admin/add-notification')->with('status', 'success')->with('message', 'Notification sent successfully');
+            return redirect('/admin/notificationAddView')->with('status', 'success')->with('message', 'Notification sent successfully');
         } catch (ValidationException $e) {
             $errors = $e->validator->getMessageBag();
             Log::error('[NotificationController][sendNotification]Validation error: ' . 'Request=' . $request . ', Errors =' . implode(', ', $errors->all()));
-            return redirect('/admin/add-notification')->with('status', 'error')->with('message', 'Failed to send notification: ')->with('errors', $errors);
+            return redirect('/admin/notificationAddView')->with('status', 'error')->with('message', 'Failed to send notification: ')->with('errors', $errors);
         } catch (\Exception $e) {
             Log::error('[NotificationController][sendNotification] Error sending notification: ' . 'Request=' . $request . ', Exception=' . $e->getMessage());
-            return redirect('/admin/add-notification')->with('status', 'error')->with('message', 'Failed to send notification: ' . $e->getMessage());
+            return redirect('/admin/notificationAddView')->with('status', 'error')->with('message', 'Failed to send notification: ' . $e->getMessage());
         }
     }
 
@@ -82,7 +82,7 @@ class NotificationController extends Controller
             $schooldetails =  $this->schooldetail->where('uuid', $uuid)->first();
             $this->notification::where('to', $schooldetails->id)->update(['status' => 'read']);
             $notifications = $this->notification::where('to', $schooldetails->id)->with('createdByUser')->get();
-            return view('school.', ['notifications' => $notifications]);
+            return view('school.notification', ['notifications' => $notifications]);
         } catch (\Exception $e) {
             Log::error('[NotificationController][showNotifications] Error viewing notification: ' . ' Exception=' . $e->getMessage());
             return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
@@ -93,17 +93,15 @@ class NotificationController extends Controller
     {
         try {
             $adminSession = $this->getAdminSession($request);
-            $uuid = $adminSession['uuid'];
-            $admindetail =  $this->admindetail->where('uuid', $uuid)->first();
-            $this->notification::where('to', $admindetail->id)->update(['status' => 'read']);
-
-            $notifications = $this->notification::where('to', $admindetail->id)->with('createdByUser')->get();
-            return view('admin.add-notification', ['notifications' => $notifications]);
+          
+            $notifications = $this->notification->get();
+            return view('admin.notification', ['notifications' => $notifications]);
         } catch (\Exception $e) {
             Log::error('[NotificationController][showNotificationsAdmin] Error viewing notification: ' . 'Exception='. $e->getMessage());
             return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
         }
     }
+    
 
     public function getNotifications(Request $request): JsonResponse
     {

@@ -98,8 +98,6 @@ class BookDetailController extends Controller
             ->where('school_id', $school->id)
             ->with('book.class') // Include the necessary relationships
             ->get();
-
-        // dd($bookdetails);
         return view('school.place-neworder', compact('bookdetails'))->render();
     }
 
@@ -137,5 +135,19 @@ class BookDetailController extends Controller
     
         return view('school.my-purchase-list', ['purchasedBooks' => $purchasedBooks]);
     }
-    
+
+    public function fetchApprovedBookDetail(Request $request)
+    {
+        $status = null;
+        $message = null;
+        $adminSession = $this->getSchoolSession($request);
+        $uuid = $adminSession['uuid'];
+        $school = $this->schoolDetails->where('uuid', $uuid)->first();
+
+        $bookdetails = $this->bookSchool
+            ->where('school_id', $school->id)
+            ->with('book.class')
+            ->get();
+        return view('school.approved-bookList', compact('bookdetails'))->render();
+    }
 }

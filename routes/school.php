@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookDetailController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SchoolDetailController;
 use App\Http\Controllers\SchoolLoginController;
@@ -26,9 +27,7 @@ Route::group(['prefix' => 'school'], function () {
         return view('school.dashboard');
     });
 
-    Route::get('/approved-bookList', function () {
-        return view('school.approved-bookList');
-    });
+   
 
 
     Route::get('/purchase-book', function () {
@@ -62,5 +61,11 @@ Route::group(['prefix' => 'school'], function () {
 
     Route::get('/transactions', [OrderController::class, 'viewTransectionToSchool'])->name('viewTransection');
     Route::get('/purchasedBooksList', [BookDetailController::class, 'purchasedBooksList']);
+    
+    Route::get('/approved-bookList', [BookDetailController::class, 'fetchApprovedBookDetail']);
 
+    
+    Route::get('/showNotification', [NotificationController::class, 'showNotifications']);
+    
+    Route::get('/getNotifications',  [NotificationController::class, 'getNotifications']);
 });

@@ -121,33 +121,6 @@ class OrderController extends Controller
         return view('school.order', compact('orders'))->render();
     }
 
-    // public function updateStatus(Request $request)
-    // {
-    //     $orderId = $request->input('orderId');
-    //     $statusType = $request->input('statusType');
-    //     $statusValue = $request->input('statusValue');
-
-    //     $order = $this->order->find($orderId);
-
-    //     switch ($statusType) {
-    //         case 'paymentStatus':
-    //             $order->payment_status = $statusValue;
-    //             break;
-    //         case 'paymentMethod':
-    //             $order->payment_method = $statusValue;
-    //             break;
-    //         case 'orderStatus':
-    //             $order->order_status = $statusValue;
-    //             break;
-    //         default:
-    //             return response()->json(['error' => 'Invalid status type'], 400);
-    //     }
-
-    //     $order->save();
-
-    //     return response()->json(['message' => 'Status updated successfully']);
-    // }
-
     public function viewTransectionToSchool(Request $request)
     {
         $status = null;
@@ -209,51 +182,6 @@ class OrderController extends Controller
         }
     }
 
-    // public function updateStatus(Request $request)
-    // {
-    //     $orderId = $request->input('orderId');
-    //     $statusType = $request->input('statusType');
-    //     $statusValue = $request->input('statusValue');
-
-    //     $order = Order::find($orderId);
-
-    //     if (!$order) {
-    //         return response()->json(['error' => 'Order not found.'], 404);
-    //     }
-
-    //     $orderItems = OrderItem::where('order_id', $orderId)->with('orderProduct')->get();
-
-    //     switch ($statusType) {
-    //         case 'paymentStatus':
-    //             $order->payment_status = $statusValue;
-    //             break;
-    //         case 'paymentMethod':
-    //             $order->payment_method = $statusValue;
-    //             break;
-    //         case 'orderStatus':
-    //             $order->order_status = $statusValue;
-
-    //             // Manage bookdetails quantities based on the order status
-    //             foreach ($orderItems as $orderItem) {
-    //                 $bookDetail = $orderItem->orderProduct;
-
-    //                 if ($bookDetail) {
-    //                     if ($statusValue == 'approved') {
-    //                         // Decrease bookdetails quantity
-    //                         $bookDetail->decrement('quantity', $orderItem->quantity);
-    //                     }
-    //                 }
-    //             }
-    //             break;
-    //         default:
-    //             return response()->json(['error' => 'Invalid status type'], 400);
-    //     }
-
-    //     $order->save();
-
-    //     return response()->json(['message' => 'Status updated successfully']);
-    // }
-
     public function updateStatus(Request $request)
     {
         $orderId = $request->input('orderId');
@@ -296,7 +224,7 @@ class OrderController extends Controller
     private function checkOrderItemQuantity($order)
     {
         foreach ($order->orderItems as $orderItem) {
-            $bookDetails = $this->bookDetail::where('id', $orderItem->book_id)->first();
+            $bookDetails = $this->bookDetail->where('id', $orderItem->book_id)->first();
 
             // If book quantity in the table is less than the order item quantity, return true
             if ($bookDetails->quantity < $orderItem->quantity) {
