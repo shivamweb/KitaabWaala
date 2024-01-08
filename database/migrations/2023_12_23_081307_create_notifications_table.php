@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->text('school_name')->nullable();
-            $table->string('image');
-            $table->text('description')->nullable();
-            $table->timestamps();
+            $table->uuid('uuid');
+            $table->integer('created_by');
+            $table->integer('to');
+            $table->text('description');
+            $table->string('status')->default('Un-read');
+            $table->timestamps(); 
+            $table->softDeletes();
         });
     }
 

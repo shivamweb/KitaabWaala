@@ -33,9 +33,39 @@
                 <div class="card-header">
                     <h5>Product Lists</h5>
                 </div>
-                <div class="card-body">
-                    <div id="basicScenario" class="product-list digital-product"></div>
-                </div>
+                <div class="card-body vendor-table">
+            <table class="display" id="basic-1">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>School Name</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Publisher</th>
+                        <th>View</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        @foreach($bookdetails as $bookdetail)
+                        <td>
+                            <img src="{{asset($bookdetail->book->image)}}" style="width:50px;"/></td>
+                        <td>{{$bookdetail->book->book_name}}</td>
+                        <td>{{$bookdetail->book->price}}</td>
+                        <td>{{$bookdetail->book->status}}</td>
+                        <td>{{$bookdetail->book->publisher}}</td>
+                        <td>
+                            <div>
+                                <a href="/school/view-book-detail/{{ $bookdetail->book->uuid }}"><i class="fa fa-eye"></i></a>
+
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+
+                </tbody>
+            </table>
+        </div>
             </div>
         </div>
     </div>

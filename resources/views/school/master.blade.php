@@ -145,8 +145,8 @@
                                 <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
                             </div>
                             <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
-                                <li><a href="javascript:void(0)">Profile<span class="pull-right"><i data-feather="user"></i></span></a></li>
-                                <li><a href="javascript:void(0)">Notification<span class="pull-right"><i data-feather="mail"></i></span></a></li>
+                                <li><a href="/school/profile">Profile<span class="pull-right"><i data-feather="user"></i></span></a></li>
+                                <li><a href="/school/showNotification">Notification<span class="pull-right"><i data-feather="mail"></i></span></a></li>
                                 <li><a href="javascript:void(0)">Inquiry<span class="pull-right"><i data-feather="file-text"></i></span></a></li>
                                 <li><a href="javascript:void(0)">Settings<span class="pull-right"><i data-feather="settings"></i></span></a></li>
                             </ul>
@@ -343,6 +343,7 @@
                 }
             });
         }
+        
 
         fetchCartProducts();
         setInterval(fetchCartProducts, 3000);
@@ -410,6 +411,33 @@
     $(document).ready(function() {
         fetchAndRenderSchoolDetails();
     });
+    $(document).ready(function() {
+  $.ajax({
+    url: '/school/getNotifications',
+    type: 'GET',
+    dataType: 'json',
+    success: function(response, textStatus, xhr) {
+      if (xhr.status == 200) {
+        notifications = JSON.parse(response['notifications']);
+        unreadCount = response['unreadCount'];
+        numberSpan = $('.badge.badge-pill.badge-primary.pull-right.notification-badge');
+        
+        // Update the content of the numberSpan with the unreadCount value
+        numberSpan.text(unreadCount);
+        
+        if (unreadCount === 0) {
+          numberSpan.hide();
+        } else {
+          numberSpan.show();
+        }
+      }
+    },
+    error: function(xhr, status, error) {
+      console.error('Error:', error);
+    }
+  });
+});
+
 </script>
 
 </html>

@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
                         <li class="nav-item"><a class="nav-link active" id="top-profile-tab" data-bs-toggle="tab" href="#top-profile" role="tab" aria-controls="top-profile" aria-selected="true"><i data-feather="user" class="me-2"></i>Add School</a></li>
-                        <li class="nav-item"><a class="nav-link" id="top-pancard-tab" data-bs-toggle="tab" href="#top-pancard" role="tab" aria-controls="top-profile" aria-selected="true"><i data-feather="user" class="me-2"></i>Faculity Details</a>
+                        <li class="nav-item"><a class="nav-link" id="top-pancard-tab" data-bs-toggle="tab" href="#top-pancard" role="tab" aria-controls="top-profile" aria-selected="true"><i data-feather="user" class="me-2"></i>Spoc Person</a>
                         </li>
                         <li class="nav-item"><a class="nav-link" id="top-aadhar-tab" data-bs-toggle="tab" href="#top-aadhar" role="tab" aria-controls="top-profile" aria-selected="true"><i data-feather="user" class="me-2"></i>Document</a>
                         </li>
@@ -88,7 +88,7 @@
                             </form>
                         </div>
                         <div class="tab-pane fade" id="top-pancard" role="tabpanel" aria-labelledby="top-pancard-tab">
-                            <h5 class="f-w-600">School Management Detail</h5>
+                            <h5 class="f-w-600">Spoc Person Detail</h5>
                             <form method="POST" action="{{route('storeSchoolFaculityDetail')}}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="table-responsive pancard-table">
@@ -135,9 +135,11 @@
                                             </tr>
                                             <tr>
                                                 <td>School Document:</td>
-                                                <td>
+                                              <td>
                                                     <input type="file" id="school_doc_image" name="school_document" accept="image/*" onchange="previewImage(this, 'documentPreview')">
                                                     <img id="documentPreview" src="{{asset($schooldetails->school_document)}}" alt="School Document Preview" style="display: none; max-width: 200px; max-height: 200px; margin-top: 10px;">
+                                                    <a href="/Agreement/Agreement.pdf" download="agreement.pdf">Download Agreement</a>
+                                                
                                                 </td>
                                             </tr>
                                         </tbody>

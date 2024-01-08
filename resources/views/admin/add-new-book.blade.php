@@ -79,8 +79,7 @@
                                                 <label for="validationCustom02">Part :</label>
                                             </div>
                                             <div class="col-xl-8 col-sm-7">
-                                                <input class="form-control " id="validationCustom02" name="part" type="text" required="">
-                                              
+                                                <input class="form-control " id="validationCustom02" name="part" type="text" required="">                                             
                                             </div>
                                         </div>
                                         <div class="form-group mb-3 row">
@@ -147,7 +146,7 @@
                                         <div class="form-group row">
                                             <label class="col-xl-3 col-sm-4">Add Description :</label>
                                             <div class="col-xl-8 col-sm-7 ps-0 description-sm">
-                                                <textarea id="description" name="description" cols="10" rows="4"></textarea>
+                                                <textarea id="description" class="form-control" name="description" cols="100" rows="4"></textarea>
                                             </div>
                                         </div>
                                     </div>
