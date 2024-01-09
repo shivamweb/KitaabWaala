@@ -56,4 +56,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/invoiceToAdmin/{orderId}', [OrderController::class, 'viewInvoiceToAdmin']);
 
     Route::get('/transactions', [OrderController::class, 'viewTransectionToAdmin'])->name('viewTransectionToAdmin');
+    Route::get('/list-inquiry', function () {
+        return view('admin.list-inquiry');
+    });
 });

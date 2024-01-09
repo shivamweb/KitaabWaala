@@ -7,16 +7,16 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="page-header-left">
-                    <h3>Transections
-                        <small>Hill Cell Seller panel</small>
+                    <h3>Transactions
+                        <small>Kitaabwaala admin</small>
                     </h3>
                 </div>
             </div>
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
-                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                    <li class="breadcrumb-item">Admin</li>
-                    <li class="breadcrumb-item active">Transections</li>
+                    <li class="breadcrumb-item"><a href="dashboard"><i data-feather="home"></i></a></li>
+                 
+                    <li class="breadcrumb-item active">Transactions</li>
                 </ol>
             </div>
         </div>
@@ -27,7 +27,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>Transections</h5>
+                    <h5>Transactions</h5>
                 </div>
                 <div class="card-body">
                     <div class="btn-popup pull-right">

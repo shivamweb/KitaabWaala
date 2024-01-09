@@ -55,8 +55,9 @@ Route::group(['prefix' => 'school'], function () {
     Route::get('/fetchSchoolDetails', [SchoolDetailController::class, 'fetchSchoolDetails'])->name('fetchSchoolDetails');
     Route::post('/storeTransaction', [OrderController::class, 'storeTransaction'])->name('storeTransaction');
 
-    Route::get('/transactions', function () {
-        return view('school.transactions');
+ 
+    Route::get('/add-inquiry', function () {
+        return view('school.add-inquiry');
     });
 
     Route::get('/transactions', [OrderController::class, 'viewTransectionToSchool'])->name('viewTransection');

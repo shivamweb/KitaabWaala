@@ -50,7 +50,7 @@
   <!-- loader end -->
   <!--header start-->
   <header id="stickyheader">
-  <div class="mobile-fix-option"></div>
+  <!-- <div class="mobile-fix-option"></div> -->
   <div class="top-header2" >
     <div class="custom-container">
       <div class="row">
@@ -61,7 +61,7 @@
                 <a href="javascript:void(0)">KitaabWaala ecommerce always free delevery</a>
               </li>
               <li>
-                <a href="javascript:void(0)"><i class="fa fa-phone"></i>Call Us: 123 - 456 - 7890</a>
+                <a href="javascript:void(0)"><i class="fa fa-phone"></i>Call Us:8710098850 , 8001436270</a>
               </li>
             </ul>
           </div>
@@ -137,7 +137,7 @@
                 </ul>
               </div>
 
-              <div class="icon-block">
+              <!-- <div class="icon-block">
                 <ul>
                   <li class="mobile-search">
                     <a href="javascript:void(0)">
@@ -203,8 +203,8 @@
                     </a>
                   </li>
                 </ul>
-                <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
-              </div>
+            
+              </div> -->
 
             </div>
           </div>
@@ -271,7 +271,7 @@
                     <h3>Seller of Best Books</h3>
                     <h2>KitaabWaala</h2>
                     <h4>Best Quality Books</h4>
-                    <a href="school/school-login" class="btn btn-rounded btn-md">
+                    <a href="/school/show-login" class="btn btn-rounded btn-md">
                       Shop Now
                     </a>
                   </div>
@@ -464,7 +464,7 @@
               <div>
                 <h3>book are treasures of knowledge...</h3>
                 <h4>up to 50% off</h4>
-                <a href="school/school-login" class="btn btn-rounded btn-sm">shop now</a>
+                <a href="/school/show-login" class="btn btn-rounded btn-sm">shop now</a>
               </div>
             </div>
           </div>
@@ -480,7 +480,7 @@
                   <div>
                     <h3>books develop our imagination...</h3>
 
-                    <a href="school/school-login" class="btn btn-rounded btn-sm">shop now</a>
+                    <a href="/school/show-login" class="btn btn-rounded btn-sm">shop now</a>
                   </div>
                 </div>
               </div>
@@ -494,7 +494,7 @@
                   <div>
                     <h3>best books</h3>
                     <h4>weekend sale</h4>
-                    <a href="school/school-login" class="btn btn-rounded btn-sm">shop now</a>
+                    <a href="/school/show-login" class="btn btn-rounded btn-sm">shop now</a>
                   </div>
                 </div>
               </div>
@@ -510,7 +510,7 @@
               <div>
                 <h3>Reading book is a good a hobby...</h3>
                 <h4>new special offer</h4>
-                <a href="school/school-login" class="btn btn-rounded btn-sm">shop now</a>
+                <a href="/school/show-login" class="btn btn-rounded btn-sm">shop now</a>
               </div>
             </div>
           </div>
@@ -2308,7 +2308,7 @@
   <!--sale banner start-->
   <section class="sale-banenr ">
     <img src="../assets/images/sale/1.jpg" alt="sale-banenr" class="img-fluid bg-img">
-    <div class="custom-container">
+    <div class="custom-container" style="margin-top: 20px;">
       <div class="row">
         <div class="col-12">
           <div class="sale-banenr-contain text-center p-left">
@@ -2316,7 +2316,7 @@
             
               <h4>Books are our best friend</h4>
               <h3>all class book available</h3>
-              <a href="school/school-login" class="btn btn-rounded">Shop Now</a>
+              <a href="/school/show-login" class="btn btn-rounded">Shop Now</a>
             </div>
           </div>
         </div>
@@ -2327,13 +2327,13 @@
 
   <!--title start-->
   <div class="title8 section-big-pt-space">
-    <h4>KetabWala team</h4>
+    <h4>Kitaabwaala team</h4>
   </div>
   <!--title end-->
 
   <!-- team start -->
   <section class="team2 section-mb-space">
-    <div class="custom-container">
+    <div class="custom-container" style="margin-left: 10px;">
       <div class="row">
         <div class="col-12 pr-0">
           <div class="team-slide4 no-arrow">
@@ -2345,11 +2345,11 @@
                 <div class="team-detail">
                   <h3>mark jecno</h3>
                   <h5>mark jecno</h5>
-                  <ul>
+                  <!-- <ul>
                     <li class="fb-color"><a href="javascript:void(0)" tabindex="0"> <i class="ti-facebook"></i></a></li>
                     <li class="twt-color"> <a href="javascript:void(0)" tabindex="0"><i class="ti-twitter-alt"></i></a></li>
                     <li class="print-color"> <a href="javascript:void(0)" tabindex="0"><i class="ti-pinterest"></i></a></li>
-                  </ul>
+                  </ul> -->
                 </div>
               </div>
             </div>
@@ -2361,11 +2361,11 @@
                 <div class="team-detail">
                   <h3>mark jecno</h3>
                   <h5>mark jecno</h5>
-                  <ul>
+                  <!-- <ul>
                     <li class="fb-color"><a href="javascript:void(0)" tabindex="0"> <i class="ti-facebook"></i></a></li>
                     <li class="twt-color"> <a href="javascript:void(0)" tabindex="0"><i class="ti-twitter-alt"></i></a></li>
                     <li class="print-color"> <a href="javascript:void(0)" tabindex="0"><i class="ti-pinterest"></i></a></li>
-                  </ul>
+                  </ul> -->
                 </div>
               </div>
             </div>
@@ -2377,11 +2377,11 @@
                 <div class="team-detail">
                   <h3>mark jecno</h3>
                   <h5>mark jecno</h5>
-                  <ul>
+                  <!-- <ul>
                     <li class="fb-color"><a href="javascript:void(0)" tabindex="0"> <i class="ti-facebook"></i></a></li>
                     <li class="twt-color"> <a href="javascript:void(0)" tabindex="0"><i class="ti-twitter-alt"></i></a></li>
                     <li class="print-color"> <a href="javascript:void(0)" tabindex="0"><i class="ti-pinterest"></i></a></li>
-                  </ul>
+                  </ul> -->
                 </div>
               </div>
             </div>
@@ -2393,11 +2393,11 @@
                 <div class="team-detail">
                   <h3>mark jecno</h3>
                   <h5>mark jecno</h5>
-                  <ul>
+                  <!-- <ul>
                     <li class="fb-color"><a href="javascript:void(0)" tabindex="0"> <i class="ti-facebook"></i></a></li>
                     <li class="twt-color"> <a href="javascript:void(0)" tabindex="0"><i class="ti-twitter-alt"></i></a></li>
                     <li class="print-color"> <a href="javascript:void(0)" tabindex="0"><i class="ti-pinterest"></i></a></li>
-                  </ul>
+                  </ul> -->
                 </div>
               </div>
             </div>
@@ -2409,11 +2409,11 @@
                 <div class="team-detail">
                   <h3>mark jecno</h3>
                   <h5>mark jecno</h5>
-                  <ul>
+                  <!-- <ul>
                     <li class="fb-color"><a href="javascript:void(0)" tabindex="0"> <i class="ti-facebook"></i></a></li>
                     <li class="twt-color"> <a href="javascript:void(0)" tabindex="0"><i class="ti-twitter-alt"></i></a></li>
                     <li class="print-color"> <a href="javascript:void(0)" tabindex="0"><i class="ti-pinterest"></i></a></li>
-                  </ul>
+                  </ul> -->
                 </div>
               </div>
             </div>
@@ -2485,7 +2485,7 @@
                     <li> <a href="javascript:void(0)">Stirrups or Stirrup Irons</a></li>
                     <li> <a href="javascript:void(0)">English Horse Reins</a></li>
                   </ul>
-                  <a href="school/school-login" class="btn btn-rounded btn-block">order now</a>
+                  <a href="/school/show-login" class="btn btn-rounded btn-block">order now</a>
                 </div>
               </div>
             </div>
@@ -2506,7 +2506,7 @@
                     <li> <a href="javascript:void(0)">Stirrups or Stirrup Irons</a></li>
                     <li> <a href="javascript:void(0)">English Horse Reins</a></li>
                   </ul>
-                  <a href="school/school-login" class="btn btn-rounded btn-block">order now</a>
+                  <a href="/school/show-login" class="btn btn-rounded btn-block">order now</a>
                 </div>
               </div>
             </div>
@@ -2527,7 +2527,7 @@
                     <li> <a href="javascript:void(0)">Stirrups or Stirrup Irons</a></li>
                     <li> <a href="javascript:void(0)">English Horse Reins</a></li>
                   </ul>
-                  <a href="school/school-login" class="btn btn-rounded btn-block">order now</a>
+                  <a href="/school/show-login" class="btn btn-rounded btn-block">order now</a>
                 </div>
               </div>
             </div>
@@ -2548,11 +2548,10 @@
                     <li> <a href="javascript:void(0)">Stirrups or Stirrup Irons</a></li>
                     <li> <a href="javascript:void(0)">English Horse Reins</a></li>
                   </ul>
-                  <a href="school/school-login" class="btn btn-rounded btn-md btn-block">order now</a>
+                  <a href="/school/show-login" class="btn btn-rounded btn-md btn-block">order now</a>
                 </div>
               </div>
             </div>
-<<<<<<< HEAD
           </div>
         </div>
       </div>
@@ -2561,119 +2560,8 @@
   <!-- pricing banner end -->
   <!-- app download start -->
   <section class="app-download section-mb-space">
-    <div class="custom-container">
+    <div class="custom-container" style="padding-top:20px;">
       <div class="row">
-=======
-            </div>            
-          </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- pricing banner end -->
-
-
-
-<!--title-start-->
-<!-- <div class="title8 ">
-  <h4>letest blog</h4>
-</div> -->
-<!--title-end-->
-
-<!--blog start-->
-<!-- <section class="blog section-big-mb-space">
-  <div class="custom-container">
-    <div class="row">
-      <div class="col pr-0">
-        <div class="blog-slide-4 no-arrow">
-          <div>
-            <div class="blog-contain">
-              <div class="blog-img">
-                <a href="blog-details.html">
-                  <img src="../assets/images/farming/blog/1.jpg" alt="blog" class="img-fluid w-100">
-                </a>
-              </div>
-              <div class="blog-details-2">
-                <a href="blog-details.html">
-                  <h4>the next big thing. </h4>
-                </a>           
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend a massa rhoncus gravida.</p>
-                <a href="blog-details.html" class=" btn btn-normal  btn-xs btn-outline">
-                  read more
-                </a>
-              </div>
-              <div class="blog-label1 square">27 <br>nov</div>
-            </div>
-          </div>
-          <div>
-            <div class="blog-contain">
-              <div class="blog-img">
-                <a href="blog-details.html">
-                  <img src="../assets/images/farming/blog/2.jpg" alt="blog" class="img-fluid w-100">
-                </a>
-              </div>
-              <div class="blog-details-2">
-               <a href="blog-details.html">
-                  <h4>ten quick tips.</h4>
-                </a>          
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend a massa rhoncus gravida.</p>
-                <a href="blog-details.html" class=" btn btn-normal  btn-xs btn-outline">
-                  read more
-                </a>
-              </div>
-              <div class="blog-label1 square">27 <br>nov</div>
-            </div>
-          </div>
-          <div>
-            <div class="blog-contain">
-              <div class="blog-img">
-                <a href="blog-details.html">
-                  <img src="../assets/images/farming/blog/3.jpg" alt="blog" class="img-fluid w-100">
-                </a>
-              </div>
-              <div class="blog-details-2">
-               <a href="blog-details.html">
-                  <h4>why is everyone. </h4>
-                </a>              
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend a massa rhoncus gravida.</p>
-                <a href="blog-details.html" class=" btn btn-normal  btn-xs btn-outline">
-                  read more
-                </a>
-              </div>
-              <div class="blog-label1 square">27 <br>nov</div>
-            </div>
-          </div>
-          <div>
-            <div class="blog-contain">
-              <div class="blog-img">
-                <a href="blog-details.html">
-                  <img src="../assets/images/farming/blog/4.jpg" alt="blog" class="img-fluid w-100">
-                </a>
-              </div>
-              <div class="blog-details-2">
-                <a href="blog-details.html">
-                  <h4>trends in farming to watch. </h4>
-                </a>               
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend a massa rhoncus gravida.</p>
-                <a href="blog-details.html" class=" btn btn-normal  btn-xs btn-outline">
-                  read more
-                </a>
-              </div>
-              <div class="blog-label1 square">27 <br>nov</div>
-            </div>
-          </div>         
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!--blog end-->
-
-<!-- app download start -->
-<section class="app-download section-mb-space">
-  <div class="custom-container">
-    <div class="row">
->>>>>>> 07699510308d30f8dfb18dc63a7b691a96175ca0
         <div class="col-12">
           <div class="app-download-main">
             <img src="../assets/images/banner/1.jpg" alt="app-download" class="img-fluid bg-img">
@@ -2681,7 +2569,7 @@
               <div>
                 <h2>get ready to buy <br>book from kitaabwaala?</h2>
                 <h3>download the KitaabWaala App Now</h3>
-                <a href="javascript:void(0)" class="btn btn-rounded btn-md">download</a>
+                <a href="/school/show-login" class="btn btn-rounded btn-md">download</a>
               </div>
             </div>
           </div>
@@ -2700,8 +2588,8 @@
             <div>
               <h2>Sign Up For Our Newsletter</h2>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. voluptates nihil reiciendis quos quae temporibus.</p>
-              <input class="form-control" type="text" placeholder="Email">
-              <a href="javascript:void(0)" class="btn btn-solid btn-md">subscribe now</a>
+              <input class="form-control" type="text" placeholder="Email" style="border-radius:30px">
+              <a href="javascript:void(0)" class="btn-rounded btn-md">Subscribe now</a>
             </div>
           </div>
         </div>
@@ -2720,7 +2608,7 @@
                     </g>
                   </svg></li>
                 <li>
-                  <h3>123-456-7890</h3>
+                  <h3>8710098850 , 8001436270</h3>
                 </li>
               </ul>
             </div>
@@ -2820,8 +2708,8 @@
                 </div>
                 <div class="footer-contant">
                   <ul>
-                    <li><a href="admin/admin-login">Admin</a></li>
-                    <li><a href="school/login">School</a></li>
+                    <li><a href="/admin/admin-login">Admin</a></li>
+                    <li><a href="/school/show-login">School</a></li>
                     <li><a href="javascript:void(0)">terms &amp; conditions</a></li>
 
                   </ul>
@@ -2834,9 +2722,9 @@
                 <div class="footer-contant">
                   <ul class="contact-list">
                     <li><i class="fa fa-map-marker"></i>KitaabWaala<br> india-<span>3654123</span></li>
-                    <li><i class="fa fa-phone"></i>call us: <span>123-456-7898</span></li>
-                    <li><i class="fa fa-envelope-o"></i>email us: support@KetabWala.com</li>
-                    <li><i class="fa fa-fax"></i>fax <span>123456</span></li>
+                    <li><i class="fa fa-phone"></i>call us: <span>8710098850 <br> 8001436270</span></li>
+                    <li><i class="fa fa-envRelope-o"></i>email us: support@Kitaabwaala.com</li>
+                    
                   </ul>
                 </div>
               </div>
@@ -2859,7 +2747,7 @@
                       </div>
                     </div>
                     <div class="form-group mb-0">
-                      <a href="javascript:void(0)" class="btn btn-solid btn-sm">submit now</a>
+                      <a href="javascript:void(0)" class="btn btn-rounded btn-sm">submit now</a>
                     </div>
                   </div>
                 </div>
@@ -2911,8 +2799,8 @@
                     <p>Subscribe to our website mailling list <br> and get a Offer, Just for you!</p>
                     <form action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda" class="auth-form needs-validation" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
                       <div class="form-group mx-sm-3">
-                        <input type="email" class="form-control" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email" required="required">
-                        <button type="submit" class="btn btn-theme btn-normal btn-sm " id="mc-submit">subscribe</button>
+                        <input type="email" class="form-control" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email" required="required" style="border-radius:30px;">
+                        <button type="submit" class="btn btn-theme btn-normal btn-sm " id="mc-submit" style="border-radius:30px;">subscribe</button>
                       </div>
                     </form>
                   </div>
@@ -2935,376 +2823,8 @@
   <!-- slick js-->
   <script src="../assets/js/slick.js"></script>
 
-<<<<<<< HEAD
   <!-- gallary js -->
   <script src='../assets/js/gallery.js'></script>
-=======
-<!-- Add to cart bar -->
-<div id="cart_side" class="add_to_cart right ">
-  <a href="javascript:void(0)" class="overlay" onclick="closeCart()"></a>
-  <div class="cart-inner">
-    <div class="cart_top">
-      <h3>my cart</h3>
-      <div class="close-cart">
-        <a href="javascript:void(0)" onclick="closeCart()">
-          <i class="fa fa-times" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-    <div class="cart_media">
-      <ul class="cart_product">
-        <li>
-          <div class="media">
-            <a href="product-page(left-sidebar).html">
-              <img alt="megastore1" class="me-3" src="../assets/images/farming/product/1.jpg">
-            </a>
-            <div class="media-body">
-              <a href="product-page(left-sidebar).html">
-                <h4>redmi not 3</h4>
-              </a>
-              <h6>
-                $80.00 <span>$120.00</span>
-              </h6>
-              <div class="addit-box">
-                <div class="qty-box">
-                  <div class="input-group">
-                    <button class="qty-minus"></button>
-                    <input class="qty-adj form-control" type="number" value="1"/>
-                    <button class="qty-plus"></button>
-                  </div>
-                </div>
-                <div class="pro-add">
-                  <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#edit-product" >
-                    <i data-feather="edit"></i>
-                  </a>
-                  <a href="javascript:void(0)">
-                    <i  data-feather="trash-2"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="media">
-            <a href="product-page(left-sidebar).html">
-              <img alt="megastore1" class="me-3" src="../assets/images/farming/product/2.jpg">
-            </a>
-            <div class="media-body">
-              <a href="product-page(left-sidebar).html">
-                <h4>Double Door Refrigerator</h4>
-              </a>
-              <h6>
-                $80.00 <span>$120.00</span>
-              </h6>
-              <div class="addit-box">
-                <div class="qty-box">
-                  <div class="input-group">
-                    <button class="qty-minus"></button>
-                    <input class="qty-adj form-control" type="number" value="1"/>
-                    <button class="qty-plus"></button>
-                  </div>
-                </div>
-                <div class="pro-add">
-                  <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#edit-product" >
-                    <i data-feather="edit"></i>
-                  </a>
-                  <a href="javascript:void(0)">
-                    <i  data-feather="trash-2"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="media">
-            <a href="product-page(left-sidebar).html">
-              <img alt="megastore1" class="me-3" src="../assets/images/farming/product/3.jpg">
-            </a>
-            <div class="media-body">
-              <a href="product-page(left-sidebar).html">
-                <h4>woman hande bag</h4>
-              </a>
-              <h6>
-                $80.00 <span>$120.00</span>
-              </h6>
-              <div class="addit-box">
-                <div class="qty-box">
-                  <div class="input-group">
-                    <button class="qty-minus"></button>
-                    <input class="qty-adj form-control" type="number" value="1"/>
-                    <button class="qty-plus"></button>
-                  </div>
-                </div>
-                <div class="pro-add">
-                  <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#edit-product" >
-                    <i data-feather="edit"></i>
-                  </a>
-                  <a href="javascript:void(0)">
-                    <i  data-feather="trash-2"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-      <ul class="cart_total">
-        <li>
-          subtotal : <span>$1050.00</span>
-        </li>
-        <li>
-          shpping <span>free</span>
-        </li>
-        <li>
-          taxes <span>$0.00</span>
-        </li>
-        <li>
-          <div class="total">
-            total<span>$1050.00</span>
-          </div>
-        </li>
-        <li>
-          <div class="buttons">
-            <a href="cart.html" class="btn btn-solid btn-sm">view cart</a>
-            <a href="checkout.html" class="btn btn-solid btn-sm ">checkout</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-<!-- Add to cart bar end-->
-
-<!-- wishlistbar bar -->
-<div id="wishlist_side" class="add_to_cart right ">
-  <a href="javascript:void(0)" class="overlay"  onclick="closeWishlist()"></a>
-  <div class="cart-inner">
-    <div class="cart_top">
-      <h3>my wishlist</h3>
-      <div class="close-cart">
-        <a href="javascript:void(0)" onclick="closeWishlist()">
-          <i class="fa fa-times" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-    <div class="cart_media">
-      <ul class="cart_product">
-        <li>
-          <div class="media">
-            <a href="product-page(left-sidebar).html">
-              <img alt="megastore1" class="me-3" src="../assets/images/farming/product/1.jpg">
-            </a>
-            <div class="media-body">
-              <a href="product-page(left-sidebar).html">
-                <h4>redmi not 3</h4>
-              </a>
-              <h6>
-                $80.00 <span>$120.00</span>
-              </h6>
-              <div class="addit-box">
-                <div class="qty-box">
-                  <div class="input-group">
-                    <button class="qty-minus"></button>
-                    <input class="qty-adj form-control" type="number" value="1"/>
-                    <button class="qty-plus"></button>
-                  </div>
-                </div>
-                <div class="pro-add">
-                  <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#edit-product" >
-                    <i data-feather="edit"></i>
-                  </a>
-                  <a href="javascript:void(0)">
-                    <i  data-feather="trash-2"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="media">
-            <a href="product-page(left-sidebar).html">
-              <img alt="megastore1" class="me-3" src="../assets/images/farming/product/2.jpg">
-            </a>
-            <div class="media-body">
-              <a href="product-page(left-sidebar).html">
-                <h4>Double Door Refrigerator</h4>
-              </a>
-              <h6>
-                $80.00 <span>$120.00</span>
-              </h6>
-              <div class="addit-box">
-                <div class="qty-box">
-                  <div class="input-group">
-                    <button class="qty-minus"></button>
-                    <input class="qty-adj form-control" type="number" value="1"/>
-                    <button class="qty-plus"></button>
-                  </div>
-                </div>
-                <div class="pro-add">
-                  <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#edit-product" >
-                    <i data-feather="edit"></i>
-                  </a>
-                  <a href="javascript:void(0)">
-                    <i  data-feather="trash-2"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="media">
-            <a href="product-page(left-sidebar).html">
-              <img alt="megastore1" class="me-3" src="../assets/images/farming/product/3.jpg">
-            </a>
-            <div class="media-body">
-              <a href="product-page(left-sidebar).html">
-                <h4>woman hande bag</h4>
-              </a>
-              <h6>
-                $80.00 <span>$120.00</span>
-              </h6>
-              <div class="addit-box">
-                <div class="qty-box">
-                  <div class="input-group">
-                    <button class="qty-minus"></button>
-                    <input class="qty-adj form-control" type="number" value="1"/>
-                    <button class="qty-plus"></button>
-                  </div>
-                </div>
-                <div class="pro-add">
-                  <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#edit-product" >
-                    <i data-feather="edit"></i>
-                  </a>
-                  <a href="javascript:void(0)">
-                    <i  data-feather="trash-2"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-      <ul class="cart_total">
-        <li>
-          subtotal : <span>$1050.00</span>
-        </li>
-        <li>
-          shpping <span>free</span>
-        </li>
-        <li>
-          taxes <span>$0.00</span>
-        </li>
-        <li>
-          <div class="total">
-            total<span>$1050.00</span>
-          </div>
-        </li>
-        <li>
-          <div class="buttons">
-            <a href="wishlist.html" class="btn btn-solid btn-block btn-md">view wislist</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-<!-- wishlistbar bar end-->
-
-<!-- My account bar start-->
-<div id="myAccount" class="add_to_cart right account-bar">
-  <a href="javascript:void(0)" class="overlay" onclick="closeAccount()"></a>
-  <div class="cart-inner">
-    <div class="cart_top">
-      <h3>my account</h3>
-      <div class="close-cart">
-        <a href="javascript:void(0)" onclick="closeAccount()">
-          <i class="fa fa-times" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-    <form class="theme-form">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" class="form-control" id="email" placeholder="Email" required="">
-      </div>
-      <div class="form-group">
-        <label for="review">Password</label>
-        <input type="password" class="form-control" id="review" placeholder="Enter your password" required="">
-      </div>
-      <div class="form-group">
-        <a href="javascript:void(0)" class="btn btn-solid btn-md btn-block ">Login</a>
-      </div>
-      <div class="accout-fwd">
-        <a href="forget-pwd.html" class="d-block"><h5>forget password?</h5></a>
-        <a href="register.html" class="d-block"><h6 >you have no account ?<span>signup now</span></h6></a>
-      </div>
-    </form>
-  </div>
-</div>
-<!-- Add to account bar end-->
-
-<!-- add to  setting bar  start-->
-<div id="mySetting" class="add_to_cart right">
-  <a href="javascript:void(0)" class="overlay" onclick="closeSetting()"></a>
-  <div class="cart-inner">
-    <div class="cart_top">
-      <h3>my setting</h3>
-      <div class="close-cart">
-        <a href="javascript:void(0)" onclick="closeSetting()">
-          <i class="fa fa-times" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-    <div class="setting-block">
-      <div class="form-group">
-        <select>
-          <option value="">language</option>
-          <option value="">english</option>
-          <option value="">french</option>
-          <option value="">hindi</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <select>
-          <option value="">currency</option>
-          <option value="">uro</option>
-          <option value="">ruppees</option>
-          <option value="">piund</option>
-          <option value="">doller</option>
-        </select>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- add to  setting bar  end-->
-
-<!-- notification product -->
-<div class="product-notification" id="dismiss">
-  <span  onclick="dismiss();" class="btn-close" aria-hidden="true"></span>
-  <div class="media">
-    <img class="me-2" src="../assets/images/banner/book.jpeg" alt="Generic placeholder image">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">Latest trending</h5>
-      Cras sit amet nibh libero, in gravida nulla.
-    </div>
-  </div>
-</div>
-<!-- notification product -->
-
-
-<!-- latest jquery-->
-<script src="../assets/js/jquery-3.3.1.min.js"></script>
-
-<!-- slick js-->
-<script src="../assets/js/slick.js"></script>
-
-<!-- gallary js -->
-<script src='../assets/js/gallery.js'></script>
->>>>>>> 07699510308d30f8dfb18dc63a7b691a96175ca0
 
 
 

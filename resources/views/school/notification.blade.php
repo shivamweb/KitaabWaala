@@ -4,14 +4,37 @@
 
 
 @section('content')
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="page-header-left">
+                    <h3>List Notification
+                        <small>KitaabWaala School </small>
+                    </h3>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <ol class="breadcrumb pull-right">
+                    <li class="breadcrumb-item"><a href="dashboard"><i data-feather="home"></i></a></li>
 
-<div class="container-fluid main-content px-2 px-lg-4 pt-3 pt-lg-5 mt-5">
-    <div class="row my-2 g-3 g-lg-4 contact-section">
-        <div class="d-flex justify-content-center pb-4">
-            <div class="col-xl-12 bg-card p-2 p-md-3 px-lg-4 rounded">
+                    <li class="breadcrumb-item active">List Notification</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card tab2-card">
+                <div class="card-body">
                 <div class="d-flex flex-wrap align-items-center justify-content-between bottom-border">
                     <h3>Notification center</h3>
                 </div>
+<hr>
 
                 <div class="tab-content" id="pills-tabContent">
                     @if ($notifications->isEmpty())
@@ -49,6 +72,8 @@
             </div>
         </div>
     </div>
+    </div>
+    
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script>

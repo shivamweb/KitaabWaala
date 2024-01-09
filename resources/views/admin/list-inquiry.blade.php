@@ -1,6 +1,6 @@
 @extends('admin.master')
 
-@section('title', 'Notifications')
+@section('title', 'Inquiry')
 
 
 @section('content')
@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="page-header-left">
-                    <h3>List Notification
+                    <h3>List Inquiry
                         <small>KitaabWaala Admin </small>
                     </h3>
                 </div>
@@ -19,7 +19,7 @@
                 <ol class="breadcrumb pull-right">
                     <li class="breadcrumb-item"><a href="dashboard"><i data-feather="home"></i></a></li>
 
-                    <li class="breadcrumb-item active">List Notification</li>
+                    <li class="breadcrumb-item active">List Inquiry</li>
                 </ol>
             </div>
         </div>
@@ -32,39 +32,36 @@
             <div class="card tab2-card">
                 <div class="card-body">
                 <div class="d-flex flex-wrap align-items-center justify-content-between bottom-border">
-                    <h3>Notification center</h3>
+                    <h3>Inquiry center</h3>
                 </div>
 <hr>
                 <div class="tab-content" id="pills-tabContent">
-                    @if ($notifications->isEmpty())
+                  
                     <p>No notifications to display.</p>
-                    @else
+                 
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-                        @php
-                        $notifications = $notifications->reverse();
-                        @endphp
-                        @foreach ($notifications as $notification)
+                       
                         <div class="bg-notification mb-3 flex-wrap flex-md-nowrap rounded px-2 px-md-3 py-4 d-flex align-items-center w-100 gap-2">
                             
                             
                             <img src="../assets/images/default/book.jpg" width="80" height="80" alt="Default Image">
                         
                             <div class="flex-grow-1">
-                                <p class="pg-large mb-1">{{ $notification->name. ' ' .$notification->last_name }}</p>
-                                <p class="pg-large mb-1">{{ $notification->description }}</p>
+                                <p class="pg-large mb-1"></p>
+                                <p class="pg-large mb-1"></p>
                                 <div class="d-flex justify-content-between">
                                     <span class="d-flex align-items-center gap-2">
-                                        <span class="dynamic-timestamp" data-timestamp="{{ $notification->created_at->toIso8601String() }}"></span>
+                                        <span class="dynamic-timestamp" data-timestamp=""></span>
                                         <span class="notification-dot"></span>
                                     </span>
-                                    <span class="primary">{{ $notification->created_at->format('M d, Y') }}</span>
+                                    <span class="primary"></span>
                                 </div>
 
                             </div>
                         </div>
-                        @endforeach
+                     
                     </div>
-                    @endif
+                 
                 </div>
             </div>
         </div>

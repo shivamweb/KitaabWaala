@@ -144,7 +144,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Verify</button>
+                                <button type="submit" class="btn btn-primary">upload</button>
                             </form>
                         </div>
                     </div>

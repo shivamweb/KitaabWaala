@@ -8,14 +8,14 @@
             <div class="col-lg-6">
                 <div class="page-header-left">
                     <h3>Class
-                        <small>Hill Cell Seller panel</small>
+                        <small>Kitaabwaala Admin</small>
                     </h3>
                 </div>
             </div>
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
                     <li class="breadcrumb-item"><a href="dashboard"><i data-feather="home"></i></a></li>
-                    <li class="breadcrumb-item">Admin</li>
+               
                     <li class="breadcrumb-item active">Class</li>
                 </ol>
             </div>

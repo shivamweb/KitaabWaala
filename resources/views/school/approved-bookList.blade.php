@@ -9,15 +9,15 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="page-header-left">
-                    <h3>Product List
-                        <small>KitaabWaala School panel</small>
+                    <h3>Approved Book List
+                        <small>KitaabWaala School </small>
                     </h3>
                 </div>
             </div>
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
-                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                    <li class="breadcrumb-item active">Product List</li>
+                    <li class="breadcrumb-item"><a href="dashboard"><i data-feather="home"></i></a></li>
+                    <li class="breadcrumb-item active">Approved Book List</li>
                 </ol>
             </div>
         </div>
@@ -31,7 +31,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>Product Lists</h5>
+                    <h5>Approved Book List</h5>
                 </div>
                 <div class="card-body vendor-table">
             <table class="display" id="basic-1">

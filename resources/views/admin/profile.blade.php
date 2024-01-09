@@ -10,7 +10,7 @@
             <div class="col-lg-6">
                 <div class="page-header-left">
                     <h3>Profile
-                        <small>Hill Cell Admin panel</small>
+                        <small>Kitaabwaala Admin </small>
                     </h3>
                 </div>
             </div>
@@ -154,4 +154,53 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var status = "{{ session('status') }}";
+        var message = "{{ session('message') }}";
+        var errors = @json($errors->all());
+        if (status === 'success') {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: message
+            });
+        } else if (status === 'error') {
+            if (errors.length > 0) {
+                var errorMessage = 'Validation Errors:<br>';
+                errors.forEach(function(error) {
+                    errorMessage += error + '<br>';
+                });
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Validation Error',
+                    html: errorMessage
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: message
+                });
+            }
+        }
+    });
+
+    function previewImage(input, previewId) {
+        const file = input.files[0];
+        const imagePreview = document.getElementById(previewId);
+        if (file) {
+            let reader = new FileReader();
+            reader.onload = function(event) {
+                imagePreview.src = event.target.result;
+                imagePreview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        } else {
+            imagePreview.src = "";
+            imagePreview.style.display = 'none';
+        }
+    }
+</script>
 @endsection
