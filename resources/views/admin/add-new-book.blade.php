@@ -8,16 +8,16 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="page-header-left">
-                    <h3>Add Products
-                        <small>Bigdeal Admin panel</small>
+                    <h3>Add Books
+                        <small>Kitaabwaala Admin</small>
                     </h3>
                 </div>
             </div>
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
-                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                    <li class="breadcrumb-item">Physical</li>
-                    <li class="breadcrumb-item active">Add Product</li>
+                    <li class="breadcrumb-item"><a href="dashboard"><i data-feather="home"></i></a></li>
+                    
+                    <li class="breadcrumb-item active">Add Book</li>
                 </ol>
             </div>
         </div>
@@ -30,7 +30,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>Add Product</h5>
+                    <h5>Add Book</h5>
                 </div>
                 <div class="card-body">
                     <div class="row product-adding">
@@ -61,7 +61,7 @@
                                                 <label for="validationCustom01">Book Name :</label>
                                             </div>
                                             <div class="col-xl-8 col-sm-7">
-                                                <input class="form-control " id="book_name" name="book_name" type="text" required="">
+                                                <input class="form-control " id="book_name" name="book_name" type="text" required="" style="border-radius:20px;">
 
                                             </div>
                                         </div>
@@ -70,7 +70,7 @@
                                                 <label for="validationCustom01">Price:</label>
                                             </div>
                                             <div class="col-xl-8 col-sm-7">
-                                                <input class="form-control " id="price" name="price" type="text" required="">
+                                                <input class="form-control " id="price" name="price" type="text" required=""style="border-radius:20px;">
 
                                             </div>
                                         </div>
@@ -79,7 +79,7 @@
                                                 <label for="validationCustom02">Part :</label>
                                             </div>
                                             <div class="col-xl-8 col-sm-7">
-                                                <input class="form-control " id="validationCustom02" name="part" type="text" required="">                                             
+                                                <input class="form-control " id="validationCustom02" name="part" type="text" required=""style="border-radius:20px;">                                             
                                             </div>
                                         </div>
                                         <div class="form-group mb-3 row">
@@ -88,8 +88,8 @@
                                             </div>
 
                                             <div class="col-xl-8 col-sm-7">
-                                                <input class="form-control " id="validationCustomUsername" name="publisher" type="text" required="">
-                                                <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
+                                                <input class="form-control " id="validationCustomUsername" name="publisher" type="text" required="" style="border-radius:20px;">
+                                
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +99,7 @@
                                                 <label for="exampleFormControlSelect1">Select Class :</label>
                                             </div>
                                             <div class="col-xl-8 col-sm-7">
-                                                <select class="custom-select form-control" name="class_id">
+                                                <select class="custom-select form-control" name="class_id" style="border-radius:20px;">
                                                     <option value="">--Select Class--</option>
                                                     @foreach($classes as $class)
                                                     <option value="{{$class->id}}">{{$class->class}}</option>
@@ -108,12 +108,12 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="col-xl-3 col-sm-4 mb-0">
+                                            <div class="col-xl-3 col-sm-4 mb-0" >
                                                 <label for="exampleFormControlSelect1">Select Status :</label>
                                             </div>
                                             <div class="col-xl-8 col-sm-7">
-                                                <select class="custom-select form-control" name="status">
-                                                    <option value="">--Select--</option>
+                                                <select class="custom-select form-control" name="status" style="border-radius:20px;">
+                                                    <option value="">--Select Status--</option>
                                                     <option value="{{ \App\Enums\BookStatusEnum::Available }}">Available</option>
                                                     <option value="{{ \App\Enums\BookStatusEnum::Unavailable }}">Unavailable</option>
                                                 </select>
@@ -124,8 +124,8 @@
                                                 <label for="exampleFormControlSelect1">Select Stock Status :</label>
                                             </div>
                                             <div class="col-xl-8 col-sm-7">
-                                                <select class="custom-select form-control" name="stock_status">
-                                                    <option value="">--Select--</option>
+                                                <select class="custom-select form-control" name="stock_status" style="border-radius:20px;">
+                                                    <option value="">--Select Stock Status--</option>
                                                     <option value="{{ \App\Enums\BookStockStatusEnum::INSTOCK }}">INSTOCK</option>
                                                     <option value="{{ \App\Enums\BookStockStatusEnum::OUT_OF_STOCK }}">OUT_OF_STOCK</option>
                                                 </select>
@@ -138,7 +138,7 @@
                                             <div class="col-xl-9 col-xl-8 col-sm-7 ps-0">
                                                 <fieldset class="qty-box ">
                                                     <div class="input-group">
-                                                        <input class="touchspin" name="quantity" type="text" value="1">
+                                                        <input class="touchspin" name="quantity" type="text" value="1" style="border-radius:20px;">
                                                     </div>
                                                 </fieldset>
                                             </div>
@@ -146,13 +146,13 @@
                                         <div class="form-group row">
                                             <label class="col-xl-3 col-sm-4">Add Description :</label>
                                             <div class="col-xl-8 col-sm-7 ps-0 description-sm">
-                                                <textarea id="description" class="form-control" name="description" cols="100" rows="4"></textarea>
+                                                <textarea id="description" class="form-control" name="description" cols="100" rows="4" style="border-radius:20px;"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="offset-xl-3 offset-sm-4">
                                         <button type="submit" id="submit-button" class="btn btn-primary">Add</button>
-                                        <button type="button" class="btn btn-light">Discard</button>
+                                        <button type="button" class="btn btn-primary">Discard</button>
                                     </div>
                                 </div>
                             </div>

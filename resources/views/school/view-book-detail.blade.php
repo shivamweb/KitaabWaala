@@ -134,7 +134,7 @@
                                 </div>
                                 <div class="offset-xl-3 offset-sm-4">
                                     <button type="submit" id="submit-button" class="btn btn-primary">Add</button>
-                                    <button type="button" class="btn btn-light">Discard</button>
+                                    <button type="button" class="btn btn-primary">Discard</button>
                                 </div>
                             </div>
                         </div>

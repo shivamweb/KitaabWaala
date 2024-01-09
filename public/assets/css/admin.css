@@ -20149,13 +20149,17 @@ input:focus {
       .page-main-header .main-header-right .nav-right ul li .dot-chat {
         right: 4px;
         bottom: -11px; }
-      .page-main-header .main-header-right .nav-right .notification {
-        position: absolute;
-        top: 21px;
-        right: -1px;
-        font-size: 9px;
-        -webkit-animation: blink 1.5s infinite;
-                animation: blink 1.5s infinite; }
+        .page-main-header .main-header-right .nav-right .inquiry {
+          position: absolute;
+          top: 21px;
+          right: -1px;
+          font-size: 9px;
+          /* Add styles for the inquiry icon */
+          content: "\f1a1"; /* Unicode character for the FontAwesome inquiry icon */
+          font-family: 'Font Awesome 5 Free'; /* Specify the Font Awesome font family */
+          color: #00baf2;
+          cursor: pointer;
+        }
 
 @-webkit-keyframes blink {
   0% {
@@ -21548,6 +21552,7 @@ ul.notification-dropdown.onhover-show-div {
 /*======= Font-color css end  ======= */
 /*======= Button-color css starts  ======= */
 .btn-primary {
+  border-radius: 20px;
   background-color: #00baf2 !important;
   border-color: #00baf2 !important; }
   .btn-primary.disabled {
@@ -21564,6 +21569,7 @@ ul.notification-dropdown.onhover-show-div {
             box-shadow: 0 0 0 0.2rem #8ce4ff; }
 
 .btn-secondary {
+  border-radius: 20px;
   background-color: #314da7 !important;
   border-color: #314da7 !important; }
   .btn-secondary.disabled {

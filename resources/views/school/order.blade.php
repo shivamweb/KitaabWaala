@@ -11,7 +11,7 @@
             <div class="col-lg-6">
                 <div class="page-header-left">
                     <h3>Orders
-                        <small>KitaabWaala School panel</small>
+                        <small>KitaabWaala School </small>
                     </h3>
                 </div>
             </div>

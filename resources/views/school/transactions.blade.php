@@ -7,16 +7,16 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="page-header-left">
-                    <h3>Transections
-                        <small>Hill Cell Seller panel</small>
+                    <h3>Transactions
+                        <small>Kitaabwaala school </small>
                     </h3>
                 </div>
             </div>
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
-                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                    <li class="breadcrumb-item">Admin</li>
-                    <li class="breadcrumb-item active">Transections</li>
+                    <li class="breadcrumb-item"><a href="dashboard"><i data-feather="home"></i></a></li>
+                    
+                    <li class="breadcrumb-item active">Transactions</li>
                 </ol>
             </div>
         </div>
@@ -27,7 +27,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>Transections</h5>
+                    <h5>Transactions</h5>
                 </div>
                 <div class="card-body">
                     <div class="btn-popup pull-right">
@@ -36,7 +36,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title f-w-600" id="exampleModalLabel">Add Transections</h5>
+                                        <h5 class="modal-title f-w-600" id="exampleModalLabel">Add Transactions</h5>
                                         <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     </div>
                                     <div class="modal-body">
@@ -56,8 +56,8 @@
                                             </div>
                                             <div class="form">
                                                 <div class="form-group">
-                                                    <label for="class" class="mb-1">Transection Id :</label>
-                                                    <input class="form-control" name="transection_id" id="class" type="text">
+                                                    <label for="class" class="mb-1">Transaction Id :</label>
+                                                    <input class="form-control" name="transection_id" id="class" type="text" style="border-radius: 20px;">
                                                 </div>
                                             </div>
                                             <div class="form">
@@ -69,11 +69,11 @@
                                             <div class="form">
                                                 <div class="form-group">
                                                     <label for="class" class="mb-1">Paid Amount :</label>
-                                                    <input class="form-control" name="amount" id="class" type="text">
+                                                    <input class="form-control" name="amount" id="class" type="text" style="border-radius: 20px;">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button class="btn btn-primary" type="submit">Save</button>
+                                                <button class="btn btn-primary" type="submit" >Save</button>
                                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
                                             </div>
                                         </form>

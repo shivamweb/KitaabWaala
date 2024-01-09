@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('school.master')
 
 @section('title', 'Dashboard')
 @section('content')
@@ -8,8 +8,8 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="page-header-left">
-                    <h3>Add Notification
-                        <small>KitaabWaala Admin </small>
+                    <h3>Add Inquiry
+                        <small>KitaabWaala School </small>
                     </h3>
                 </div>
             </div>
@@ -17,7 +17,7 @@
                 <ol class="breadcrumb pull-right">
                     <li class="breadcrumb-item"><a href="dashboard"><i data-feather="home"></i></a>
                     </li>
-                    <li class="breadcrumb-item active">Add Notification</li>
+                    <li class="breadcrumb-item active">Add Inquiry</li>
                 </ol>
             </div>
         </div>
@@ -29,7 +29,7 @@
             <div class="card tab2-card">
                 <div class="card-body">
        
-            <form action="{{ route('sendNotification') }}" method="post" >
+            <form action="" method="post" >
               @csrf
               
               <div class="row">
@@ -37,9 +37,9 @@
                   <label for="to" class="form-label">Send To</label>
                   <select class="form-select" id="to" name="to">
                     <option value="all">All</option>
-                    @foreach($schooldetails as $schooldetail)
-                    <option value="{{ $schooldetail->id }}">{{ $schooldetail->id. '|' .$schooldetail->name. ' ' .$schooldetail->last_name. '|' .$schooldetail->email}}</option>
-                    @endforeach
+                   
+                    <option value="inquiry">inquiry</option>
+                  
                   </select>
                 </div>
               </div>
@@ -52,7 +52,7 @@
           </div>
           <div class="d-flex gap-4 mt-4">
             <button type="submit" class="btn btn-primary">
-              Send Notification
+              Send Inquiry
             </button>
             <button type="reset" class="btn btn-primary">Cancel</button>
           </div>

@@ -73,71 +73,8 @@
                         </li>
 
                         <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
-                        <li class="onhover-dropdown"><i data-feather="bell"></i><span class="badge badge-pill badge-primary pull-right notification-badge">3</span><span class="dot"></span>
-                            <ul class="notification-dropdown custom-scrollbar onhover-show-div p-0">
-                                <li>
-                                    <div class="media">
-                                        <div class="notification-icons bg-success me-3"><i data-feather="thumbs-up"></i></div>
-                                        <div class="media-body">
-                                            <h6 class="font-success">Someone Likes Your Posts</h6>
-                                            <p class="mb-0"> 2 Hours Ago</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media">
-                                        <div class="notification-icons bg-info me-3"><i data-feather="message-circle"></i></div>
-                                        <div class="media-body">
-                                            <h6 class="font-info">3 New Comments</h6>
-                                            <p class="mb-0"> 1 Hours Ago</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media">
-                                        <div class="notification-icons bg-secondary me-3"><i data-feather="download"></i></div>
-                                        <div class="media-body">
-                                            <h6 class="font-secondary">Download Complete</h6>
-                                            <p class="mb-0"> 3 Days Ago</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media">
-                                        <div class="notification-icons bg-success bg-warning me-3">
-                                            <i data-feather="gift"></i>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6 class="font-secondary">New Order Recieved</h6>
-                                            <p class="mb-0"> 4 Days Ago</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media">
-                                        <div class="notification-icons bg-success me-3">
-                                            <i data-feather="airplay"></i>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6 class="font-secondary">Apps are ready for update</h6>
-                                            <p class="mb-0"> 3 Minutes Ago</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media">
-                                        <div class="notification-icons bg-info me-3">
-                                            <i data-feather="alert-circle"></i>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6 class="font-secondary">Server Warning</h6>
-                                            <p class="mb-0"> Just Now</p>
-                                        </div>
-                                    </div>
-                                </li>
 
-                                <li class="bg-light txt-dark"><a href="javascript:void(0)" data-original-title="" title="">All </a> notification</li>
-                            </ul>
+                           
                         </li>
                         <li><a href="javascript:void(0)"><i class="right_side_toggle" data-feather="message-square"></i><span class="dot"></span></a></li>
                         <li class="onhover-dropdown">
@@ -147,8 +84,8 @@
                             <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
                                 <li><a href="/school/profile">Profile<span class="pull-right"><i data-feather="user"></i></span></a></li>
                                 <li><a href="/school/showNotification">Notification<span class="pull-right"><i data-feather="mail"></i></span></a></li>
-                                <li><a href="javascript:void(0)">Inquiry<span class="pull-right"><i data-feather="file-text"></i></span></a></li>
-                                <li><a href="javascript:void(0)">Settings<span class="pull-right"><i data-feather="settings"></i></span></a></li>
+                                <li><a href="/school/add-inquiry">Inquiry<span class="pull-right"><i data-feather="file-text"></i></span></a></li>
+                                <!-- <li><a href="javascript:void(0)">Settings<span class="pull-right"><i data-feather="settings"></i></span></a></li> -->
                             </ul>
                         </li>
                     </ul>
@@ -187,8 +124,8 @@
                         </li>
                         <li><a class="sidebar-header" href="#"><i data-feather="tag"></i><span>Inbox</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
-                                <li><a href="coupon-list.html"><i class="fa fa-circle"></i>Notification</a></li>
-                                <li><a href="coupon-list.html"><i class="fa fa-circle"></i>Inquiry</a></li>
+                                <li><a href="showNotification"><i class="fa fa-circle"></i>Notification</a></li>
+                                <li><a href="add-inquiry"><i class="fa fa-circle"></i>Inquiry</a></li>
                             </ul>
                         </li>
                         <li><a class="sidebar-header" href="javascript:void(0)"><i data-feather="clipboard"></i><span>Reports</span><i class="fa fa-angle-right pull-right"></i></a>

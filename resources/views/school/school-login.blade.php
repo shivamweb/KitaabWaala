@@ -167,10 +167,10 @@
                                         <div class="tab-pane fade show active" id="top-profile" role="tabpanel" aria-labelledby="top-profile-tab">
                                             <form class="form-horizontal auth-form">
                                                 <div class="form-group">
-                                                    <input required="" name="email" type="email" class="form-control" placeholder="Username" id="exampleInputEmail1">
+                                                    <input required="" name="email" type="email" class="form-control" placeholder="Username" id="exampleInputEmail1" style="border-radius:20px;">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input required="" name="password" type="password" class="form-control" placeholder="Password">
+                                                    <input required="" name="password" type="password" class="form-control" placeholder="Password"style="border-radius:20px;">
                                                 </div>
                                                 <div class="form-terms">
                                                     <div class="custom-control custom-checkbox me-sm-2">
@@ -185,7 +185,7 @@
                                                     <button class="btn btn-primary" type="submit">Login</button>
                                                 </div>
                                             </form>
-                                            <div class="form-footer">
+                                            <!-- <div class="form-footer">
                                                 <span>Or Login up with social platforms</span>
                                                 <ul class="social">
                                                     <li><a class="icon-facebook" href="#"></a></li>
@@ -193,7 +193,7 @@
                                                     <li><a class="icon-instagram" href="#"></a></li>
                                                     <li><a class="icon-pinterest" href="#"></a></li>
                                                 </ul>
-                                            </div>
+                                            </div> -->
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
@@ -202,15 +202,15 @@
                                     <div class="row">
                                         <div class="col-lg-6 mt-3 mt-lg-4">
                                             <div class="form-group">
-                                                <input required="" name="school_name" type="text" class="form-control" placeholder="School Name">
+                                                <input required="" name="school_name" type="text" class="form-control" placeholder="School Name" id="school_name" style="border-radius:20px;">
                                             </div>
                                         </div>
                                        
                                     <div class="form-group">
-                                        <input required="" name="email" type="email" class="form-control" placeholder="Email" id="exampleInputEmail12">
+                                        <input required="" name="email" type="email" class="form-control" placeholder="Email" id="exampleInputEmail12" style="border-radius:20px;">
                                     </div>
                                     <div class="form-group">
-                                        <input required="" name="password" type="password" class="form-control" placeholder="Password">
+                                        <input required="" name="password" type="password" class="form-control" placeholder="Password" style="border-radius:20px;">
                                     </div>
                                     <div class="form-terms">
                                         <div class="custom-control custom-checkbox form-check me-sm-2">
@@ -227,7 +227,7 @@
                                     <div class="form-button">
                                         <button class="btn btn-primary" type="submit">Register</button>
                                     </div>
-                                    <div class="form-footer">
+                                    <!-- <div class="form-footer">
                                         <span>Or Sign up with social platforms</span>
                                         <ul class="social">
                                             <li><a class="icon-facebook" href="#"></a></li>
@@ -235,7 +235,7 @@
                                             <li><a class="icon-instagram" href="#"></a></li>
                                             <li><a class="icon-pinterest" href="#"></a></li>
                                         </ul>
-                                    </div>
+                                    </div> -->
                                 </form>
                             </div>
                         </div>
@@ -243,7 +243,7 @@
                 </div>
             </div>
         </div>
-        <a href="index.html" class="btn btn-primary back-btn"><i data-feather="arrow-left"></i>back</a>
+        <a href="/" class="btn btn-primary back-btn"><i data-feather="arrow-left"></i>back</a>
     </div>
     </div>
     </div>
@@ -311,7 +311,7 @@
                         html: errorMessage
                     }).then(function() {
                         // Redirect to a desired URL after the user clicks "OK"
-                        window.location.href = '/register'; // Replace with your desired URL
+                        window.location.href = '/school/show-login'; // Replace with your desired URL
                     });
                 } else {
                     // Display a SweetAlert with general error message

@@ -10,8 +10,8 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="page-header-left">
-                    <h3>Orders
-                        <small>KitaabWaala School panel</small>
+                    <h3>Received Orders
+                        <small>KitaabWaala admin </small>
                     </h3>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                 <ol class="breadcrumb pull-right">
                     <li class="breadcrumb-item"><a href="dashboard"><i data-feather="home"></i></a></li>
 
-                    <li class="breadcrumb-item active">Orders</li>
+                    <li class="breadcrumb-item active"> Received Orders</li>
                 </ol>
             </div>
         </div>

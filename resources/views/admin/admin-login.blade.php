@@ -141,22 +141,11 @@
                             <div class="single-item">
                                 <div>
                                     <div>
-                                        <h3>Welcome to Bigdeal</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+                                        <h3>Welcome to Kitaabwaala</h3>
+                                        <p>Kitaabwaala best book seller</p>
                                     </div>
                                 </div>
-                                <div>
-                                    <div>
-                                        <h3>Welcome to Bigdeal</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <h3>Welcome to Bigdeal</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
-                                    </div>
-                                </div>
+                             
                             </div>
                         </div>
                     </div>
@@ -175,10 +164,10 @@
                                         <div class="tab-pane fade show active" id="top-profile" role="tabpanel" aria-labelledby="top-profile-tab">
                                             <form class="form-horizontal auth-form">
                                                 <div class="form-group">
-                                                    <input required="" name="email" type="email" class="form-control" placeholder="Username" id="exampleInputEmail1">
+                                                    <input required="" name="email" type="email" class="form-control" placeholder="Username" id="exampleInputEmail1" style="border-radius:20px;">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input required="" name="password" type="password" class="form-control" placeholder="Password">
+                                                    <input required="" name="password" type="password" class="form-control" placeholder="Password" style="border-radius:20px;">
                                                 </div>
                                                 <div class="form-terms">
                                                     <div class="custom-control custom-checkbox me-sm-2">
@@ -193,7 +182,7 @@
                                                     <button class="btn btn-primary" type="submit">Login</button>
                                                 </div>
                                             </form>
-                                            <div class="form-footer">
+                                            <!-- <div class="form-footer">
                                                 <span>Or Login up with social platforms</span>
                                                 <ul class="social">
                                                     <li><a class="icon-facebook" href="#"></a></li>
@@ -201,7 +190,7 @@
                                                     <li><a class="icon-instagram" href="#"></a></li>
                                                     <li><a class="icon-pinterest" href="#"></a></li>
                                                 </ul>
-                                            </div>
+                                            </div> -->
                                 </form>
                             </div>
                            

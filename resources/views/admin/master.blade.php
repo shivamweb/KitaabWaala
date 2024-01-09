@@ -71,71 +71,7 @@
                             </form>
                         </li>
                         <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
-                        <li class="onhover-dropdown"><i data-feather="bell"></i><span class="badge badge-pill badge-primary pull-right notification-badge">3</span><span class="dot"></span>
-                            <ul class="notification-dropdown custom-scrollbar onhover-show-div p-0">
-                                <li>
-                                    <div class="media">
-                                        <div class="notification-icons bg-success me-3"><i data-feather="thumbs-up"></i></div>
-                                        <div class="media-body">
-                                            <h6 class="font-success">Someone Likes Your Posts</h6>
-                                            <p class="mb-0"> 2 Hours Ago</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media">
-                                        <div class="notification-icons bg-info me-3"><i data-feather="message-circle"></i></div>
-                                        <div class="media-body">
-                                            <h6 class="font-info">3 New Comments</h6>
-                                            <p class="mb-0"> 1 Hours Ago</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media">
-                                        <div class="notification-icons bg-secondary me-3"><i data-feather="download"></i></div>
-                                        <div class="media-body">
-                                            <h6 class="font-secondary">Download Complete</h6>
-                                            <p class="mb-0"> 3 Days Ago</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media">
-                                        <div class="notification-icons bg-success bg-warning me-3">
-                                            <i data-feather="gift"></i>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6 class="font-secondary">New Order Recieved</h6>
-                                            <p class="mb-0"> 4 Days Ago</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media">
-                                        <div class="notification-icons bg-success me-3">
-                                            <i data-feather="airplay"></i>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6 class="font-secondary">Apps are ready for update</h6>
-                                            <p class="mb-0"> 3 Minutes Ago</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media">
-                                        <div class="notification-icons bg-info me-3">
-                                            <i data-feather="alert-circle"></i>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6 class="font-secondary">Server Warning</h6>
-                                            <p class="mb-0"> Just Now</p>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="bg-light txt-dark"><a href="javascript:void(0)" data-original-title="" title="">All </a> notification</li>
-                            </ul>
+                        <li class="onhover-dropdown"><a href="/admin/list-inquiry"><i data-feather="file-text"></i><span class="badge badge-pill badge-primary pull-right notification-badge"></span><span class="dot"></span></a>
                         </li>
                         <li><a href="javascript:void(0)"><i class="right_side_toggle" data-feather="message-square"></i><span class="dot"></span></a></li>
                         <li class="onhover-dropdown">
@@ -143,10 +79,10 @@
                                 <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
                             </div>
                             <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
-                                <li><a href="javascript:void(0)">Profile<span class="pull-right"><i data-feather="user"></i></span></a></li>
-                                <li><a href="javascript:void(0)">Notification<span class="pull-right"><i data-feather="mail"></i></span></a></li>
-                                <li><a href="javascript:void(0)">Inquiry<span class="pull-right"><i data-feather="file-text"></i></span></a></li>
-                                <li><a href="javascript:void(0)">Settings<span class="pull-right"><i data-feather="settings"></i></span></a></li>
+                                <li><a href="/admin/profile">Profile<span class="pull-right"><i data-feather="user"></i></span></a></li>
+                                <li><a href="/admin/notification">Notification<span class="pull-right"><i data-feather="mail"></i></span></a></li>
+                                <li><a href="/admin/list-inquiry">Inquiry<span class="pull-right"><i data-feather="file-text"></i></span></a></li>
+                                <!-- <li><a href="javascript:void(0)">Settings<span class="pull-right"><i data-feather="settings"></i></span></a></li> -->
                             </ul>
                         </li>
                     </ul>
@@ -214,7 +150,7 @@
             <!-- Page Sidebar Ends-->
 
             <!-- Right sidebar Start-->
-            <div class="right-sidebar custom-scrollbar" id="right_side_bar">
+            <!-- <div class="right-sidebar custom-scrollbar" id="right_side_bar">
                 <div>
                     <div class="container p-0">
                         <div class="modal-header p-l-20 p-r-20">
@@ -259,75 +195,16 @@
                                             <div class="status"> Online</div>
                                         </div>
                                     </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/man.png" alt="">
-                                        <div class="status-circle offline"></div>
-                                        <div class="about">
-                                            <div class="name">Ginger Johnston</div>
-                                            <div class="status"> 2 minutes ago</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/user5.jpg" alt="">
-                                        <div class="status-circle away"></div>
-                                        <div class="about">
-                                            <div class="name">Prasanth Anand</div>
-                                            <div class="status"> 2 hour ago</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/designer.jpg" alt="">
-                                        <div class="status-circle online"></div>
-                                        <div class="about">
-                                            <div class="name">Hileri Jecno</div>
-                                            <div class="status"> Online</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/user3.jpg" alt="">
-                                        <div class="status-circle online"></div>
-                                        <div class="about">
-                                            <div class="name">Erica Hughes</div>
-                                            <div class="status"> Online</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/man.png" alt="">
-                                        <div class="status-circle offline"></div>
-                                        <div class="about">
-                                            <div class="name">Ginger Johnston</div>
-                                            <div class="status"> 2 minutes ago</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/user5.jpg" alt="">
-                                        <div class="status-circle away"></div>
-                                        <div class="about">
-                                            <div class="name">Prasanth Anand</div>
-                                            <div class="status"> 2 hour ago</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/user3.jpg" alt="">
-                                        <div class="status-circle online"></div>
-                                        <div class="about">
-                                            <div class="name">Erica Hughes</div>
-                                            <div class="status"> Online</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/man.png" alt="">
-                                        <div class="status-circle offline"></div>
-                                        <div class="about">
-                                            <div class="name">Ginger Johnston</div>
-                                            <div class="status"> 2 minutes ago</div>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix"><img class="rounded-circle user-image" src="../assets/images/dashboard/user5.jpg" alt="">
-                                        <div class="status-circle away"></div>
-                                        <div class="about">
-                                            <div class="name">Prasanth Anand</div>
-                                            <div class="status"> 2 hour ago</div>
-                                        </div>
-                                    </li>
+                           
+                                   
+                               
+                                
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- Right sidebar Ends-->
 
             <div class="page-body">
@@ -341,7 +218,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6 footer-copyright">
-                            <p class="mb-0">Copyright 2019 © KitaabWaala All rights reserved.</p>
+                            <p class="mb-0">Copyright 2019 © WingersItServices All rights reserved.</p>
                         </div>
                         <div class="col-md-6">
                             <p class="pull-right mb-0">Hand crafted & made with<i class="fa fa-heart"></i></p>

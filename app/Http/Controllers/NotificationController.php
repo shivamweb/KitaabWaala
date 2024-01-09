@@ -80,7 +80,7 @@ class NotificationController extends Controller
             $schoolSession = $this->getSchoolSession($request);
             $uuid = $schoolSession['uuid'];
             $schooldetails =  $this->schooldetail->where('uuid', $uuid)->first();
-            $this->notification::where('to', $schooldetails->id)->update(['status' => 'read']);
+            $this->notification->where('to', $schooldetails->id)->update(['status' => 'read']);
             $notifications = $this->notification::where('to', $schooldetails->id)->with('createdByUser')->get();
             return view('school.notification', ['notifications' => $notifications]);
         } catch (\Exception $e) {

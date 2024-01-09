@@ -10,7 +10,7 @@
             <div class="col-lg-6">
                 <div class="page-header-left">
                     <h3>School List
-                        <small>KitaabWaala Admin panel</small>
+                        <small>KitaabWaala Admin </small>
                     </h3>
                 </div>
             </div>
