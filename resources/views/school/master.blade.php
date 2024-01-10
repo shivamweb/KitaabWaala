@@ -84,7 +84,7 @@
                             <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
                                 <li><a href="/school/profile">Profile<span class="pull-right"><i data-feather="user"></i></span></a></li>
                                 <li><a href="/school/showNotification">Notification<span class="pull-right"><i data-feather="mail"></i></span></a></li>
-                                <li><a href="/school/add-inquiry">Inquiry<span class="pull-right"><i data-feather="file-text"></i></span></a></li>
+                                <li><a href="/school/inquiryaddview">Inquiry<span class="pull-right"><i data-feather="file-text"></i></span></a></li>
                                 <!-- <li><a href="javascript:void(0)">Settings<span class="pull-right"><i data-feather="settings"></i></span></a></li> -->
                             </ul>
                         </li>
@@ -125,7 +125,8 @@
                         <li><a class="sidebar-header" href="#"><i data-feather="tag"></i><span>Inbox</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
                                 <li><a href="showNotification"><i class="fa fa-circle"></i>Notification</a></li>
-                                <li><a href="add-inquiry"><i class="fa fa-circle"></i>Inquiry</a></li>
+                                <li><a href="inquiryaddview"><i class="fa fa-circle"></i>Add Inquiry</a></li>
+                                <li><a href="inquiry"><i class="fa fa-circle"></i>List Inquiry</a></li>
                             </ul>
                         </li>
                         <li><a class="sidebar-header" href="javascript:void(0)"><i data-feather="clipboard"></i><span>Reports</span><i class="fa fa-angle-right pull-right"></i></a>
@@ -374,6 +375,37 @@
     }
   });
 });
+ $(document).ready(function() {
+        fetchAndRenderSchoolDetails();
+    });
+    $(document).ready(function() {
+  $.ajax({
+    url: '/school/getNotifications',
+    type: 'GET',
+    dataType: 'json',
+    success: function(response, textStatus, xhr) {
+      if (xhr.status == 200) {
+        notifications = JSON.parse(response['notifications']);
+        unreadCount = response['unreadCount'];
+        numberSpan = $('.badge.badge-pill.badge-primary.pull-right.notification-badge');
+        
+        // Update the content of the numberSpan with the unreadCount value
+        numberSpan.text(unreadCount);
+        
+        if (unreadCount === 0) {
+          numberSpan.hide();
+        } else {
+          numberSpan.show();
+        }
+      }
+    },
+    error: function(xhr, status, error) {
+      console.error('Error:', error);
+    }
+  });
+});
+
+</script>
 
 </script>
 

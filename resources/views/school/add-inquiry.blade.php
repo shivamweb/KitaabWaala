@@ -29,7 +29,7 @@
             <div class="card tab2-card">
                 <div class="card-body">
        
-            <form action="" method="post" >
+            <form action="{{ route('sendInquiry') }}" method="post" >
               @csrf
               
               <div class="row">
@@ -37,9 +37,9 @@
                   <label for="to" class="form-label">Send To</label>
                   <select class="form-select" id="to" name="to">
                     <option value="all">All</option>
-                   
-                    <option value="inquiry">inquiry</option>
-                  
+                    @foreach($admindetails as $admindetail)
+                    <option value="{{ $admindetail->id }}">{{ $admindetail->id. '|' .$admindetail->name. ' ' .$admindetail->last_name. '|' .$admindetail->email}}</option>
+                    @endforeach
                   </select>
                 </div>
               </div>
@@ -74,7 +74,7 @@
                     text: message
                 }).then(function() {
                     // Redirect to a desired URL
-                    window.location.href = '/admin/notificationAddView'; // Replace with your desired URL
+                    window.location.href = '/school/inquiryaddview'; // Replace with your desired URL
                 });
             } else if (status === 'error') {
                 if (errors.length > 0) {
@@ -91,7 +91,7 @@
                         html: errorMessage
                     }).then(function() {
                         // Redirect to a desired URL after the user clicks "OK"
-                        window.location.href = '/admin/notificationAddView'; // Replace with your desired URL
+                        window.location.href = '/school/inquiryaddview'; // Replace with your desired URL
                     });
                 } else {
                     // Display a SweetAlert with general error message

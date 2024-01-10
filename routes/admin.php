@@ -6,8 +6,9 @@ use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SchoolDetailController;
-use Illuminate\Notifications\Notification;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InquiryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +57,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/invoiceToAdmin/{orderId}', [OrderController::class, 'viewInvoiceToAdmin']);
 
     Route::get('/transactions', [OrderController::class, 'viewTransectionToAdmin'])->name('viewTransectionToAdmin');
-    Route::get('/list-inquiry', function () {
-        return view('admin.list-inquiry');
-    });
+    Route::get('/showInquiry', [InquiryController::class, 'showInquiry']);
+    
+    Route::get('/getinquiry',  [InquiryController::class, 'getinquiry']);
+    Route::get('/list-inquiry', [InquiryController::class, 'showInquiry']);
 });

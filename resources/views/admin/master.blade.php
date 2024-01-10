@@ -127,6 +127,7 @@
                             <ul class="sidebar-submenu">
                                 <li><a href="notificationAddView"><i class="fa fa-circle"></i>Add New Notification</a></li>
                                 <li><a href="notification"><i class="fa fa-circle"></i>List All Notication </a></li>
+                                <li><a href="list-inquiry"><i class="fa fa-circle"></i>List All Inquiry </a></li>
                             </ul>
                         </li>
                         <li><a class="sidebar-header" href="#"><i data-feather="chrome"></i><span>Reports</span><i class="fa fa-angle-right pull-right"></i></a>
@@ -296,7 +297,40 @@
 
     <!--script admin-->
     <script src="../../../../assets/js/admin-script.js"></script>
+    <script>
+    
+    $(document).ready(function() {
+    $.ajax({
+        url: '/admin/getinquiry',
+        type: 'GET',
+        dataType: 'json',
+        success: function(response, textStatus, xhr) {
+            if (xhr.status == 200) {
+                // Parse the JSON response
+                inquiry = JSON.parse(response['inquiry']);
+                unreadCount = response['unreadCount'];
+                numberSpan = $('.badge.badge-pill.badge-primary.pull-right.inquiry-badge');
 
+                // Update the content of the numberSpan with the unreadCount value
+                numberSpan.text(unreadCount);
+
+                // Show or hide the badge based on the unreadCount value
+                if (unreadCount === 0) {
+                    numberSpan.hide();
+                } else {
+                    numberSpan.show();
+                }
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Error:', error);
+        }
+    });
+});
+
+
+</script>
+    
 </body>
 
 </html>
