@@ -19,7 +19,7 @@ class InquiryController extends Controller
     private $schooldetail;
     private $admindetail;
 
-    public function __construct(Inquiry $inquiry ,SchoolDetail $schooldetails ,AdminDetail $admindetails)
+    public function __construct(Inquiry $inquiry, SchoolDetail $schooldetails, AdminDetail $admindetails)
     {
         $this->inquiry = $inquiry;
         $this->schooldetail = $schooldetails;
@@ -91,24 +91,26 @@ class InquiryController extends Controller
     {
         try {
             $schoolSession = $this->getSchoolSession($request);
-          
-            $inquiry = $this->inquiry->get();
+            $uuid = $schoolSession['uuid'];
+            $schooldetails =  $this->schooldetail->where('uuid', $uuid)->first();
+            $inquiry = $this->inquiry->where('created_by', $schooldetails->id)->get();
+        
             return view('school.inquiry', ['inquiry' => $inquiry]);
         } catch (\Exception $e) {
-            Log::error('[InquiryController][showinquirySchool] Error viewing inquiry: ' . 'Exception='. $e->getMessage());
+            Log::error('[InquiryController][showinquirySchool] Error viewing inquiry: ' . 'Exception=' . $e->getMessage());
             return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
         }
     }
-    
+
 
     public function getinquiry(Request $request): JsonResponse
     {
         try {
             $adminSession = $this->getAdminSession($request);
             $uuid = $adminSession['uuid'];
-            $schooldetails =  $this->schooldetail->where('uuid', $uuid)->first();
-            $unreadCount = $this->inquiry::where('to', $schooldetails->id)->where('status', 'Un-read')->count();
-            $inquiry = $this->inquiry::where('to', $schooldetails->id) ->where('status', 'Un-read')->with('createdByUser')->get();
+            $admindetails =  $this->admindetail->where('uuid', $uuid)->first();
+            $unreadCount = $this->inquiry::where('to', $admindetails->id)->where('status', 'Un-read')->count();
+            $inquiry = $this->inquiry->get();
 
             return response()->json([
                 'inquiry' => json_encode($inquiry),

@@ -71,7 +71,7 @@
                             </form>
                         </li>
                         <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
-                        <li class="onhover-dropdown"><a href="/admin/list-inquiry"><i data-feather="file-text"></i><span class="badge badge-pill badge-primary pull-right notification-badge"></span><span class="dot"></span></a>
+                        <li class="onhover-dropdown"><a href="/admin/list-inquiry"><i data-feather="file-text"></i><span class="badge badge-pill badge-primary pull-right notification-badge">0</span><span class="dot"></span></li>
                         </li>
                         <li><a href="javascript:void(0)"><i class="right_side_toggle" data-feather="message-square"></i><span class="dot"></span></a></li>
                         <li class="onhover-dropdown">
@@ -309,7 +309,7 @@
                 // Parse the JSON response
                 inquiry = JSON.parse(response['inquiry']);
                 unreadCount = response['unreadCount'];
-                numberSpan = $('.badge.badge-pill.badge-primary.pull-right.inquiry-badge');
+                numberSpan = $('.badge.badge-pill.badge-primary.pull-right.notification-badge');
 
                 // Update the content of the numberSpan with the unreadCount value
                 numberSpan.text(unreadCount);

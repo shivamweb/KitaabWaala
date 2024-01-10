@@ -114,7 +114,7 @@
                   </div>
                   <div class="icon-block">
                      <ul class="theme-color">
-                        <li class="mobile-search icon-md-block">
+                        <!-- <li class="mobile-search icon-md-block">
                            <svg enable-background="new 0 0 512.002 512.002"
                                 viewBox="0 0 512.002 512.002" xmlns="http://www.w3.org/2000/svg">
                               <g>
@@ -131,7 +131,7 @@
                                     128-57.42 128-128 128z" />
                               </g>
                            </svg>
-                        </li>
+                        </li> -->
                         <li class="mobile-user icon-desk-none" onclick="openAccount()">
                            <svg version="1.1"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -2864,6 +2864,10 @@
 
   <!-- gallary js -->
   <script src='../assets/js/gallery.js'></script>
+<!-- ajax search js -->
+<script src="../assets/js/typeahead.bundle.min.js"></script>
+<script src="../assets/js/typeahead.jquery.min.js"></script>
+<script src="../assets/js/ajax-custom.js"></script>
 
 
 
@@ -2883,10 +2887,6 @@
   <!-- father icon -->
   <script src="../assets/js/feather.min.js"></script>
   <script src="../assets/js/feather-icon.js"></script>
-<!-- ajax search js -->
-<script src="../assets/js/typeahead.bundle.min.js"></script>
-<script src="../assets/js/typeahead.jquery.min.js"></script>
-<script src="../assets/js/ajax-custom.js"></script>
 
   <!-- Bootstrap js-->
   <script src="../assets/js/bootstrap-notify.min.js"></script>

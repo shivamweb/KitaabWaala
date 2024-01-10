@@ -73,9 +73,7 @@
                         </li>
 
                         <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
-
-                           
-                        </li>
+                        <li class="onhover-dropdown"><a href="/school/showNotification"><i data-feather="bell"></i><span class="badge badge-pill badge-primary pull-right notification-badge">0</span><span class="dot"></span></li>
                         <li><a href="javascript:void(0)"><i class="right_side_toggle" data-feather="message-square"></i><span class="dot"></span></a></li>
                         <li class="onhover-dropdown">
                             <div class="media align-items-center" id="iconDiv"><img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="../assets/images/dashboard/man.png" alt="header-user">
@@ -375,37 +373,6 @@
     }
   });
 });
- $(document).ready(function() {
-        fetchAndRenderSchoolDetails();
-    });
-    $(document).ready(function() {
-  $.ajax({
-    url: '/school/getNotifications',
-    type: 'GET',
-    dataType: 'json',
-    success: function(response, textStatus, xhr) {
-      if (xhr.status == 200) {
-        notifications = JSON.parse(response['notifications']);
-        unreadCount = response['unreadCount'];
-        numberSpan = $('.badge.badge-pill.badge-primary.pull-right.notification-badge');
-        
-        // Update the content of the numberSpan with the unreadCount value
-        numberSpan.text(unreadCount);
-        
-        if (unreadCount === 0) {
-          numberSpan.hide();
-        } else {
-          numberSpan.show();
-        }
-      }
-    },
-    error: function(xhr, status, error) {
-      console.error('Error:', error);
-    }
-  });
-});
-
-</script>
 
 </script>
 
