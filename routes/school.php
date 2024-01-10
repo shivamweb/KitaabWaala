@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookDetailController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SchoolDetailController;
@@ -27,16 +28,6 @@ Route::group(['prefix' => 'school'], function () {
         return view('school.dashboard');
     });
 
-   
-
-
-    Route::get('/purchase-book', function () {
-        return view('school.purchase-book');
-    });
-
-    Route::get('/list-order', function () {
-        return view('school.list-order');
-    });
     Route::get('/profile', [SchoolDetailController::class, 'showProfile']);
     Route::post('/storeSchoolProfile', [SchoolDetailController::class, 'storeSchoolProfile'])->name('storeSchoolProfile');
     Route::post('/storeSchoolFaculityDetail', [SchoolDetailController::class, 'storeSchoolFaculityDetail'])->name('storeSchoolFaculityDetail');
@@ -56,10 +47,8 @@ Route::group(['prefix' => 'school'], function () {
     Route::post('/storeTransaction', [OrderController::class, 'storeTransaction'])->name('storeTransaction');
 
  
-    Route::get('/add-inquiry', function () {
-        return view('school.add-inquiry');
-    });
-
+    Route::get('/inquiryaddview', [InquiryController::class, 'viewInquiry']);
+    Route::post('/inquiryadd', [InquiryController::class, 'sendInquiry'])->name('sendInquiry');
     Route::get('/transactions', [OrderController::class, 'viewTransectionToSchool'])->name('viewTransection');
     Route::get('/purchasedBooksList', [BookDetailController::class, 'purchasedBooksList']);
     
@@ -69,4 +58,5 @@ Route::group(['prefix' => 'school'], function () {
     Route::get('/showNotification', [NotificationController::class, 'showNotifications']);
     
     Route::get('/getNotifications',  [NotificationController::class, 'getNotifications']);
+    Route::get('/inquiry', [InquiryController::class, 'showinquirySchool']);
 });
