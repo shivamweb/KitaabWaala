@@ -35,7 +35,7 @@
 
     <!-- App css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/admin.css">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 
 <body>
@@ -236,6 +236,48 @@
         $('.single-item').slick({
             arrows: false,
             dots: true
+        });
+    </script>
+         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var status = "{{ session('status') }}";
+            var message = "{{ session('message') }}";
+            var errors = @json($errors->all());
+            if (status === 'success') {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: message
+                }).then(function() {
+                    window.location.href = 'admin/profile'; // Replace with your desired URL
+                });
+            } else if (status === 'error') {
+                if (errors.length > 0) {
+                    // Construct the error message from the validation errors
+                    var errorMessage = 'Validation Errors:<br>';
+                    errors.forEach(function(error) {
+                        errorMessage += error + '<br>';
+                    });
+
+                    // Display a SweetAlert with validation errors
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Validation Error',
+                        html: errorMessage
+                    }).then(function() {
+                        // Redirect to a desired URL after the user clicks "OK"
+                        window.location.href = 'admin/admin-login'; // Replace with your desired URL
+                    });
+                } else {
+                    // Display a SweetAlert with general error message
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: message
+                    });
+                }
+            }
         });
     </script>
 </body>

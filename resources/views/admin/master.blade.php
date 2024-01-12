@@ -119,7 +119,7 @@
                             <ul class="sidebar-submenu">
                                 <li><a href="../../admin/view-book"><i class="fa fa-circle"></i>Add New Book</a></li>
                                 <li><a href="../../admin/list-book"><i class="fa fa-circle"></i>List All Book</a></li>
-                                <li><a href="#"><i class="fa fa-circle"></i>Manage Stocks</a></li>
+                                <li><a href="../../admin/manage-stock"><i class="fa fa-circle"></i>Manage Stocks</a></li>
                             </ul>
                         </li>
                         <li><a class="sidebar-header" href="/admin/class"><i data-feather="bar-chart"></i><span>Add-Class</span></a></li>

@@ -76,7 +76,7 @@ class AdminDetailController extends Controller
         } catch (ValidationException $e) {
             $errors = $e->validator->getMessageBag();
             Log::error('[AdminDetailController][create]Validation error: ' . 'Request=' . $request . ', Errors =' . implode(', ', $errors->all()));
-            return redirect('admin/admin-login')->with('status', 'error')->with('message', 'Vendor not registered successfully !')->with('errors', $errors);
+            return redirect('admin/admin-login')->with('status', 'error')->with('message', 'Admin not registered successfully !')->with('errors', $errors);
         } catch (\Exception $e) {
             Log::error('[AdminDetailController][create] Error creating user: '  . 'Request=' . $request . ', Exception=' . $e->getMessage());
             return redirect('admin/admin-login')->with('status', 'error')->with('message',  'Profile not registered successfully!' . $e->getMessage());
