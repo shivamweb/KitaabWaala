@@ -207,9 +207,11 @@ class OrderController extends Controller
                     if ($insufficientQuantity) {
                         return response()->json(['error' => 'Insufficient book quantity'], 400);
                     }
+                
                 }
-
                 $order->order_status = $statusValue;
+                // $this->checkOrderItemQuantity($order);
+
                 break;
             default:
                 return response()->json(['error' => 'Invalid status type'], 400);
@@ -221,20 +223,31 @@ class OrderController extends Controller
     }
 
     // Helper function to check order item quantity
-    private function checkOrderItemQuantity($order)
-    {
-        foreach ($order->orderItems as $orderItem) {
-            $bookDetails = $this->bookDetail->where('id', $orderItem->book_id)->first();
+   // Helper function to check order item quantity
+private function checkOrderItemQuantity($order)
+{
+    foreach ($order->orderItems as $orderItem) {
+        $bookDetails = $this->bookDetail->find($orderItem->book_id);
 
-            // If book quantity in the table is less than the order item quantity, return true
-            if ($bookDetails->quantity < $orderItem->quantity) {
-                return true;
-            }
+        if (!$bookDetails) {
+            Log::error('[OrderController][checkOrderItemQuantity] Book details not found for book_id=' . $orderItem->book_id);
+            continue;
         }
 
-        // If all order item quantities are within book quantity, return false
-        return false;
+        // If book quantity in the table is less than the order item quantity, return true
+        if ($bookDetails->quantity < $orderItem->quantity) {
+            return true;
+        }
+
+        // Subtract the order item quantity from the book quantity
+        $bookDetails->quantity -= $orderItem->quantity;
+        $bookDetails->save();
     }
+
+    // If all order item quantities are within book quantity, return false
+    return false;
+}
+
     public function storeTransactionforadmin(Request $request)
     {
         try {
@@ -270,4 +283,5 @@ class OrderController extends Controller
             return redirect()->back()->with('status', 'error')->with('message', 'Error Adding Transections');
         }
     }
+
 }

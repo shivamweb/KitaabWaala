@@ -337,8 +337,8 @@ class SchoolDetailController extends Controller
         try {
             $status = null;
             $message = null;
-            $vendorSession = $this->getSchoolSession($request);
-            $uuid = $vendorSession['uuid'];
+            $schoolSession = $this->getSchoolSession($request);
+            $uuid = $schoolSession['uuid'];
             $SchoolDetails = $this->schooldetail->where('uuid', $uuid)->first();
             return new JsonResponse(['SchoolDetails' => $SchoolDetails, 'status' => $status, 'message' => $message]);
         } catch (\Exception $e) {

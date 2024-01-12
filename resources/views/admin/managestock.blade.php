@@ -40,7 +40,7 @@
                         <th>Status</th>
                         <th>Price</th>
                         <th>Class</th>
-                        <th>Quantity</th>
+                        <!-- <th>Action</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -51,7 +51,6 @@
                         <td>{{$bookdetail->status}}</td>
                         <td>{{$bookdetail->price}}</td>
                         <td>{{$bookdetail->class->class}}</td>
-                        <td>{{$bookdetail->quantity}}</td>
                     </tr>
                     @endforeach
 
