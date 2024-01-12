@@ -30,15 +30,54 @@
                     <h5>Transactions</h5>
                 </div>
                 <div class="card-body">
-                    <div class="btn-popup pull-right">
+                <div class="btn-popup pull-right">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-original-title="test" data-target="#exampleModal">Make Transection</button>
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title f-w-600" id="exampleModalLabel">Add Transections</h5>
+                                        <h5 class="modal-title f-w-600" id="exampleModalLabel">Add Transactions</h5>
                                         <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     </div>
+                                    <div class="modal-body">
+                                        <form class="needs-validation" method="POST" action="{{route('Transaction')}}">
+                                            @csrf
+                                            <div class="form">
+                                                <div class="form-group">
+                                                    <label for="class" class="mb-1">Invoice Id :</label>
+                                                    <select class="form-select" id="invoice_id" name="order_id">
+                                                        <option value="--">--Select Invoice Id--</option>
+                                                        @foreach($orders as $order)
+                                                        <option value="{{ $order->id }}" data-remaining-amount="{{ $order->remaining_Amount }}">{{ $order->id }}</option>
+                                                        @endforeach
+                                                    </select>
 
+                                                </div>
+                                            </div>
+                                            <div class="form">
+                                                <div class="form-group">
+                                                    <label for="class" class="mb-1">Transaction Id :</label>
+                                                    <input class="form-control" name="transection_id" id="class" type="text" style="border-radius: 20px;">
+                                                </div>
+                                            </div>
+                                            <div class="form">
+                                                <div class="form-group">
+                                                    <label for="remaining_amount" class="mb-1">Remaining :</label>
+                                                    <label id="remaining_amount_label" class="mb-1">{{ $remainingAmount }}</label>
+                                                </div>
+                                            </div>
+                                            <div class="form">
+                                                <div class="form-group">
+                                                    <label for="class" class="mb-1">Paid Amount :</label>
+                                                    <input class="form-control" name="amount" id="class" type="text" style="border-radius: 20px;">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-primary" type="submit" >Save</button>
+                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>

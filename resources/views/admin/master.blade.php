@@ -143,7 +143,7 @@
                                 <li><a href="../../admin/profile"><i class="fa fa-circle"></i>Profile</a></li>
                             </ul>
                         </li>
-                        <li><a class="sidebar-header" href="../admin-logout"><i data-feather="log-in"></i><span>Logout</span></a>
+                        <li><a class="sidebar-header" href="/admin/admin-logout"><i data-feather="log-in"></i><span>Logout</span></a>
                         </li>
                     </ul>
                 </div>

@@ -63,14 +63,14 @@ class InquiryController extends Controller
                 ]);
             }
 
-            return redirect('/school/inquiryaddview')->with('status', 'success')->with('message', 'Notification sent successfully');
+            return redirect('/school/inquiryaddview')->with('status', 'success')->with('message', 'Inquiry sent successfully');
         } catch (ValidationException $e) {
             $errors = $e->validator->getMessageBag();
             Log::error('[InquiryController][sendInquiry]Validation error: ' . 'Request=' . $request . ', Errors =' . implode(', ', $errors->all()));
-            return redirect('/school/inquiryaddview')->with('status', 'error')->with('message', 'Failed to send notification: ')->with('errors', $errors);
+            return redirect('/school/inquiryaddview')->with('status', 'error')->with('message', 'Failed to send Inquiry: ')->with('errors', $errors);
         } catch (\Exception $e) {
             Log::error('[InquiryController][sendInquiry] Error sending inquiry: ' . 'Request=' . $request . ', Exception=' . $e->getMessage());
-            return redirect('/school/inquiryaddview')->with('status', 'error')->with('message', 'Failed to send notification: ' . $e->getMessage());
+            return redirect('/school/inquiryaddview')->with('status', 'error')->with('message', 'Failed to send Inquiry: ' . $e->getMessage());
         }
     }
     public function showInquiry(Request $request)

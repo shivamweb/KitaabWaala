@@ -105,11 +105,11 @@ class AdminDetailController extends Controller
         $adminProfileData = $request->all();
         $this->adminDetails->completeAdminProfile($adminProfileData, $imagePath, $uuid);
   
-        return redirect('/admin/dashboard')->with('status', 'success')->with('message', 'Admin profile completed');
+        return redirect()->back()->with('status', 'success')->with('message', 'Admin profile completed');
       } catch (ValidationException $e) {
         $errors = $e->validator->getMessageBag();
         Log::error('[AdminDetailController][storeAdminProfile]Validation error: ' . 'Request=' . $request . ', Errors =' . implode(', ', $errors->all()));
-        return redirect('/admin/profile')->with('status', 'error')->with('message', 'Profile not comleted successfully !')->with('errors', $errors);
+        return redirect()->back()->with('status', 'error')->with('message', 'Profile not comleted successfully !')->with('errors', $errors);
       }
     }
     public function Adminlogout()

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserGroupEnum;
 use App\Models\BookDetail;
 use App\Models\BookSchool;
 use App\Models\Classes;
@@ -54,7 +55,7 @@ class SchoolDetailController extends Controller
 
             if (!$school) {
                 session()->flush();
-                return redirect('school/school-login')->with('status', 'error')->with('message', 'Invalid credential');
+                return redirect()->back()->with('status', 'error')->with('message', 'Invalid credential');
             }
             $this->storeSchoolSession($school);
             return redirect('/school/profile')->with('status', 'success')->with('message', 'login successfully');
@@ -76,10 +77,10 @@ class SchoolDetailController extends Controller
                 'school_name' => $request->input('school_name'),
                 'email' => $request->input('email'),
                 'password' => $request->input('password'),
-
+                'user_type'     => UserGroupEnum::SCHOOL,
             ]);
 
-            return redirect('school/show-login');
+            return redirect()->back()->with('status', 'error')->with('message', 'School Registered succesfully credential');
         } catch (ValidationException $e) {
 
             $errors = $e->validator->getMessageBag();
@@ -345,20 +346,13 @@ class SchoolDetailController extends Controller
             return new JsonResponse(['status' => 'error', 'message' => 'Error fetching school details.']);
         }
     }
-    public function deleteSchool($uuid)
+   
+    public function Schoollogout()
     {
-        try {
-            $school = $this->schooldetail->where('uuid', $uuid)->first();
-
-            if (!$school) {
-                return redirect()->back()->with('error', 'School not found.');
-            }
-
-            $school->delete();
-            return redirect()->back()->with('status', 'success')->with('message', 'School deleted successfully.');
-        } catch (\Exception $e) {
-            Log::error('[SchoolDetailController][deleteSchool] Error deleting school: ' . 'UUID=' . $uuid . ', Exception=' . $e->getMessage());
-            return redirect()->back()->with('status', 'error')->with('message', 'Error deleting school.');
-        }
+        $uuid = Session::get('uuid');
+        Session::forget('uuid');
+    
+        Session::flash('success', 'You have been logged out.');
+        return redirect('school/show-login');
     }
 }

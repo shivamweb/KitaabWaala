@@ -29,14 +29,14 @@
                                                 <td>
                                                     <div class="profile-details text-center">
                                                         @if ($schooldetails && $schooldetails->image)
-                                                        <img src="{{ asset($schooldetails->image) }}" alt="" style="height:200px;width:200px;border-radius:50%">
+                                                        <img src="{{ asset($schooldetails->image) }}" alt="" style="height:200px;width:200px;border-radius:50%" id="imgPreview1">
                                                         @else
-                                                        <img src="{{ asset('assets/images/dashboard/designer.jpg') }}" alt="" class="img-fluid img-90 rounded-circle blur-up lazyloaded">
+                                                        <img src="{{ asset('assets/images/default/no image.jpg') }}" alt="" class="img-fluid img-90 rounded-circle blur-up lazyloaded">
                                                         @endif
                                                         <h5 class="f-w-600 mb-0">{{ $schooldetails ? $schooldetails->school_name : '' }}</h5>
                                                         <span>{{ $schooldetails ? $schooldetails->email : '' }}</span></br>
                                                         Upload Your Profile Image:
-                                                        <input type="file" name="image" id="fileToUpload">
+                                                        <input type="file" name="image" id="fileToUpload" onchange="previewImage(this, 'imgPreview1');">
                                                     </div>
                                                 </td>
                                             </tr>
