@@ -32,7 +32,7 @@
 
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <!-- App css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/admin.css">
 

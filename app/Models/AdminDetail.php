@@ -11,6 +11,7 @@ class AdminDetail extends Model
     use HasFactory;
     protected $fillable = [
         'image',
+        'user_type',
         'firstname',
         'lastname',
         'email',

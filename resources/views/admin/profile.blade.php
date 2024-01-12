@@ -52,7 +52,7 @@
                                                         @if ($adminDetails->image)
                                                         <img src="{{asset($adminDetails->image)}}" alt="" style="height:200px;width:200px;border-radius:50%">
                                                         @else
-                                                        <img src="../assets/images/dashboard/designer.jpg" alt="" class="img-fluid img-90 rounded-circle blur-up lazyloaded">
+                                                        <img src="../assets/images/default/no image.jpg" alt="" class="img-fluid img-90 rounded-circle blur-up lazyloaded">
                                                         @endif
                                                         <h5 class="f-w-600 mb-0">{{$adminDetails->firstname. ' ' .$adminDetails->lastname}}</h5>
                                                         <span>{{$adminDetails->email}}</span></br>
@@ -186,7 +186,6 @@
             }
         }
     });
-
     function previewImage(input, previewId) {
         const file = input.files[0];
         const imagePreview = document.getElementById(previewId);

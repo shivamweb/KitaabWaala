@@ -147,7 +147,7 @@
                         </li>
 
                         </li>
-                        <li><a class="sidebar-header" href="login.html"><i data-feather="log-in"></i><span>Logout</span></a>
+                        <li><a class="sidebar-header" href="school-logout"><i data-feather="log-in"></i><span>Logout</span></a>
                         </li>
                     </ul>
                 </div>

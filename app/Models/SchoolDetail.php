@@ -6,13 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 use Illuminate\Support\Facades\Log;
-
+use App\Enums\UserGroupEnum;
 
 class SchoolDetail extends Model
 {
   use HasFactory;
   protected $fillable = [
     'school_name', 
+    'user_type',
     'image',
     'email',
     'password',
@@ -44,6 +45,7 @@ class SchoolDetail extends Model
 
     $schoolupdated = $this->where('uuid', $uuid)->update([
       "school_name"    => $addschool['school_name'],
+      
       'image'          => $imagePath,
       "email"          => $addschool['email'],
       "password"       => $addschool['password'],
@@ -89,6 +91,7 @@ class SchoolDetail extends Model
     try {
       return $this->create([
         'uuid'           => Uuid::uuid4()->toString(),
+        'user_type'     => UserGroupEnum::SCHOOL,
         'school_name'    => $addschoolforadmin['school_name'],
         'email'          => $addschoolforadmin['email'],
         'mobile_number'  => $addschoolforadmin['mobile_number'],

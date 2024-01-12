@@ -31,7 +31,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/profile', [AdminDetailController::class, 'showAdminProfile']);
     Route::post('/storeAdminProfile', [AdminDetailController::class, 'storeAdminProfile'])->name('storeAdminProfile');
     Route::get('/admin-logout', [AdminDetailController::class, 'Adminlogout'])->name('admin-logout');
-
     Route::get('/Schoolview', [SchoolDetailController::class, 'viewSchool'])->name('ViewSchool');
     Route::get('/list-school', [SchoolDetailController::class, 'fetchschoolListforAdmin'])->name('School-list');
     Route::get('/view-schooldetail/{uuid}', [SchoolDetailController::class, 'viewSchoolDetails'])->name('schoolDetail');
@@ -45,7 +44,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/view-book', [BookDetailController::class, 'viewBook'])->name('ViewBook');
     Route::get('/list-book', [BookDetailController::class, 'listbookforadmin'])->name('Book-list');
     Route::post('/add-class', [ClassesController::class, 'addClassforadmin'])->name('addClass');
-
+    Route::get('/delete-class/{id}', [ClassesController::class, 'deleteClass'])->name('deleteClass'); 
     Route::get('/class', [ClassesController::class, 'listClassforadmin'])->name('class');
     Route::get('/editSchool/{uuid}', [SchoolDetailController::class, 'editSchool'])->name('editSchool');
     Route::post('/updateSchool/{uuid}', [SchoolDetailController::class, 'updateSchool'])->name('updateSchool');
@@ -61,4 +60,7 @@ Route::group(['prefix' => 'admin'], function () {
     
     Route::get('/getinquiry',  [InquiryController::class, 'getinquiry']);
     Route::get('/list-inquiry', [InquiryController::class, 'showInquiry']);
+    Route::post('/Transaction', [OrderController::class, 'storeTransactionforadmin'])->name('Transaction');
+
+
 });

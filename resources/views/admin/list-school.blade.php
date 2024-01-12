@@ -42,7 +42,7 @@
                         <th>School Email</th>
                         <th>Mobile No</th>
                         <th>View</th>
-                        <th>Delete</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -61,15 +61,7 @@
 
                             </div>
                         </td>
-                        <td>
-                            <div>
-                                <form action="{{ route('Delete', $schooldetail->uuid) }}" method="post">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                </form>
-                            </div>
-                        </td>
+                     
                     </tr>
                     @endforeach
 
@@ -79,28 +71,7 @@
     </div>
 </div>
 <!-- Container-fluid Ends-->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Handle delete button click event
-        $('.delete-button').on('click', function () {
-            // Display SweetAlert confirmation dialog
-            Swal.fire({
-                title: 'Are you sure?',
-                text: 'You won\'t be able to revert this!',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // If confirmed, submit the form
-                    $(this).closest('.delete-form').submit();
-                }
-            });
-        });
-    });
-</script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 
 @endsection

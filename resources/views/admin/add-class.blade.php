@@ -15,7 +15,7 @@
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
                     <li class="breadcrumb-item"><a href="dashboard"><i data-feather="home"></i></a></li>
-               
+
                     <li class="breadcrumb-item active">Class</li>
                 </ol>
             </div>
@@ -68,7 +68,7 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Class</th>
-                                   
+                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -76,7 +76,9 @@
                                 <tr>
                                     <td>{{$class->id}}</td>
                                     <td>{{$class->class}}</td>
-                                    
+                                    <td>
+                                        <button class="btn btn-danger delete-class" data-id="{{ $class->id }}">Delete</button>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -92,5 +94,26 @@
 
 <!-- Bootstrap JavaScript -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // Use SweetAlert for confirmation before deleting a class
+    $(document).on('click', '.delete-class', function() {
+        var classId = $(this).data('id');
 
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'You won\'t be able to revert this!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If confirmed, redirect to the deleteClass route
+                window.location.href = "{{ url('/admin/delete-class') }}" + '/' + classId;
+            }
+        });
+    });
+</script>
 @endsection

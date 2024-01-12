@@ -120,7 +120,8 @@
 
                                         <tr>
                                             <td>School Document:</td>
-                                            <td><input type="text" id="school_document" name="school_document" value="{{$schooldetails->school_document}}" disabled></td>
+                                            <input type="file" id="school_doc_image" name="school_document" accept="image/*" onchange="previewImage(this, 'documentPreview')">
+                                                    <img id="documentPreview" src="{{asset($schooldetails->school_document)}}" alt="School Document Preview" style="display: none; max-width: 200px; max-height: 200px; margin-top: 10px;" disabled>
                                         </tr>
                                     </tbody>
                                 </table>

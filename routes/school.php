@@ -24,9 +24,7 @@ Route::group(['prefix' => 'school'], function () {
     Route::get('/dashboard', function () {
         return view('school.dashboard');
     });
-    Route::get('/dashboard', function () {
-        return view('school.dashboard');
-    });
+    Route::get('/school-logout', [SchoolDetailController::class,'Schoollogout'])->name('school-logout');
 
     Route::get('/profile', [SchoolDetailController::class, 'showProfile']);
     Route::post('/storeSchoolProfile', [SchoolDetailController::class, 'storeSchoolProfile'])->name('storeSchoolProfile');
