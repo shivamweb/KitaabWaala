@@ -13,7 +13,9 @@ class CheckUserSession
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function handle(Request $request, Closure $next): Response
     {
@@ -28,16 +30,14 @@ class CheckUserSession
 
         $allowedUserTypeAdmin = [UserGroupEnum::ADMIN];
         $allowedUserTypeSchool = [UserGroupEnum::SCHOOL];
-       
+
         // Check if the user is attempting to access an admin route and if their user type is not allowed
         if ($request->is('admin/*') && !in_array($userType, $allowedUserTypeAdmin)) {
-            session()->forget('uuid');
-            session()->forget('user_type');
-            return redirect()->back()->with('status', 'error')->with('message', 'Access denied.');
+            Session::flush();
+            return redirect('/admin-login')->with('status', 'error')->with('message', 'Access denied.');
         } elseif ($request->is('school/*') && !in_array($userType, $allowedUserTypeSchool)) {
-            session()->forget('uuid');
-            session()->forget('user_type');
-            return redirect()->back()->with('status', 'error')->with('message', 'Access denied.');
+            Session::flush();
+            return redirect('/school-login')->with('status', 'error')->with('message', 'Access denied.');
         }
 
         return $next($request);

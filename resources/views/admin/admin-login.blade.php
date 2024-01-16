@@ -267,7 +267,7 @@
                         html: errorMessage
                     }).then(function() {
                         // Redirect to a desired URL after the user clicks "OK"
-                        window.location.href = 'admin/admin-login'; // Replace with your desired URL
+                        window.location.href = '/admin-login'; // Replace with your desired URL
                     });
                 } else {
                     // Display a SweetAlert with general error message

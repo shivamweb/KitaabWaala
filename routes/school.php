@@ -30,10 +30,8 @@ Route::group(['prefix' => 'school'], function () {
     Route::post('/storeSchoolProfile', [SchoolDetailController::class, 'storeSchoolProfile'])->name('storeSchoolProfile');
     Route::post('/storeSchoolFaculityDetail', [SchoolDetailController::class, 'storeSchoolFaculityDetail'])->name('storeSchoolFaculityDetail');
     Route::post('/storeSchoolDocument', [SchoolDetailController::class, 'storeSchoolDocument'])->name('storeSchoolDocument');
-    Route::get('/show-login', [SchoolDetailController::class, 'showSchoolLoginForm']);
-    Route::post('/school-signin', [SchoolDetailController::class, 'Schoolsignin'])->name('School-Login');
-    Route::post('/register', [SchoolDetailController::class, 'createSchool'])->name('School-register');
-    Route::get('/place-neworder', [BookDetailController::class, 'fetchBookDetail'])->name('fetchBookDetail');
+    
+   Route::get('/place-neworder', [BookDetailController::class, 'fetchBookDetail'])->name('fetchBookDetail');
     Route::get('view-book-detail/{uuid}', [BookDetailController::class, 'viewBookDetails'])->name('BookDetail');
    Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('addToCart');
     Route::get('/get-cart-products', [CartController::class, 'getCartProducts'])->name('getCartProducts');

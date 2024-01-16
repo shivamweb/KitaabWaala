@@ -35,10 +35,38 @@
                 <div class="bg-secondary card-body">
                     <div class="media static-top-widget">
                         <div class="media-body"><span class="m-0">Books</span>
-                            <h3 class="mb-0">$<span id="booksCount" class="counter"></span></h3>
+                            <h3 class="mb-0">$<span class="counter" id="totalBooks"></span></h3>
                         </div>
                         <div class="icons-widgets">
                             <i data-feather="box"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-xl-3 col-md-6 xl-50">
+            <div class="card o-hidden widget-cards">
+                <div class="bg-primary card-body">
+                    <div class="media static-top-widget">
+                        <div class="media-body"><span class="m-0">Orders</span>
+                            <h3 class="mb-0">$<span id="totalOrders" class="counter"></span></h3>
+                        </div>
+                        <div class="icons-widgets">
+                            <i data-feather="message-square"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="col-xl-3 col-md-6 xl-50">
+            <div class="card o-hidden widget-cards">
+                <div class="bg-warning card-body">
+                    <div class="media static-top-widget">
+                        <div class="media-body"><span class="m-0">Schools</span>
+                            <h3 class="mb-0">$<span class="counter" id="totalSchools" ></span></h3>
+                        </div>
+                        <div class="icons-widgets">
+                            <i data-feather="navigation"></i>
                         </div>
                     </div>
                 </div>
@@ -48,8 +76,22 @@
             <div class="card o-hidden widget-cards">
                 <div class="bg-primary card-body">
                     <div class="media static-top-widget">
-                        <div class="media-body"><span class="m-0">Orders</span>
-                            <h3 class="mb-0">$<span clasid="ordersCount" class="counter"></span></h3>
+                        <div class="media-body"><span class="m-0">Approved</span>
+                            <h3 class="mb-0">$<span  class="counter" id="totalApprovedOrders"></span></h3>
+                        </div>
+                        <div class="icons-widgets">
+                            <i data-feather="message-square"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 xl-50">
+            <div class="card o-hidden widget-cards">
+                <div class="bg-secondary card-body">
+                    <div class="media static-top-widget">
+                        <div class="media-body"><span class="m-0">Shipped</span>
+                            <h3 class="mb-0">$<span id="totalShippedOrders" class="counter"></span></h3>
                         </div>
                         <div class="icons-widgets">
                             <i data-feather="message-square"></i>
@@ -62,32 +104,46 @@
             <div class="card o-hidden widget-cards">
                 <div class="bg-warning card-body">
                     <div class="media static-top-widget">
-                        <div class="media-body"><span class="m-0">Schools</span>
-                            <h3 class="mb-0">$<span id="schoolsCount" class="counter"></span></h3>
+                        <div class="media-body"><span class="m-0">Processing</span>
+                            <h3 class="mb-0">$<span id="totalProcessingOrders" class="counter"></span></h3>
                         </div>
                         <div class="icons-widgets">
-                            <i data-feather="navigation"></i>
+                            <i data-feather="message-square"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- <div class="col-xl-3 col-md-6 xl-50">
+        <div class="col-xl-3 col-md-6 xl-50">
             <div class="card o-hidden widget-cards">
-                <div class="bg-success card-body">
+                <div class="bg-primary card-body">
                     <div class="media static-top-widget">
-                        <div class="media-body"><span class="m-0">Stock</span>
-                            <h3 class="mb-0">$ <span class="counter">45631</span><small> This
-                                    Month</small></h3>
+                        <div class="media-body"><span class="m-0">Cancellled</span>
+                            <h3 class="mb-0">$<span id="totalCancelledOrders" class="counter"></span></h3>
                         </div>
                         <div class="icons-widgets">
-                            <i data-feather="users"></i>
+                            <i data-feather="message-square"></i>
                         </div>
                     </div>
                 </div>
             </div>
-        </div> -->
-        <!-- <div class="col-xl-4 xl-100">
+        </div>
+        <div class="col-xl-3 col-md-6 xl-50">
+            <div class="card o-hidden widget-cards">
+                <div class="bg-secondary card-body">
+                    <div class="media static-top-widget">
+                        <div class="media-body"><span class="m-0">Pending</span>
+                            <h3 class="mb-0">$<span id="totalPendingOrders" class="counter"></span></h3>
+                        </div>
+                        <div class="icons-widgets">
+                            <i data-feather="message-square"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
             <div class="card height-equal">
                 <div class="card-header">
                     <h5>Order Activity</h5>
@@ -202,11 +258,7 @@
                 <div class="card-header">
                     <h5>Stock Reports</h5>
                     <div class="dashboard-btn-groups">
-                        <!-- <div class="btn-group" role="group" aria-label="Basic example">
-                            <button class="btn btn-outline-light btn-js" type="button">Day</button>
-                            <button class="btn btn-outline-light btn-js" type="button">Week</button>
-                            <button class="btn btn-outline-light btn-js active" type="button">Month</button>
-                        </div> -->
+                      
                     </div>
                     <div class="card-header-right">
                         <ul class="list-unstyled card-option">
@@ -643,31 +695,31 @@
 </div>
 <!-- Container-fluid Ends-->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script>
-        $(document).ready(function () {
-            // Fetch total counts from the backend or another data source
-            $.ajax({
-                url: '/admin/getTotalCounts',  // Replace with the actual API endpoint
-                method: 'GET',
-                success: function (data) {
-                    // Update total book count
-                    $('#totalBooks').text(data.totalBooks || 0);
-
-                    // Update total orders count
-                    $('#totalOrders').text(data.totalOrders || 0);
-
-                    // Update total schools count
-                    $('#totalSchools').text(data.totalSchools || 0);
-                },
-                error: function (error) {
-                    console.error('Error fetching data:', error);
-                }
+            $(document).ready(function() {
+                $.ajax({
+                    url: '/admin/getTotalCounts',
+                    type: 'GET',
+                    success: function(response) {
+                        
+                        // $('#totalBooks').text(response.totalBooks);
+                        // $('#totalOrders').text(response.totalOrders);
+                        $('#totalSchools').text(response.totalSchools);
+                        $('#totalDeliveredOrders').text(response.totalDeliveredOrders);
+                        $('#totalApprovedOrders').text(response.totalApprovedOrders);
+                        $('#totalShippedOrders').text(response.totalShippedOrders);
+                        $('#totalProcessingOrders').text(response.totalProcessingOrders);
+                        $('#totalCancelledOrders').text(response.totalCancelledOrders);
+                        $('#totalPendingOrders').text(response.totalPendingOrders);
+                    },
+                    error: function() {
+                        console.log('Error fetching total product count');
+                    }
+                });
             });
-        });
-    </script>
-     <script>
-        feather.replace(); // Replace feather icons
-    </script>
+        </script>
+
+    
 @endsection

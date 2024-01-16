@@ -26,8 +26,7 @@ Route::group(['prefix' => 'admin'], function () {
         return view('admin.dashboard');
     });
 
-    Route::post('/admin-signin', [AdminDetailController::class, 'Adminsignin'])->name('Admin-signin');
-    Route::get('/admin-login', [AdminDetailController::class, 'showAdminLoginForm']);
+    
     Route::get('/profile', [AdminDetailController::class, 'showAdminProfile']);
     Route::post('/storeAdminProfile', [AdminDetailController::class, 'storeAdminProfile'])->name('storeAdminProfile');
     Route::get('/admin-logout', [AdminDetailController::class, 'Adminlogout'])->name('admin-logout');
@@ -61,6 +60,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/getinquiry',  [InquiryController::class, 'getinquiry']);
     Route::get('/list-inquiry', [InquiryController::class, 'showInquiry']);
     Route::post('/Transaction', [OrderController::class, 'storeTransactionforadmin'])->name('Transaction');
-
-
+    
+    Route::get('/getTotalCounts',  [AdminDetailController::class,'getTotalCount']);
 });

@@ -70,10 +70,10 @@
           <div class="top-header-right">
             <ul>
               <li>
-                <a href="/admin/admin-login"><i class="fa fa-user"></i> Admin</a>
+                <a href="/admin-login"><i class="fa fa-user"></i> Admin</a>
               </li>
               <li>
-                <a href="/school/show-login"><i class="fa fa-user"></i> School</a>
+                <a href="/show-login"><i class="fa fa-user"></i> School</a>
               </li>
             </ul>
           </div>
@@ -92,7 +92,7 @@
                     <div class="nav-sm-back"><i class="fa fa-angle-right ps-2"></i> </div>
                   </li>
                   <li>
-                <a href="/admin/admin-login">Admin</a>
+                <a href="/admin-login">Admin</a>
               </li>
               <li>
                 <a href="/school/show-login">School</a>
@@ -2708,7 +2708,7 @@
                 </div>
                 <div class="footer-contant">
                   <ul>
-                    <li><a href="/admin/admin-login">Admin</a></li>
+                    <li><a href="/admin-login">Admin</a></li>
                     <li><a href="/school/show-login">School</a></li>
                     <li><a href="javascript:void(0)">terms &amp; conditions</a></li>
 
