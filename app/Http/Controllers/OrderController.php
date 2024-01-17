@@ -287,7 +287,25 @@ public function storeTransactionforadmin(Request $request)
         return redirect()->back()->with('status', 'error')->with('message', 'Error Adding Transections');
     }
 }
-
+public function getTotalOrderCount(Request $request)
+    {  
+        $schoolUuid = $this->getSchoolSession($request);
+        $schoolDetails = $this->schoolDetails->where('uuid', $schoolUuid)->first();
+        $totalOrders = $this->order->where('school_id', $schoolDetails->id)->count();
+      
+        $approvedOrders = $this->order->where('school_id', $schoolDetails->id)
+            ->where('order_status', OrderStatusEnum::APPROVED)->count();
+        $pendingOrders = $this->order->where('school_id', $schoolDetails->id)
+            ->where('order_status', OrderStatusEnum::PENDING)->count();
+        $cancledOrders = $this->order->where('school_id', $schoolDetails->id)
+            ->where('order_status', OrderStatusEnum::CANCELLED)->count();
+        return response()->json([
+            'totalOrders'    => $totalOrders,
+            'approvedOrders' => $approvedOrders,
+            'pendingOrders'  => $pendingOrders,
+            'cancledOrders' => $cancledOrders
+        ]);
+    } 
 public function getSalesReportData()
 {
     $schoolDetails = $this->schoolDetails->get();
@@ -304,4 +322,7 @@ public function getSalesReportData()
 
     return response()->json($salesData);
 }
+
+
+
 }
