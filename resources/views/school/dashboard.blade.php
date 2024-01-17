@@ -200,39 +200,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-8 xl-100">
-            <div class="card btn-months">
-                <div class="card-header">
-                    <h5>This Month Revenue</h5>
-                    <div class="dashboard-btn-groups">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button class="btn btn-outline-light btn-js" type="button">Day</button>
-                            <button class="btn btn-outline-light btn-js" type="button">Week</button>
-                            <button class="btn btn-outline-light btn-js active" type="button">Month</button>
-                        </div>
-                    </div>
-                    <div class="card-header-right">
-                        <ul class="list-unstyled card-option">
-                            <li><i class="icofont icofont-simple-left"></i></li>
-                            <li><i class="view-html fa fa-code"></i></li>
-                            <li><i class="icofont icofont-maximize full-card"></i></li>
-                            <li><i class="icofont icofont-minus minimize-card"></i></li>
-                            <li><i class="icofont icofont-refresh reload-card"></i></li>
-                            <li><i class="icofont icofont-error close-card"></i></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="revenue-chart"></div>
-                    <div class="code-box-copy">
-                        <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#example-head8" title="" data-original-title="Copy"><i class="icofont icofont-copy-alt"></i></button>
-                        <pre class=" language-html"><code class=" language-html" id="example-head8">
-&lt;div class="revenue-chart"&gt;&lt;/div&gt;
-                                    </code></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div>
+        <canvas id="schoolPurchaseReportChart" width="800" height="400"></canvas>
+    </div>
         <div class="col-xl-6 xl-100">
             <div class="card">
                 <div class="card-header">
@@ -800,5 +770,45 @@
                     }
                 });
             });
+            function createSchoolPurchaseReportChart(salesData) {
+    const labels = salesData.map(entry => entry.order_date); // Modify this based on your data
+    const data = salesData.map(entry => entry.total_orders);
+
+    const ctx = document.getElementById('schoolPurchaseReportChart').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Total Orders',
+                data: data,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2,
+                fill: false,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    type: 'time', // Assuming order_date is a time-based field, modify accordingly
+                    title: {
+                        display: true,
+                        text: 'Order Date',
+                    },
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Total Orders',
+                    },
+                },
+            },
+        },
+    });
+}
+
         </script>
 @endsection
