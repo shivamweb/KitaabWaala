@@ -83,7 +83,11 @@ class BookDetailController extends Controller
         $status = null;
         $message = null;
         $bookdetails = $this->bookdetails->with('class')->get();
-        return view('admin.list-book', compact('bookdetails'))->render();
+
+        // Pass book details to the view
+        return view('admin.list-book', compact('bookdetails'))->with([
+            'chartData' => $this->getChartData($bookdetails),
+        ]);
     }
 
     public function fetchBookDetail(Request $request)
@@ -150,4 +154,24 @@ class BookDetailController extends Controller
             ->get();
         return view('school.approved-bookList', compact('bookdetails'))->render();
     }
+
+    public function getChartData()
+    {
+        $bookdetails=$this->bookdetails->get();
+        // dd($bookdetails);
+        $chartData = [];
+       
+        foreach ($bookdetails as $book) {
+            $chartData[] = [
+                'book_name' => $book->book_name,
+                'quantity'  => $book->quantity,
+            ];
+        }
+    
+        return $chartData;
+    }
+    
+    
+
+ 
 }

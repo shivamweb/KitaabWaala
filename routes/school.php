@@ -54,5 +54,6 @@ Route::group(['prefix' => 'school'], function () {
     Route::get('/showNotification', [NotificationController::class, 'showNotifications']);
     
     Route::get('/getNotifications',  [NotificationController::class, 'getNotifications']);
-    Route::get('/inquiry', [InquiryController::class, 'showinquirySchool']);
+    Route::get('/inquiry', [InquiryController::class, 'showinquiryforSchool']);
+    Route::get('/getTotalOrdersCount', [OrderController::class, 'getTotalOrderCount']);
 });

@@ -73,7 +73,7 @@ class InquiryController extends Controller
             return redirect('/school/inquiryaddview')->with('status', 'error')->with('message', 'Failed to send Inquiry: ' . $e->getMessage());
         }
     }
-    public function showInquiry(Request $request)
+    public function showInquiryforadmin(Request $request)
     {
         try {
             $adminSession = $this->getAdminSession($request);
@@ -83,11 +83,11 @@ class InquiryController extends Controller
             $inquirys = $this->inquiry::where('to', $admindetails->id)->with('createdByUser')->get();
             return view('admin.list-inquiry', ['inquiry' => $inquirys]);
         } catch (\Exception $e) {
-            Log::error('[InquiryController][showInquiry] Error viewing inquiry: ' . ' Exception=' . $e->getMessage());
+            Log::error('[InquiryController][showInquiryforadmin] Error viewing inquiry: ' . ' Exception=' . $e->getMessage());
             return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
         }
     }
-    public function showinquirySchool(Request $request)
+    public function showinquiryforSchool(Request $request)
     {
         try {
             $schoolSession = $this->getSchoolSession($request);

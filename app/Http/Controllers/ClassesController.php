@@ -36,7 +36,7 @@ class ClassesController extends Controller
         try {
             // Find the class by ID
             $class = Classes::findOrFail($id);
-            dd($class, $class->books);
+           
             // Delete the associated book details
             $class->books()->delete();
     

@@ -34,9 +34,9 @@
             <div class="card o-hidden  widget-cards">
                 <div class="bg-secondary card-body">
                     <div class="media static-top-widget">
-                        <div class="media-body"><span class="m-0">Products</span>
-                            <h3 class="mb-0">$ <span class="counter">9856</span><small> This
-                                    Month</small></h3>
+                        <div class="media-body"><span class="m-0">Total Orders</span>
+                           <h3 class="mb-0">$ <span class="counter" id="totalOrders">0</span><small> 
+</small></h3>
                         </div>
                         <div class="icons-widgets">
                             <i data-feather="box"></i>
@@ -49,9 +49,9 @@
             <div class="card o-hidden widget-cards">
                 <div class="bg-primary card-body">
                     <div class="media static-top-widget">
-                        <div class="media-body"><span class="m-0">Messages</span>
-                            <h3 class="mb-0">$ <span class="counter">893</span><small> This
-                                    Month</small></h3>
+                        <div class="media-body"><span class="m-0">Approved Orders</span>
+                            <h3 class="mb-0">$ <span class="counter" id="approvedOrders">0</span><small> 
+                                    </small></h3>
                         </div>
                         <div class="icons-widgets">
                             <i data-feather="message-square"></i>
@@ -64,9 +64,9 @@
             <div class="card o-hidden widget-cards">
                 <div class="bg-warning card-body">
                     <div class="media static-top-widget">
-                        <div class="media-body"><span class="m-0">Earnings</span>
-                            <h3 class="mb-0">$ <span class="counter">6659</span><small> This
-                                    Month</small></h3>
+                        <div class="media-body"><span class="m-0">Pending Orders</span>
+                            <h3 class="mb-0">$ <span class="counter" id="pendingOrders">0</span><small>
+                                    </small></h3>
                         </div>
                         <div class="icons-widgets">
                             <i data-feather="navigation"></i>
@@ -79,9 +79,9 @@
             <div class="card o-hidden widget-cards">
                 <div class="bg-success card-body">
                     <div class="media static-top-widget">
-                        <div class="media-body"><span class="m-0">New Vendors</span>
-                            <h3 class="mb-0">$ <span class="counter">45631</span><small> This
-                                    Month</small></h3>
+                        <div class="media-body"><span class="m-0">canclled Orders</span>
+                            <h3 class="mb-0">$ <span class="counter" id="cancledOrders">0</span><small>
+                            </small></h3>
                         </div>
                         <div class="icons-widgets">
                             <i data-feather="users"></i>
@@ -776,11 +776,29 @@
                                     </code></pre>
                     </div>
                 </div>
+                
             </div>
         </div>
 
     </div>
 </div>
 <!-- Container-fluid Ends-->
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $.ajax({
+                    url: '/school/getTotalOrdersCount',
+                    type: 'GET',
+                    success: function(response) {
+                        $('#totalOrders').text(response.totalOrders);
+                        $('#approvedOrders').text(response.approvedOrders);
+                        $('#pendingOrders').text(response.pendingOrders);
+                        $('#cancledOrders').text(response.cancledOrders);
+                    },
+                    error: function() {
+                        console.log('Error fetching total product count');
+                    }
+                });
+            });
+        </script>
 @endsection

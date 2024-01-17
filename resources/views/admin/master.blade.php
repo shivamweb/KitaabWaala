@@ -123,6 +123,7 @@
                             </ul>
                         </li>
                         <li><a class="sidebar-header" href="/admin/class"><i data-feather="bar-chart"></i><span>Add-Class</span></a></li>
+                        <li><a class="sidebar-header" href="/admin/viewexpense"><i data-feather="bar-chart"></i><span>Add-Expense</span></a></li>
                         <li><a class="sidebar-header" href="#"><i data-feather="tag"></i><span>Notification</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
                                 <li><a href="notificationAddView"><i class="fa fa-circle"></i>Add New Notification</a></li>
@@ -132,7 +133,7 @@
                         </li>
                         <li><a class="sidebar-header" href="#"><i data-feather="chrome"></i><span>Reports</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
-                                <li><a href="translations.html"><i class="fa fa-circle"></i>Stock Reports</a></li>
+                                <li><a href="monthly-stock"><i class="fa fa-circle"></i>Stock Reports</a></li>
                                 <li><a href="currency-rates.html"><i class="fa fa-circle"></i>Sales Reports</a></li>
                                 <li><a href="taxes.html"><i class="fa fa-circle"></i>Expense Reports</a></li>
                             </ul>
@@ -275,12 +276,12 @@
     <script src="../../assets/js/chart/apex-chart/stock-prices.js"></script>
 
     <!--chartjs js-->
-    <script src="../../../../assets/js/chart/flot-chart/excanvas.js"></script>
+    <!-- <script src="../../../../assets/js/chart/flot-chart/excanvas.js"></script>
     <script src="../../../../assets/js/chart/flot-chart/jquery.flot.js"></script>
     <script src="../../../../assets/js/chart/flot-chart/jquery.flot.time.js"></script>
     <script src="../../../../assets/js/chart/flot-chart/jquery.flot.categories.js"></script>
     <script src="../../../../assets/js/chart/flot-chart/jquery.flot.stack.js"></script>
-    <script src="../../../../assets/js/chart/flot-chart/jquery.flot.pie.js"></script>
+    <script src="../../../../assets/js/chart/flot-chart/jquery.flot.pie.js"></script> -->
     <!--dashboard custom js-->
     <script src="../../../../assets/js/dashboard/default.js"></script>
 
