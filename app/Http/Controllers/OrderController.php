@@ -209,6 +209,8 @@ class OrderController extends Controller
                     }
                 
                 }
+
+                
                 $order->order_status = $statusValue;
                 // $this->checkOrderItemQuantity($order);
 
@@ -248,40 +250,58 @@ private function checkOrderItemQuantity($order)
     return false;
 }
 
-    public function storeTransactionforadmin(Request $request)
-    {
-        try {
-            $validatedData = $request->validate([
-                'order_id'       => 'required',
-                'transection_id' => 'required',
-                'amount'         => 'required',
+public function storeTransactionforadmin(Request $request)
+{
+    try {
+        $validatedData = $request->validate([
+            'order_id'       => 'required',
+            'transection_id' => 'required',
+            'amount'         => 'required',
+        ]);
+
+        $order = $this->order->find($validatedData['order_id']);
+
+        if (!$order) {
+            return redirect()->back()->with('status', 'error')->with('message', 'Order not found.');
+        }
+
+        if ($order->remaining_Amount >= $validatedData['amount']) {
+            $order->remaining_Amount -= $validatedData['amount'];
+            $order->save();
+
+            $orderTransection = new $this->orderTransection([
+                'transection_id' => $validatedData['transection_id'],
+                'amount'         => $validatedData['amount'],
             ]);
 
-            $order = $this->order->find($validatedData['order_id']);
+            // Ensure that the order_id column in your order_transections table is properly associated.
+            $orderTransection->order()->associate($order);
+            $orderTransection->save();
 
-            if (!$order) {
-                return redirect()->back()->with('status', 'error')->with('message', 'Order not found.');
-            }
-
-            if ($order->remaining_Amount >= $validatedData['amount']) {
-                $order->remaining_Amount -= $validatedData['amount'];
-                $order->save();
-
-                $orderTransection = new $this->orderTransection([
-                    'transection_id' => $validatedData['transection_id'],
-                    'amount'         => $validatedData['amount'],
-                ]);
-                $order->orderTransections()->save($orderTransection);
-
-                return redirect()->back()->with('status', 'success')->with('message', 'Transaction added successfully.');
-            } else {
-
-                return redirect()->back()->with('status', 'error')->with('message', 'Insufficient remaining amount.');
-            }
-        } catch (\Exception $e) {
-            Log::error('[OrderController][storeTransactionforadmin] Error Adding Transections ' . 'Request=' . $request . ', Exception=' . $e->getMessage());
-            return redirect()->back()->with('status', 'error')->with('message', 'Error Adding Transections');
+            return redirect()->back()->with('status', 'success')->with('message', 'Transaction added successfully.');
+        } else {
+            return redirect()->back()->with('status', 'error')->with('message', 'Insufficient remaining amount.');
         }
+    } catch (\Exception $e) {
+        Log::error('[OrderController][storeTransactionforadmin] Error Adding Transections ' . 'Request=' . $request . ', Exception=' . $e->getMessage());
+        return redirect()->back()->with('status', 'error')->with('message', 'Error Adding Transections');
+    }
+}
+
+public function getSalesReportData()
+{
+    $schoolDetails = $this->schoolDetails->get();
+    // dd($schoolDetails);
+    $salesData = [];
+
+    foreach ($schoolDetails as $school) {
+        $totalOrders = $this->order->where('school_id', $school->id)->count();
+        $salesData[] = [
+            'school_name' => $school->school_name,
+            'total_orders' => $totalOrders,
+        ];
     }
 
+    return response()->json($salesData);
+}
 }

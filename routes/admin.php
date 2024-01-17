@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminDetailController;
 use App\Http\Controllers\BookDetailController;
 use App\Http\Controllers\ClassesController;
+use App\Http\Controllers\ExpensesController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SchoolDetailController;
@@ -55,11 +56,24 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/invoiceToAdmin/{orderId}', [OrderController::class, 'viewInvoiceToAdmin']);
 
     Route::get('/transactions', [OrderController::class, 'viewTransectionToAdmin'])->name('viewTransectionToAdmin');
-    Route::get('/showInquiry', [InquiryController::class, 'showInquiry']);
+    
     
     Route::get('/getinquiry',  [InquiryController::class, 'getinquiry']);
-    Route::get('/list-inquiry', [InquiryController::class, 'showInquiry']);
-    Route::post('/Transaction', [OrderController::class, 'storeTransactionforadmin'])->name('Transaction');
+    Route::get('/list-inquiry', [InquiryController::class, 'showInquiryforadmin']);
+    Route::post('/addtransaction', [OrderController::class, 'storeTransactionforadmin'])->name('addTransaction');
     
     Route::get('/getTotalCounts',  [AdminDetailController::class,'getTotalCount']);
+    Route::post('/add-expense', [ExpensesController::class, 'addexpense'])->name('addexpense');
+    Route::get('/viewexpense', [ExpensesController::class, 'viewexpense'])->name('viewexpense');
+    Route::get('/expense', [ClassesController::class, 'listexpenseforadmin'])->name('expense');
+    Route::get('/delete-expense/{id}', [ExpensesController::class, 'deleteExpense'])->name('deleteExpense');
+   
+    Route::get('/datewise-stock', function () {
+        return view('admin.datewise-stock');
+    });
+    Route::get('/monthly-stock', function () {
+        return view('admin.monthly-stock');
+    });
+    Route::get('/getChartData', [BookDetailController::class, 'getChartData'])->name('getChartData');
+    Route::get('/getSalesReportData', [OrderController::class, 'getSalesReportData']);
 });

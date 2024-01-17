@@ -40,7 +40,7 @@
                                         <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form class="needs-validation" method="POST" action="{{route('Transaction')}}">
+                                        <form class="needs-validation" method="POST" action="{{route('addTransaction')}}">
                                             @csrf
                                             <div class="form">
                                                 <div class="form-group">
@@ -120,6 +120,54 @@
 
 <!-- Bootstrap JavaScript -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var status = "{{ session('status') }}";
+        var message = "{{ session('message') }}";
+        var errors = @json($errors->all());
+        if (status === 'success') {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: message
+            });
+        } else if (status === 'error') {
+            if (errors.length > 0) {
+                var errorMessage = 'Validation Errors:<br>';
+                errors.forEach(function(error) {
+                    errorMessage += error + '<br>';
+                });
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Validation Error',
+                    html: errorMessage
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: message
+                });
+            }
+        }
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#invoice_id').change(function() {
+            var orderId = $(this).val();
+            if (orderId) {
+                // Assuming you have the remaining_amount available in the HTML, no need for AJAX in this case
+                var remainingAmount = $('#invoice_id option:selected').data('remaining-amount');
+                $('#remaining_amount_label').text(remainingAmount);
+            } else {
+                $('#remaining_amount_label').text('');
+            }
+        });
+    });
+</script>
 @endsection
