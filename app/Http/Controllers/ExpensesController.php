@@ -67,4 +67,22 @@ class ExpensesController extends Controller
     }
 }
 
+public function getexpensereport()
+{
+    $book_costcount = $this->expenses->sum('book_cost');
+    $travelling_costcount = $this->expenses->sum('travelling_cost');
+    $labour_costcount = $this->expenses->sum('labour_cost');
+    $warehouse_costcount = $this->expenses->sum('warehouse_cost');
+
+    $expensecount = [
+        'book_costcount'      => $book_costcount,
+        'travelling_costcount' => $travelling_costcount,
+        'labour_costcount'     => $labour_costcount,
+        'warehouse_costcount'  => $warehouse_costcount,
+    ];
+
+    return response()->json($expensecount);
+}
+
+
 }
