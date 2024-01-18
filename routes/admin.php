@@ -67,7 +67,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/viewexpense', [ExpensesController::class, 'viewexpense'])->name('viewexpense');
     Route::get('/expense', [ClassesController::class, 'listexpenseforadmin'])->name('expense');
     Route::get('/delete-expense/{id}', [ExpensesController::class, 'deleteExpense'])->name('deleteExpense');
-   
     Route::get('/datewise-stock', function () {
         return view('admin.datewise-stock');
     });
