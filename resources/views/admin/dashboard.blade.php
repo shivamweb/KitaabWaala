@@ -4,6 +4,27 @@
 @section('content')
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<style>
+    .inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100%;
+    }
+
+    .inner h4 {
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    .inner span {
+        font-size: 1rem;
+        margin-top: 0.2rem;
+    }
+</style>
 <!-- Container-fluid starts-->
 <div class="container-fluid">
     <div class="page-header">
@@ -44,20 +65,7 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="col-xl-3 col-md-6 xl-50">
-            <div class="card o-hidden widget-cards">
-                <div class="bg-primary card-body">
-                    <div class="media static-top-widget">
-                        <div class="media-body"><span class="m-0">Orders</span>
-                            <h3 class="mb-0">$<span id="totalOrders" class="counter"></span></h3>
-                        </div>
-                        <div class="icons-widgets">
-                            <i data-feather="message-square"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+
         <div class="col-xl-3 col-md-6 xl-50">
             <div class="card o-hidden widget-cards">
                 <div class="bg-warning card-body">
@@ -253,39 +261,48 @@
             </div>
         </div>
     </div>
-    <div id="chart-container">
-        <canvas id="book-chart" width="400" height="200"></canvas>
-    </div>
-    <div>
-      
-        <canvas id="sales-report-chart" width="400" height="200"></canvas>
-    </div>
-
-    <div class="col-sm-12">
-        <div class="card btn-months">
-            <div class="card-header">
-                <h5>Expense Reports</h5>
-                <div class="dashboard-btn-groups">
-
-                </div>
-                <div class="card-header-right">
-                    <ul class="list-unstyled card-option">
-                        <li><i class="icofont icofont-simple-left"></i></li>
-                        <li><i class="view-html fa fa-code"></i></li>
-                        <li><i class="icofont icofont-maximize full-card"></i></li>
-                        <li><i class="icofont icofont-minus minimize-card"></i></li>
-                        <li><i class="icofont icofont-refresh reload-card"></i></li>
-                        <li><i class="icofont icofont-error close-card"></i></li>
-                    </ul>
+    <div class="card-body">
+        <div class="stat-box px-3 px-md-4 py-3 py-lg-4 shadow-sm rounded">
+            <div>
+                <h3 class="mb-0">Stock Reports</h3>
+                <div class="inner position-relative">
+                    <div class="inner position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                        <h4 class="primary mb-0" id="total-ticket-count"></h4>
+                    </div>
+                    <div id="chart-container" style="position: relative; height: 200x; width: 100%;">
+                        <canvas id="book-chart" width="400" height="200"></canvas>
+                    </div>
                 </div>
             </div>
-            <div class="card-body sell-graph">
-                <div class="flot-chart-placeholder" id="multiple-real-timeupdate"></div>
-                <div class="code-box-copy">
-                    <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#example-head3" title="" data-original-title="Copy"><i class="icofont icofont-copy-alt"></i></button>
-                    <pre class=" language-html"><code class=" language-html" id="example-head3">&lt;div class="card-body sell-graph"&gt;
-   &lt;canvas id="myGraph"&gt;&lt;/canvas&gt;
-&lt;/div&gt;</code></pre>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="stat-box px-3 px-md-4 py-3 py-lg-4 shadow-sm rounded">
+            <div>
+                <h3 class="mb-0">Expense Reports</h3>
+                <div class="inner position-relative">
+                    <div class="inner position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                        <h4 class="primary mb-0" id="total-ticket-count"></h4>
+
+                    </div>
+                    <div class="chart-container" style="position: relative; height: 200x; width: 100%;">
+                        <canvas id="expenseChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="stat-box px-3 px-md-4 py-3 py-lg-4 shadow-sm rounded">
+            <div>
+                <h3 class="mb-0">Sales Reports</h3>
+                <div class="inner position-relative">
+                    <div class="inner position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                        <h4 class="primary mb-0" id="total-ticket-count"></h4>
+                    </div>
+                    <div class="chart-container" style="position: relative; height: 200x; width: 100%;">
+                        <canvas id="sales-report-chart" width="400" height="200"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
@@ -304,6 +321,7 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $.ajax({
@@ -378,51 +396,89 @@
             }
         });
     }
+
     function loadSalesReportData() {
-    $.ajax({
-        url: '/admin/getSalesReportData',
-        method: 'GET',
-        success: function (salesData) {
-            createSalesReportChart(salesData);
-        },
-        error: function (error) {
-            console.log('Error fetching sales report data:', error);
-        }
+        $.ajax({
+            url: '/admin/getSalesReportData',
+            method: 'GET',
+            success: function(salesData) {
+                createSalesReportChart(salesData);
+            },
+            error: function(error) {
+                console.log('Error fetching sales report data:', error);
+            }
+        });
+    }
+
+    $(document).ready(function() {
+        loadSalesReportData();
     });
-}
 
-$(document).ready(function () {
-    loadSalesReportData();
-});
+    // Add the following function to create the sales report chart
+    function createSalesReportChart(data) {
+        var ctx = document.getElementById('sales-report-chart').getContext('2d');
 
-// Add the following function to create the sales report chart
-function createSalesReportChart(data) {
-    var ctx = document.getElementById('sales-report-chart').getContext('2d');
+        var schoolNames = data.map(entry => entry.school_name);
+        var totalOrders = data.map(entry => entry.total_orders);
 
-    var schoolNames = data.map(entry => entry.school_name);
-    var totalOrders = data.map(entry => entry.total_orders);
-
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: schoolNames,
-            datasets: [{
-                label: 'Total Orders',
-                data: totalOrders,
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: schoolNames,
+                datasets: [{
+                    label: 'Total Orders',
+                    data: totalOrders,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    barThickness: 20,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
+        });
+    }
+    $(document).ready(function() {
+        $.ajax({
+            url: '/admin/getexpensereport',
+            method: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                console.log(data);
+
+
+                var ctxStatus = document.getElementById('expenseChart').getContext('2d');
+                chartStatus = new Chart(ctxStatus, {
+
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Book Cost', 'Travelling Cost', 'Labour Cost', 'Warehouse Cost'],
+                        datasets: [{
+                            data: [data.book_costcount, data.travelling_costcount, data.labour_costcount, data.warehouse_costcount],
+                            backgroundColor: ['#4184e6', '#198754', '#c5aa5b', '#6c757d', '#c0525c'],
+                        }],
+                    },
+                    options: {
+                        cutout: 80,
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        legend: {
+                            position: 'right',
+                        },
+                    },
+                });
+
+            },
+            error: function(xhr, status, error) {
+                console.error('AJAX request failed:', error);
+            }
+        });
     });
-}
 </script>
 
 @endsection

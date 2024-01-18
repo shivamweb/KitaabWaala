@@ -75,4 +75,5 @@ Route::group(['prefix' => 'admin'], function () {
     });
     Route::get('/getChartData', [BookDetailController::class, 'getChartData'])->name('getChartData');
     Route::get('/getSalesReportData', [OrderController::class, 'getSalesReportData']);
+    Route::get('/getexpensereport',  [ExpensesController::class, 'getexpensereport']);
 });
