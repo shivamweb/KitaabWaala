@@ -309,7 +309,7 @@ public function getTotalOrderCount(Request $request)
 public function getSalesReportData()
 {
     $schoolDetails = $this->schoolDetails->get();
-    // dd($schoolDetails);
+    
     $salesData = [];
 
     foreach ($schoolDetails as $school) {
@@ -321,6 +321,20 @@ public function getSalesReportData()
     }
 
     return response()->json($salesData);
+}
+
+// Add this method to your OrderController
+public function getPurchaseReportData(Request $request)
+{
+    $schoolSession = $this->getSchoolSession($request);
+    $uuid = $schoolSession['uuid'];
+    $school = $this->schoolDetails->where('uuid', $uuid)->first();
+
+    // Fetch total purchase data for the school
+    $totalPurchaseData = $this->order->where('school_id', $school->id)->get();
+
+    // Return as an array
+    return response()->json($totalPurchaseData);
 }
 
 

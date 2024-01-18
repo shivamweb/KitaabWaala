@@ -78,4 +78,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/getSalesReportData', [OrderController::class, 'getSalesReportData']);
     Route::get('/getexpensereport',  [ExpensesController::class, 'getexpensereport']);
     Route::get('/fetchAdminPhotos', [AdminDetailController::class, 'fetchAdminPhotos'])->name('fetchAdminPhotos');
+    
+    Route::get('/manage-stock', [BookDetailController::class, 'managestockforadmin'])->name('Manage-stock');
+    Route::get('/fetchDataByDate', [BookDetailController::class, 'fetchDataByDate'])->name('fetchDataByDate');
 });
