@@ -206,21 +206,16 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <button type="submit" class="btn btn-primary">Add School</button>
                                         <!--<tr>
                                                     <td>State:</td>
                                                     <td><input type="text" id="state" name="state" value="{{$schooldetails->state}}"></td>
                                                 </tr>-->
-                                                 </div>
-                            <button type="submit" class="btn btn-primary">Add School</button>
-                        </div>
-                                                <!-- <button type="submit" class="btn btn-primary">Add School</button> -->
                                     </form>
                                 </body>
                                 </table>
-                            <!-- </div>
-                            <button type="submit" class="btn btn-primary">Add School</button>
-                        </div> -->
                             </div>
+                        </div>
                         <div class="tab-pane fade" id="top-pancard" role="tabpanel" aria-labelledby="top-pancard-tab">
                             <h5 class="f-w-600">Spoc Person Detail</h5>
                             <tr>
@@ -263,8 +258,8 @@
                                             <input class="form-control" type="text" id="faculity_mobileno" name="faculity_mobileno" value="{{$schooldetails->faculity_mobileno ?? '' }}" style="border-radius: 20px;">
                                         </div>
                                     </div>
-                                </div></div>
-                                <!-- <div class="row">
+                                </div>
+                                <div class="row">
                                     <div class="col-lg-7 mt-3 mt-lg-4">
                                         <div class="form-group">
                                             <label for="fname" class="form-label">Faculity Gender:</label>
@@ -287,7 +282,7 @@
                                             <input class="form-control" type="text" id="designation" name="designation" value="{{$schooldetails->designation ?? '' }}" style="border-radius: 20px;">
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
 
                                 <!-- <div class="table-responsive pancard-table">
                                     <table class="table table-responsive">
@@ -318,9 +313,9 @@
                                         </tbody>
                                     </table>
                                 </div> -->
-                                <!-- <button type="submit" class="btn btn-primary">Add Faculity</button>
+                                <button type="submit" class="btn btn-primary">Add Faculity</button>
                             </form>
-                        </div> -->
+                        </div>
                         <div class="tab-pane fade" id="top-aadhar" role="tabpanel" aria-labelledby="top-profile-tab">
                             <h5 class="f-w-600">Document</h5>
                             <form method="POST" action="{{route('storeSchoolDocument')}}" enctype="multipart/form-data">
