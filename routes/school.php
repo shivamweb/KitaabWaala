@@ -29,7 +29,6 @@ Route::group(['prefix' => 'school'], function () {
     Route::get('/profile', [SchoolDetailController::class, 'showProfile']);
     Route::post('/storeSchoolProfile', [SchoolDetailController::class, 'storeSchoolProfile'])->name('storeSchoolProfile');
     Route::post('/storeSchoolFaculityDetail', [SchoolDetailController::class, 'storeSchoolFaculityDetail'])->name('storeSchoolFaculityDetail');
-    Route::post('/storeSchoolDocument', [SchoolDetailController::class, 'storeSchoolDocument'])->name('storeSchoolDocument');
     
    Route::get('/place-neworder', [BookDetailController::class, 'fetchBookDetail'])->name('fetchBookDetail');
     Route::get('view-book-detail/{uuid}', [BookDetailController::class, 'viewBookDetails'])->name('BookDetail');
@@ -58,4 +57,8 @@ Route::group(['prefix' => 'school'], function () {
     Route::get('/getTotalOrdersCount', [OrderController::class, 'getTotalOrderCount']);
     
     Route::get('/getSchoolPurchaseReportData', [OrderController::class, 'getSchoolPurchaseReportData']);
+    Route::post('/addAgreement', [SchoolDetailController::class, 'addAgreement'])->name('storeSchoolDocument');
+
+    Route::post('/storeSchoolDocument', [SchoolDetailController::class, 'storeSchoolDocument'])->name('storeSchoolDocument');
+    
 });

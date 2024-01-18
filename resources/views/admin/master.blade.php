@@ -75,7 +75,7 @@
                         </li>
                         <li><a href="javascript:void(0)"><i class="right_side_toggle" data-feather="message-square"></i><span class="dot"></span></a></li>
                         <li class="onhover-dropdown">
-                            <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="../assets/images/dashboard/man.png" alt="header-user">
+                            <div class="media align-items-center" id="iconDiv"><img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="../assets/images/dashboard/man.png" alt="header-user">
                                 <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
                             </div>
                             <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
@@ -208,7 +208,7 @@
                 </div>
             </div> -->
             <!-- Right sidebar Ends-->
-
+            <!-- Placeholder for admin image -->
             <div class="page-body">
 
                 @yield('content')
@@ -299,7 +299,30 @@
     <!--script admin-->
     <script src="../../../../assets/js/admin-script.js"></script>
     <script>
-    
+         $(document).ready(function() {
+            fetchAdminPhotos();
+    });
+ function fetchAdminPhotos() {
+ $.ajax({
+ url: '../../admin/fetchAdminPhotos',
+ type: 'GET',
+ dataType: 'json',
+success: function(response) {
+ updateSetting('icon', 'iconDiv', response);
+ },
+ });
+}
+ function updateSetting(mediaName, divId, response) {
+ if (response.AdminPhotos) {
+var fetchAdminPhotos = response.AdminPhotos;
+var mediaUrl = fetchAdminPhotos.image;
+ if (mediaUrl && divId === 'iconDiv') {
+ $('#' + divId + ' img').attr('src', '../../' + mediaUrl);
+ }
+ }
+ }
+ </script> 
+    <script>
     $(document).ready(function() {
     $.ajax({
         url: '/admin/getinquiry',

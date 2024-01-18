@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\UserGroupEnum;
 use App\Models\BookDetail;
 use App\Models\BookSchool;
+use App\Models\AgreementImage;
 use App\Models\Classes;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Log;
@@ -13,6 +14,7 @@ use App\Traits\SessionTrait;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 
 class SchoolDetailController extends Controller
@@ -28,12 +30,14 @@ class SchoolDetailController extends Controller
         SchoolDetail $schooldetail,
         Classes $classes,
         BookDetail $books,
-        BookSchool $bookSchool
+        BookSchool $bookSchool,
+        AgreementImage $agreementImage
     ) {
         $this->schooldetail = $schooldetail;
         $this->classes = $classes;
         $this->books = $books;
         $this->bookSchool = $bookSchool;
+        $this->agreementImage = $agreementImage;
     }
 
     public function showSchoolLoginForm(Request $request)
@@ -143,11 +147,11 @@ class SchoolDetailController extends Controller
             $schoolSession = $this->getSchoolSession($request);
             $uuid = $schoolSession['uuid'];
             $this->validate($request, [
-                'faculity_name'    => 'required',
-                'faculity_email' => 'required',
+                'faculity_name'     => 'required',
+                'faculity_email'    => 'required',
                 'faculity_mobileno' => 'required',
-                'faculity_gender' => 'required',
-                'designation' => 'required',
+                'faculity_gender'   => 'required',
+                'designation'       => 'required',
             ]);
 
             $schoolfaculitydetail = $request->all();
@@ -164,34 +168,33 @@ class SchoolDetailController extends Controller
         }
     }
 
-    public function storeSchoolDocument(Request $request)
-    {
-        try {
+    // public function storeSchoolDocument(Request $request)
+    // {
+    //     try {
 
-            $schoolSession = $this->getSchoolSession($request);
-            $uuid = $schoolSession['uuid'];
-            $this->validate($request, [
-                'school_document'    => 'required',
+    //         $schoolSession = $this->getSchoolSession($request);
+    //         $uuid = $schoolSession['uuid'];
+    //         $this->validate($request, [
+    //             'school_document'    => 'required',
+    //         ]);
+    //         $imagefile = $request->file('school_document');  // Corrected input name
+    //         $filename = time() . '_' . $imagefile->getClientOriginalName();
+    //         $imagePath = 'SchoolDocImage/' . $filename;
+    //         $imagefile->move(public_path('SchoolDocImage/'), $filename);
 
-            ]);
-            $imagefile = $request->file('school_document');  // Corrected input name
-            $filename = time() . '_' . $imagefile->getClientOriginalName();
-            $imagePath = 'SchoolDocImage/' . $filename;
-            $imagefile->move(public_path('SchoolDocImage/'), $filename);
+    //         $schooldocument = $request->all();
+    //         $this->schooldetail->completeSchoolDocument($schooldocument, $uuid, $imagePath);
 
-            $schooldocument = $request->all();
-            $this->schooldetail->completeSchoolDocument($schooldocument, $uuid, $imagePath);
-
-            return redirect()->back()->with('status', 'success')->with('message', 'Document Uploaded successfully');
-        } catch (ValidationException $e) {
-            $errors = $e->validator->getMessageBag();
-            Log::error('[SchoolDetailController][storeSchoolDocument]Validation error: ' . 'Request=' . $request . ', Errors =' . implode(', ', $errors->all()));
-            return redirect()->back()->with('status', 'error')->with('message', 'Document not updated!')->with('errors', $errors);
-        } catch (\Exception $e) {
-            Log::error('[SchoolDetailController][storeSchoolDocument] Error creating user: '  . 'Request=' . $request . ', Exception=' . $e->getMessage());
-            return redirect()->back()->with('status', 'error')->with('message',  'Document not updated!' . $e->getMessage());
-        }
-    }
+    //         return redirect()->back()->with('status', 'success')->with('message', 'Document Uploaded successfully');
+    //     } catch (ValidationException $e) {
+    //         $errors = $e->validator->getMessageBag();
+    //         Log::error('[SchoolDetailController][storeSchoolDocument]Validation error: ' . 'Request=' . $request . ', Errors =' . implode(', ', $errors->all()));
+    //         return redirect()->back()->with('status', 'error')->with('message', 'Document not updated!')->with('errors', $errors);
+    //     } catch (\Exception $e) {
+    //         Log::error('[SchoolDetailController][storeSchoolDocument] Error creating user: '  . 'Request=' . $request . ', Exception=' . $e->getMessage());
+    //         return redirect()->back()->with('status', 'error')->with('message',  'Document not updated!' . $e->getMessage());
+    //     }
+    // }
 
     public function addschoolforAdmin(Request $request)
     {
@@ -241,7 +244,6 @@ class SchoolDetailController extends Controller
     {
         $status = null;
         $message = null;
-
         $schooldetails = $this->schooldetail->where('uuid', $uuid)->first();
         $classesWithBooks = $this->classes->with('books')->get();
 
@@ -310,7 +312,6 @@ class SchoolDetailController extends Controller
 
     public function removeBookFromSchool(Request $request)
     {
-
         $request->validate([
             'book_id'   => 'required|integer',
             'school_id' => 'required|integer',
@@ -355,4 +356,25 @@ class SchoolDetailController extends Controller
         Session::flash('success', 'You have been logged out.');
         return redirect('school/show-login');
     }
+
+    public function addAgreement(Request $request)
+    {
+        $schoolSession = $this->getSchoolSession($request);
+        $uuid = $schoolSession['uuid'];
+        $SchoolDetails = $this->schooldetail->where('uuid', $uuid)->first();
+        if ($request->hasFile('school_document')) {
+            foreach ($request->file('school_document') as $image) {
+                $filename =   '_' . $image->getClientOriginalName();
+                $imagePath = 'agreement_images/' . $filename;
+                $image->move(public_path('agreement_images/'), $filename);
+    
+                $this->agreementImage->create([
+                    'school_id' => $SchoolDetails->id,
+                    'image'     => $imagePath,
+                ]);
+            }
+        }
+        return redirect()->back()->with('status','success')->with('message','Agreement added successfully.');
+    }
+   
 }

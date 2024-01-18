@@ -136,7 +136,10 @@
                                             <tr>
                                                 <td>School Document:</td>
                                               <td>
-                                                    <input type="file" id="school_doc_image" name="school_document" accept="image/*" onchange="previewImage(this, 'documentPreview')">
+                                                    <input type="file" id="school_doc_image" name="school_document[]" accept="image/*" onchange="previewImage(this, 'documentPreview')">
+                                                    <input type="file" id="school_doc_image" name="school_document[]" accept="image/*" onchange="previewImage(this, 'documentPreview')">
+                                                    <input type="file" id="school_doc_image" name="school_document[]" accept="image/*" onchange="previewImage(this, 'documentPreview')">
+                                                    <input type="file" id="school_doc_image" name="school_document[]" accept="image/*" onchange="previewImage(this, 'documentPreview')">
                                                     <img id="documentPreview" src="{{asset($schooldetails->school_document)}}" alt="School Document Preview" style="display: none; max-width: 200px; max-height: 200px; margin-top: 10px;">
                                                     <a href="/Agreement/Agreement.pdf" download="agreement.pdf">Download Agreement</a>
                                                 </td>
