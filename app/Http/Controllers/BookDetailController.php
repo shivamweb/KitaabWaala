@@ -158,7 +158,7 @@ class BookDetailController extends Controller
     public function getChartData()
     {
         $bookdetails=$this->bookdetails->get();
-        // dd($bookdetails);
+      
         $chartData = [];
        
         foreach ($bookdetails as $book) {
@@ -171,7 +171,44 @@ class BookDetailController extends Controller
         return $chartData;
     }
     
-    
+    public function managestockforadmin()
+    {
+        $status = null;
+        $message = null;
+        $bookdetails = $this->bookdetails->with('class')->get();
 
- 
+    
+        return view('admin.managestock', compact('bookdetails','status','message'));
+    }
+
+    // ... (existing code remains unchanged) ...
+
+public function fetchDataByDate(Request $request)
+{ dd($request);
+    try {
+        $startDate = $request->input('startDate');
+        $endDate = $request->input('endDate');
+
+        // Validate the input if needed
+
+        $bookdetails = $this->bookdetails
+            ->whereBetween('date', [$startDate, $endDate])
+            ->get();
+
+        $chartData = [];
+        foreach ($bookdetails as $book) {
+            $chartData[] = [
+                'book_name' => $book->book_name,
+                'quantity'  => $book->quantity,
+            ];
+        }
+
+        return response()->json(['success' => true, 'chartData' => $chartData]);
+    } catch (\Exception $e) {
+        Log::error('[BookDetailController][fetchDataByDate] Error: ' . $e->getMessage());
+        return response()->json(['success' => false, 'message' => 'Error fetching data']);
+    }
+}
+
+
 }

@@ -354,7 +354,7 @@ class SchoolDetailController extends Controller
         Session::forget('uuid');
     
         Session::flash('success', 'You have been logged out.');
-        return redirect('school/show-login');
+        return redirect('/show-login');
     }
 
     public function addAgreement(Request $request)

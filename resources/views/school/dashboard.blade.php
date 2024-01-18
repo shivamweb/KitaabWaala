@@ -35,8 +35,8 @@
                 <div class="bg-secondary card-body">
                     <div class="media static-top-widget">
                         <div class="media-body"><span class="m-0">Total Orders</span>
-                           <h3 class="mb-0">$ <span class="counter" id="totalOrders">0</span><small> 
-</small></h3>
+                            <h3 class="mb-0">$ <span class="counter" id="totalOrders">0</span><small>
+                                </small></h3>
                         </div>
                         <div class="icons-widgets">
                             <i data-feather="box"></i>
@@ -50,8 +50,8 @@
                 <div class="bg-primary card-body">
                     <div class="media static-top-widget">
                         <div class="media-body"><span class="m-0">Approved Orders</span>
-                            <h3 class="mb-0">$ <span class="counter" id="approvedOrders">0</span><small> 
-                                    </small></h3>
+                            <h3 class="mb-0">$ <span class="counter" id="approvedOrders">0</span><small>
+                                </small></h3>
                         </div>
                         <div class="icons-widgets">
                             <i data-feather="message-square"></i>
@@ -66,7 +66,7 @@
                     <div class="media static-top-widget">
                         <div class="media-body"><span class="m-0">Pending Orders</span>
                             <h3 class="mb-0">$ <span class="counter" id="pendingOrders">0</span><small>
-                                    </small></h3>
+                                </small></h3>
                         </div>
                         <div class="icons-widgets">
                             <i data-feather="navigation"></i>
@@ -81,7 +81,7 @@
                     <div class="media static-top-widget">
                         <div class="media-body"><span class="m-0">canclled Orders</span>
                             <h3 class="mb-0">$ <span class="counter" id="cancledOrders">0</span><small>
-                            </small></h3>
+                                </small></h3>
                         </div>
                         <div class="icons-widgets">
                             <i data-feather="users"></i>
@@ -200,39 +200,21 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-8 xl-100">
-            <div class="card btn-months">
-                <div class="card-header">
-                    <h5>This Month Revenue</h5>
-                    <div class="dashboard-btn-groups">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button class="btn btn-outline-light btn-js" type="button">Day</button>
-                            <button class="btn btn-outline-light btn-js" type="button">Week</button>
-                            <button class="btn btn-outline-light btn-js active" type="button">Month</button>
-                        </div>
+        <div class="card-body">
+        <div class="stat-box px-3 px-md-4 py-3 py-lg-4 shadow-sm rounded">
+            <div>
+                <h3 class="mb-0">Purchase Reports</h3>
+                <div class="inner position-relative">
+                    <div class="inner position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                        <h4 class="primary mb-0" id="total-ticket-count"></h4>
                     </div>
-                    <div class="card-header-right">
-                        <ul class="list-unstyled card-option">
-                            <li><i class="icofont icofont-simple-left"></i></li>
-                            <li><i class="view-html fa fa-code"></i></li>
-                            <li><i class="icofont icofont-maximize full-card"></i></li>
-                            <li><i class="icofont icofont-minus minimize-card"></i></li>
-                            <li><i class="icofont icofont-refresh reload-card"></i></li>
-                            <li><i class="icofont icofont-error close-card"></i></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="revenue-chart"></div>
-                    <div class="code-box-copy">
-                        <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#example-head8" title="" data-original-title="Copy"><i class="icofont icofont-copy-alt"></i></button>
-                        <pre class=" language-html"><code class=" language-html" id="example-head8">
-&lt;div class="revenue-chart"&gt;&lt;/div&gt;
-                                    </code></pre>
+                    <div id="chart-container" style="position: relative; height: 200x; width: 100%;">
+                        <canvas id="purchaseChart" width="400" height="200"></canvas>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
         <div class="col-xl-6 xl-100">
             <div class="card">
                 <div class="card-header">
@@ -783,21 +765,79 @@
 </div>
 <!-- Container-fluid Ends-->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                $.ajax({
-                    url: '/school/getTotalOrdersCount',
-                    type: 'GET',
-                    success: function(response) {
-                        $('#totalOrders').text(response.totalOrders);
-                        $('#approvedOrders').text(response.approvedOrders);
-                        $('#pendingOrders').text(response.pendingOrders);
-                        $('#cancledOrders').text(response.cancledOrders);
-                    },
-                    error: function() {
-                        console.log('Error fetching total product count');
-                    }
-                });
-            });
-        </script>
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: '/school/getTotalOrdersCount',
+            type: 'GET',
+            success: function(response) {
+                $('#totalOrders').text(response.totalOrders);
+                $('#approvedOrders').text(response.approvedOrders);
+                $('#pendingOrders').text(response.pendingOrders);
+                $('#cancledOrders').text(response.cancledOrders);
+            },
+            error: function() {
+                console.log('Error fetching total product count');
+            }
+        });
+    });
+
+
+    $(document).ready(function() {
+    loadData().then(function(response) {
+        var purchaseChartData = response.totalPurchaseData;
+        createPurchaseReportChart(purchaseChartData);
+    }).catch(function(error) {
+        console.log('Error fetching data:', error);
+    });
+});
+
+function loadData() {
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            url: '/school/getpurchasereport',
+            method: 'GET',
+            success: function(purchaseChartData) {
+                console.log('Data type:', typeof purchaseChartData);
+                resolve(purchaseChartData);
+            },
+            error: function(error) {
+                reject(error);
+            }
+        });
+    });
+}
+
+function createPurchaseReportChart(data) {
+    var ctx = document.getElementById('purchaseChart').getContext('2d');
+
+    // Assuming data is an array of numbers, adjust this based on your actual data structure
+    var totalOrders = [data];
+
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Total Orders'], // Use a label appropriate for your data
+            datasets: [{
+                label: 'Total Orders',
+                data: totalOrders,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                barThickness: 20,
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+
+
+</script>
 @endsection

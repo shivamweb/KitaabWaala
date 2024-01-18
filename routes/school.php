@@ -56,9 +56,13 @@ Route::group(['prefix' => 'school'], function () {
     Route::get('/inquiry', [InquiryController::class, 'showinquiryforSchool']);
     Route::get('/getTotalOrdersCount', [OrderController::class, 'getTotalOrderCount']);
     
-    Route::get('/getSchoolPurchaseReportData', [OrderController::class, 'getSchoolPurchaseReportData']);
+    
     Route::post('/addAgreement', [SchoolDetailController::class, 'addAgreement'])->name('storeSchoolDocument');
 
     Route::post('/storeSchoolDocument', [SchoolDetailController::class, 'storeSchoolDocument'])->name('storeSchoolDocument');
     
+    Route::get('/getpurchasereport', [OrderController::class, 'getPurchaseReportData']);
+    
+
+
 });
