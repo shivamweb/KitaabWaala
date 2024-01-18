@@ -42,12 +42,10 @@
                             <h5 class="f-w-600">Profile</h5>
                             <div class="table-responsive profile-table">
                                 <table class="table table-responsive">
-                                    <tbody>
+                                   
 
                                         <form method="POST" action="{{route('storeAdminProfile')}}" enctype="multipart/form-data">
                                             @csrf
-                                            <tr>
-                                                <td>
                                                     <div class="profile-details text-center">
                                                         @if ($adminDetails->image)
                                                         <img src="{{asset($adminDetails->image)}}" alt="" style="height:200px;width:200px;border-radius:50%">
@@ -55,34 +53,70 @@
                                                         <img src="../assets/images/default/no image.jpg" alt="" class="img-fluid img-90 rounded-circle blur-up lazyloaded">
                                                         @endif
                                                         <h5 class="f-w-600 mb-0">{{$adminDetails->firstname. ' ' .$adminDetails->lastname}}</h5>
-                                                        <span>{{$adminDetails->email}}</span></br>
-                                                        Upload Your Profile Image:
-                                                        <input type="file" name="image" id="fileToUpload">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>First Name:</td>
-                                                <td><input type="text" id="fname" name="firstname" value="{{$adminDetails->firstname}}"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Last Name:</td>
-                                                <td><input type="text" id="lname" name="lastname" value="{{$adminDetails->lastname}}"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Email:</td>
-                                                <td><input type="email" id="email" name="email" value="{{$adminDetails->email }}"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Mobile Number:</td>
-                                                <td><input type="text" name="mobile_number"></td>
-                                            </tr>
-                                    </tbody>
+                                                        <span>{{$adminDetails->email}}</span></br></div>
+                                        <div class="row">
+                                        <div class="col-lg-7 mt-3 mt-lg-4">
+                                            <div class="form-group">
+                                                <label for="formFile" class="form-label"> Upload Your Profile Image:</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5 mt-3 mt-lg-4">
+                                            <div class="form-group">
+                                                <input class="form-control" type="file" name="image" id="fileToUpload" value="{{$adminDetails->image}}" onchange="previewImage(this, 'imgPreview1');"  style="border-radius:20px" require>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-7 mt-3 mt-lg-4">
+                                            <div class="form-group">
+                                                <label for="fname" class="form-label">First Name:</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5 mt-3 mt-lg-4">
+                                            <div class="form-group">
+                                                <input type="text" id="fname" name="firstname" class="form-control" value="{{ $adminDetails->firstname }}" style="border-radius:20px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-7 mt-3 mt-lg-4">
+                                            <div class="form-group">
+                                                <label for="fname" class="form-label">Last Name:</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5 mt-3 mt-lg-4">
+                                            <div class="form-group">
+                                                <input type="text" id="lname" name="lastname" class="form-control" value="{{$adminDetails->lastname}}" style="border-radius:20px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-7 mt-3 mt-lg-4">
+                                            <div class="form-group">
+                                                <label for="fname" class="form-label">Email:</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5 mt-3 mt-lg-4">
+                                            <div class="form-group">
+                                                <input type="email" id="email" name="email" class="form-control" value="{{$adminDetails->email}}" style="border-radius:20px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-7 mt-3 mt-lg-4">
+                                            <div class="form-group">
+                                                <label for="fname" class="form-label">Mobile Number:</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5 mt-3 mt-lg-4">
+                                            <div class="form-group">
+                                                <input type="text" name="mobile_number" class="form-control" value="{{ $adminDetails->mobile_number ?? '' }}"  style="border-radius:20px">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </table>
-                            </div>
                             <button type="submit" class="btn btn-primary">Add Profile</button>
                             </form>
-                        </div>
                         <div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
                             <div class="account-setting">
                                 <h5 class="f-w-600">Notifications</h5>

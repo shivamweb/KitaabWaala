@@ -11,6 +11,7 @@ use App\Models\SchoolDetail;
 use Illuminate\Support\Facades\Log;
 use App\Traits\SessionTrait;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\ValidationException;
 
 class AdminDetailController extends Controller
@@ -164,4 +165,21 @@ class AdminDetailController extends Controller
             'totalPendingOrders'  => $totalPendingOrders,
         ]);
     }
+
+    public function fetchAdminPhotos(Request $request){
+    try {
+       $status = null;
+       $message = null;
+       $adminSession = $this->getAdminSession($request);
+      $uuid = $adminSession['uuid'];
+    $AdminPhotos = $this->adminDetails->where('uuid', $uuid)->first();
+    // dd();
+    return new JsonResponse(['AdminPhotos' => $AdminPhotos, 'status' => $status, 'message' => $message]);
+    } 
+    catch (\Exception $e) {
+    Log::error('[AdminDetailController][fetchAdminDetails] Error: ' . $e->getMessage());
+    return new JsonResponse(['status' => 'error', 'message' => 'Error fetching admin photo.']);
+    }
 }
+}
+

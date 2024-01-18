@@ -12,7 +12,19 @@
     <link rel="icon" href="../assets/images/favicon/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="../assets/images/favicon/favicon.png" type="image/x-icon">
     <title>KitaabWaala</title>
+    <style>
+        .password-container {
+            position: relative;
+        }
 
+        .toggle-password {
+            position: absolute;
+            right: 90%;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    </style>
     <!-- Google font-->
     <link href="../../../fonts.googleapis.com/css23b4.css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="../../../fonts.googleapis.com/css7d83.css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -166,8 +178,10 @@
                                                 <div class="form-group">
                                                     <input required="" name="email" type="email" class="form-control" placeholder="Username" id="exampleInputEmail1" style="border-radius:20px;">
                                                 </div>
-                                                <div class="form-group">
-                                                    <input required="" name="password" type="password" class="form-control" placeholder="Password" style="border-radius:20px;">
+    <div class="form-group">
+    <label for="password">Password:</label>
+    <span required="" type="password" id="password" name="password" class="form-control"  placeholder="Password" style="border-radius:20px;" onclick="togglePasswordVisibility()">👁️</span>
+</div>
                                                 </div>
                                                 <div class="form-terms">
                                                     <div class="custom-control custom-checkbox me-sm-2">
@@ -279,6 +293,19 @@
                 }
             }
         });
+
+        function togglePasswordVisibility() {
+        var passwordInput = document.getElementById('password');
+        var toggleButton = document.querySelector('.toggle-password');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            toggleButton.textContent = '👁️'; // Open eye symbol
+        } else {
+            passwordInput.type = 'password';
+            toggleButton.textContent = '👁️'; // Closed eye symbol
+        }
+    }
     </script>
 </body>
 

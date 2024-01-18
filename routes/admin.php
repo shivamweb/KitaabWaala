@@ -7,7 +7,7 @@ use App\Http\Controllers\ExpensesController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SchoolDetailController;
-
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InquiryController;
 
@@ -77,4 +77,5 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/getChartData', [BookDetailController::class, 'getChartData'])->name('getChartData');
     Route::get('/getSalesReportData', [OrderController::class, 'getSalesReportData']);
     Route::get('/getexpensereport',  [ExpensesController::class, 'getexpensereport']);
+    Route::get('/fetchAdminPhotos', [AdminDetailController::class, 'fetchAdminPhotos'])->name('fetchAdminPhotos');
 });
