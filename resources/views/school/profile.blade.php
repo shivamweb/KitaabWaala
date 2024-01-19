@@ -19,200 +19,199 @@
                             <h5 class="f-w-600">Add School</h5>
                             <div class="table-responsive profile-table">
                                 <table class="table table-responsive">
+                                    <body>
+                                        <tr>
+                                            <hr>
+                                        </tr>
+                                        <form name="school_profile" method="POST" action="{{route('storeSchoolProfile')}}" enctype="multipart/form-data">
+                                            @csrf
 
-                                <body>
-                                    <tr>
-                                        <hr>
-                                    </tr>
-                                    <form name="school_profile" method="POST" action="{{route('storeSchoolProfile')}}" enctype="multipart/form-data">
-                                        @csrf
+                                            <div class="profile-details text-center">
 
-                                        <div class="profile-details text-center">
-
-                                            <img src="{{ $schooldetails->image ? '../'.$schooldetails->image : asset('assets/images/avtar/defaultProduct.jpeg') }}" alt="" id="imgPreview1" style="height:200px;width:200px;border-radius:50%;">
+                                                <img src="{{ $schooldetails->image ? '../'.$schooldetails->image : asset('assets/images/avtar/defaultProduct.jpeg') }}" alt="" id="imgPreview1" style="height:200px;width:200px;border-radius:50%;">
 
 
-                                            <h5 class="f-w-600 mb-0">{{ $schooldetails ? $schooldetails->school_name : '' }}</h5>
-                                            <span>{{ $schooldetails ? $schooldetails->email : '' }}</span></br>
+                                                <h5 class="f-w-600 mb-0">{{ $schooldetails ? $schooldetails->school_name : '' }}</h5>
+                                                <span>{{ $schooldetails ? $schooldetails->email : '' }}</span></br>
 
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-7 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <label for="formFile" class="form-label"> Upload Your Profile Image:</label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-7 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="formFile" class="form-label"> Upload Your Profile Image:</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <input class="form-control" type="file" name="image" id="fileToUpload" onchange="previewImage(this, 'imgPreview1');" style="border-radius: 20px;" require>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-5 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <input class="form-control" type="file" name="image" id="fileToUpload" onchange="previewImage(this, 'imgPreview1');" require>
-                                                </div>
-                                            </div>
-                                        </div>
 
-                                        <!--<tr>
+                                            <!--<tr>
                                                     <td>School Name:</td>
                                                     <td><input type="text" id="school_name" name="school_name" value="{{$schooldetails->school_name}}"></td>
                                                 </tr>-->
-                                        <div class="row">
-                                            <div class="col-lg-7 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <label for="fname" class="form-label">School Name:</label>
+                                            <div class="row">
+                                                <div class="col-lg-7 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="fname" class="form-label">School Name:</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <input type="text" id="school_name" name="school_name" class="form-control" value="{{ $schooldetails->school_name }}" style="border-radius: 20px;">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-5 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <input type="text" id="school_name" name="school_name" class="form-control" value="{{ $schooldetails->school_name }}" style="border-radius: 20px;">
+                                            <div class="row">
+                                                <div class="col-lg-7 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="fname" class="form-label">Email:</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <input type="email" id="email" name="email" class="form-control" value="{{ $schooldetails->email }}" style="border-radius: 20px;">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-7 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <label for="fname" class="form-label">Email:</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-5 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <input type="email" id="email" name="email" class="form-control" value="{{ $schooldetails->email }}" style="border-radius: 20px;">
-                                                </div>
-                                            </div>
-                                        </div>
 
-                                        <!--<tr>
+                                            <!--<tr>
                                                     <td>Email:</td>
                                                     <td><input type="email" id="email" name="email" value="{{$schooldetails->email}}"></td>
                                                 </tr>-->
-                                        <div class="row">
-                                            <div class="col-lg-7 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <label for="fname" class="form-label">Password:</label>
+                                            <div class="row">
+                                                <div class="col-lg-7 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="fname" class="form-label">Password:</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <input type="text" id="password" name="password" class="form-control" value="{{ $schooldetails->password }}" style="border-radius: 20px;">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-5 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <input type="text" id="password" name="password" class="form-control" value="{{ $schooldetails->password }}" style="border-radius: 20px;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--<tr>
+                                            <!--<tr>
                                                     <td>Password:</td>
                                                     <td><input type="text" id="password" name="password" value="{{$schooldetails->password}}"></td>
                                                 </tr>-->
-                                        <div class="row">
-                                            <div class="col-lg-7 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <label for="fname" class="form-label">Mobile Number:</label>
+                                            <div class="row">
+                                                <div class="col-lg-7 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="fname" class="form-label">Mobile Number:</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <input type="text" id="mobile_number " name="mobile_number" class="form-control" value="{{ $schooldetails->mobile_number }}" style="border-radius: 20px;">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-5 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <input type="text" id="mobile_number " name="mobile_number" class="form-control" value="{{ $schooldetails->mobile_number }}" style="border-radius: 20px;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--<tr>
+                                            <!--<tr>
                                                     <td>Mobile Number:</td>
                                                     <td><input type="text" id="mobile_number " name="mobile_number" value="{{$schooldetails->mobile_number}}"></td>
                                                 </tr>-->
-                                        <div class="row">
-                                            <div class="col-lg-7 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <label for="fname" class="form-label">School Zone:</label>
+                                            <div class="row">
+                                                <div class="col-lg-7 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="fname" class="form-label">School Zone:</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <input type="text" id="school_zone" name="school_zone" class="form-control" value="{{ $schooldetails->school_zone }}" style="border-radius: 20px;">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-5 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <input type="text" id="school_zone" name="school_zone" class="form-control" value="{{ $schooldetails->school_zone }}" style="border-radius: 20px;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--<tr>
+                                            <!--<tr>
                                                     <td>School Zone:</td>
                                                     <td><input type="text" id="school_zone" name="school_zone" value="{{$schooldetails->school_zone}}"></td>
                                                 </tr>-->
-                                        <div class="row">
-                                            <div class="col-lg-7 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <label for="fname" class="form-label">Country:</label>
+                                            <div class="row">
+                                                <div class="col-lg-7 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="fname" class="form-label">Country:</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <input type="text" id="cname" name="country" class="form-control" value="{{ $schooldetails->country }}" style="border-radius: 20px;">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-5 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <input type="text" id="cname" name="country" class="form-control" value="{{ $schooldetails->country }}" style="border-radius: 20px;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--<tr>
+                                            <!--<tr>
                                                     <td>Country :</td>
                                                     <td><input type="text" id="cname" name="country" value="{{$schooldetails->country}}"></td>
                                                 </tr>-->
-                                        <div class="row">
-                                            <div class="col-lg-7 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <label for="fname" class="form-label">Address:</label>
+                                            <div class="row">
+                                                <div class="col-lg-7 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="fname" class="form-label">Address:</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <input type="text" id="address" name="address" class="form-control" value="{{ $schooldetails->address }}" style="border-radius: 20px;">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-5 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <input type="text" id="address" name="address" class="form-control" value="{{ $schooldetails->address }}" style="border-radius: 20px;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--<tr>
+                                            <!--<tr>
                                                     <td>Address:</td>
                                                     <td><input type="text" id="address" name="address" value="{{$schooldetails->address}}"></td>
                                                 </tr>-->
-                                        <div class="row">
-                                            <div class="col-lg-7 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <label for="fname" class="form-label">PIN Code:</label>
+                                            <div class="row">
+                                                <div class="col-lg-7 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="fname" class="form-label">PIN Code:</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <input type="text" id="pincode" name="pin_code" class="form-control" value="{{ $schooldetails->pin_code }}" style="border-radius: 20px;">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-5 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <input type="text" id="pincode" name="pin_code" class="form-control" value="{{ $schooldetails->pin_code }}" style="border-radius: 20px;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--<tr>
+                                            <!--<tr>
                                                     <td>PIN Code:</td>
                                                     <td><input type="text" id="pincode" name="pin_code" value="{{$schooldetails->pin_code}}"></td>
                                                 </tr>-->
-                                        <div class="row">
-                                            <div class="col-lg-7 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <label for="fname" class="form-label">City:</label>
+                                            <div class="row">
+                                                <div class="col-lg-7 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="fname" class="form-label">City:</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <input type="text" id="pincode" name="city" class="form-control" value="{{ $schooldetails->city }}" style="border-radius: 20px;">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-5 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <input type="text" id="pincode" name="city" class="form-control" value="{{ $schooldetails->city }}" style="border-radius: 20px;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--<tr>
+                                            <!--<tr>
                                                     <td>City:</td>
                                                     <td><input type="text" id="pincode" name="city" value="{{$schooldetails->city}}"></td>
                                                 </tr>-->
-                                        <div class="row">
-                                            <div class="col-lg-7 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <label for="fname" class="form-label">State:</label>
+                                            <div class="row">
+                                                <div class="col-lg-7 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="fname" class="form-label">State:</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 mt-3 mt-lg-4">
+                                                    <div class="form-group">
+                                                        <input type="text" id="state" name="state" class="form-control" value="{{ $schooldetails->state }}" style="border-radius: 20px;">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-5 mt-3 mt-lg-4">
-                                                <div class="form-group">
-                                                    <input type="text" id="state" name="state" class="form-control" value="{{ $schooldetails->state }}" style="border-radius: 20px;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Add School</button>
-                                        <!--<tr>
+                                            <button type="submit" class="btn btn-primary">Add School</button>
+                                            <!--<tr>
                                                     <td>State:</td>
                                                     <td><input type="text" id="state" name="state" value="{{$schooldetails->state}}"></td>
                                                 </tr>-->
-                                    </form>
-                                </body>
+                                        </form>
+                                    </body>
                                 </table>
                             </div>
                         </div>
@@ -322,22 +321,57 @@
                                 @csrf
                                 <div class="table-responsive profile-table">
                                     <table class="table table-responsive">
-                                        <tbody>
                                             <tr>
                                                 <hr>
                                             </tr>
                                             <tr>
                                                 <td>School Document:</td>
-                                              <td>
+                                                <!-- <td>
                                                     <input type="file" id="school_doc_image" name="school_document[]" accept="image/*" onchange="previewImage(this, 'documentPreview')">
                                                     <input type="file" id="school_doc_image" name="school_document[]" accept="image/*" onchange="previewImage(this, 'documentPreview')">
                                                     <input type="file" id="school_doc_image" name="school_document[]" accept="image/*" onchange="previewImage(this, 'documentPreview')">
                                                     <input type="file" id="school_doc_image" name="school_document[]" accept="image/*" onchange="previewImage(this, 'documentPreview')">
                                                     <img id="documentPreview" src="{{asset($schooldetails->school_document)}}" alt="School Document Preview" style="display: none; max-width: 200px; max-height: 200px; margin-top: 10px;">
                                                     <a href="/Agreement/Agreement.pdf" download="agreement.pdf">Download Agreement</a>
+                                                </td> -->
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="file" id="school_doc_image" name="school_document[]" accept="image/*" onchange="previewImage(this, 'documentPreview')">
+
+                                                </td>
+                                                <td>
+                                                    <img id="documentPreview" src="{{asset($schooldetails->school_document)}}" alt="School Document Preview" style="display: none; max-width: 200px; max-height: 200px; margin-top: 10px;">
+                                                    <a href="/Agreement/Agreement.pdf" download="agreement.pdf">Download Agreement</a>
                                                 </td>
                                             </tr>
-                                        </tbody>
+                                            <tr>
+                                                <td>
+                                                <input type="file" id="school_doc_image" name="school_document[]" accept="image/*" onchange="previewImage(this, 'documentPreview1')">
+                                                </td>
+                                                <td>
+                                                    <img id="documentPreview1" src="{{asset($schooldetails->school_document)}}" alt="School Document Preview" style="display: none; max-width: 200px; max-height: 200px; margin-top: 10px;">
+                                                    <a href="/Agreement/Agreement.pdf" download="agreement.pdf">Download Agreement</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                <input type="file" id="school_doc_image" name="school_document[]" accept="image/*" onchange="previewImage(this, 'documentPreview2')">
+                                                </td>
+                                                <td>
+                                                    <img id="documentPreview2" src="{{asset($schooldetails->school_document)}}" alt="School Document Preview" style="display: none; max-width: 200px; max-height: 200px; margin-top: 10px;">
+                                                    <a href="/Agreement/Agreement.pdf" download="agreement.pdf">Download Agreement</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                <input type="file" id="school_doc_image" name="school_document[]" accept="image/*" onchange="previewImage(this, 'documentPreview3')">
+                                                </td>
+                                                <td>
+                                                    <img id="documentPreview3" src="{{asset($schooldetails->school_document)}}" alt="School Document Preview" style="display: none; max-width: 200px; max-height: 200px; margin-top: 10px;">
+                                                    <a href="/Agreement/Agreement.pdf" download="agreement.pdf">Download Agreement</a>
+                                                </td>
+                                            </tr>
                                     </table>
                                 </div>
                                 <button type="submit" class="btn btn-primary">upload</button>

@@ -12,19 +12,6 @@
     <link rel="icon" href="../assets/images/favicon/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="../assets/images/favicon/favicon.png" type="image/x-icon">
     <title>KitaabWaala</title>
-    <style>
-        .password-container {
-            position: relative;
-        }
-
-        .toggle-password {
-            position: absolute;
-            right: 90%;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-    </style>
     <!-- Google font-->
     <link href="../../../fonts.googleapis.com/css23b4.css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="../../../fonts.googleapis.com/css7d83.css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -157,7 +144,7 @@
                                         <p>Kitaabwaala best book seller</p>
                                     </div>
                                 </div>
-                             
+
                             </div>
                         </div>
                     </div>
@@ -168,7 +155,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link active" id="top-profile-tab" data-bs-toggle="tab" href="#top-profile" role="tab" aria-controls="top-profile" aria-selected="true"><span class="icon-user me-2"></span>Login</a>
                                     </li>
-                                   
+
                                 </ul>
                                 <form method="POST" action="{{route('Admin-signin')}}" enctype="multipart/form-data">
                                     @csrf
@@ -178,25 +165,25 @@
                                                 <div class="form-group">
                                                     <input required="" name="email" type="email" class="form-control" placeholder="Username" id="exampleInputEmail1" style="border-radius:20px;">
                                                 </div>
-    <div class="form-group">
-    <label for="password">Password:</label>
-    <span required="" type="password" id="password" name="password" class="form-control"  placeholder="Password" style="border-radius:20px;" onclick="togglePasswordVisibility()">👁️</span>
-</div>
+                                                <div class="form-group">
+                                                    <label for="password">Password:</label>
+                                                    <input required="" type="password" id="password" name="password" class="form-control" placeholder="Password" style="border-radius:20px;">
                                                 </div>
-                                                <div class="form-terms">
-                                                    <div class="custom-control custom-checkbox me-sm-2">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input custom-control-input" type="checkbox" value="" id="customControlAutosizing">
-                                                            <label class="form-check-label" for="customControlAutosizing">Remember me</label>
-                                                        </div>
-                                                        <a href="javascript:void(0)" class="btn btn-default forgot-pass">lost your password</a>
-                                                    </div>
+                                        </div>
+                                        <div class="form-terms">
+                                            <div class="custom-control custom-checkbox me-sm-2">
+                                                <div class="form-check">
+                                                    <input class="form-check-input custom-control-input" type="checkbox" value="" id="customControlAutosizing">
+                                                    <label class="form-check-label" for="customControlAutosizing">Remember me</label>
                                                 </div>
-                                                <div class="form-button">
-                                                    <button class="btn btn-primary" type="submit">Login</button>
-                                                </div>
-                                            </form>
-                                            <!-- <div class="form-footer">
+                                                <a href="javascript:void(0)" class="btn btn-default forgot-pass">lost your password</a>
+                                            </div>
+                                        </div>
+                                        <div class="form-button">
+                                            <button class="btn btn-primary" type="submit">Login</button>
+                                        </div>
+                                </form>
+                                <!-- <div class="form-footer">
                                                 <span>Or Login up with social platforms</span>
                                                 <ul class="social">
                                                     <li><a class="icon-facebook" href="#"></a></li>
@@ -207,7 +194,7 @@
                                             </div> -->
                                 </form>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -252,7 +239,7 @@
             dots: true
         });
     </script>
-         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var status = "{{ session('status') }}";
@@ -293,19 +280,6 @@
                 }
             }
         });
-
-        function togglePasswordVisibility() {
-        var passwordInput = document.getElementById('password');
-        var toggleButton = document.querySelector('.toggle-password');
-
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            toggleButton.textContent = '👁️'; // Open eye symbol
-        } else {
-            passwordInput.type = 'password';
-            toggleButton.textContent = '👁️'; // Closed eye symbol
-        }
-    }
     </script>
 </body>
 
