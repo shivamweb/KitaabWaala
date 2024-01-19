@@ -169,9 +169,11 @@
                                                 <div class="form-group">
                                                     <input required="" name="email" type="email" class="form-control" placeholder="Username" id="exampleInputEmail1" style="border-radius:20px;">
                                                 </div>
-                                                <div class="form-group">
-                                                    <input required="" name="password" type="password" class="form-control" placeholder="Password"style="border-radius:20px;">
-                                                </div>
+                                                <div style="position: relative;">
+  <input required type="password" id="password" name="password" class="form-control" placeholder="Password" style="border-radius: 20px; padding-right: 40px;" onclick="togglePasswordVisibility()">
+  <span style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;" onclick="togglePasswordVisibility()">👁️</span>
+</div><br>
+
                                                 <div class="form-terms">
                                                     <div class="custom-control custom-checkbox me-sm-2">
                                                         <div class="form-check">
@@ -200,7 +202,7 @@
                                 <form class="form-horizontal auth-form" action="{{ route('School-register') }}" method="POST">
                                     @csrf
                                     <div class="row">
-                                        <div class="col-lg-6 mt-3 mt-lg-4">
+                                        
                                             <div class="form-group">
                                                 <input required="" name="school_name" type="text" class="form-control" placeholder="School Name" id="school_name" style="border-radius:20px;">
                                             </div>
@@ -209,9 +211,10 @@
                                     <div class="form-group">
                                         <input required="" name="email" type="email" class="form-control" placeholder="Email" id="exampleInputEmail12" style="border-radius:20px;">
                                     </div>
-                                    <div class="form-group">
-                                        <input required="" name="password" type="password" class="form-control" placeholder="Password" style="border-radius:20px;">
-                                    </div>
+                                    <div style="position: relative;">
+  <input required type="password" id="password1" name="password" class="form-control" placeholder="Password" style="border-radius: 20px; padding-right: 40px;" onclick="togglePasswordVisibility1()">
+  <span class="toggle-btn1" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;" onclick="togglePasswordVisibility1()">👁️</span>
+</div><br>
                                     <div class="form-terms">
                                         <div class="custom-control custom-checkbox form-check me-sm-2">
                                             <input class="form-check-input" type="checkbox" value="" id="customControlAutosizing1">
@@ -323,6 +326,30 @@
                 }
             }
         });
+        function togglePasswordVisibility() {
+        const passwordInput = document.getElementById('password');
+        const toggleButton = document.querySelector('.toggle-btn');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            toggleButton.textContent = '👁️'; // Open eye symbol
+        } else {
+            passwordInput.type = 'password';
+            toggleButton.textContent = '👁️'; // Closed eye symbol
+        }
+    }
+    function togglePasswordVisibility1() {
+    const passwordInput = document.getElementById('password1');
+    const toggleButton = document.querySelector('.toggle-btn1');
+
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      toggleButton.textContent = '👁️'; // Open eye symbol
+    } else {
+      passwordInput.type = 'password';
+      toggleButton.textContent = '👁️'; // Closed eye symbol
+    }
+  }
     </script>
 </body>
 
