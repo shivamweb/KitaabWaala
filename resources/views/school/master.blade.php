@@ -76,7 +76,7 @@
                         <li class="onhover-dropdown"><a href="/school/showNotification"><i data-feather="bell"></i><span class="badge badge-pill badge-primary pull-right notification-badge">0</span><span class="dot"></span></li>
                         <li><a href="javascript:void(0)"><i class="right_side_toggle" data-feather="message-square"></i><span class="dot"></span></a></li>
                         <li class="onhover-dropdown">
-                            <div class="media align-items-center" id="iconDiv"><img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="" alt="header-user">
+                            <div class="media align-items-center" id="iconDiv"><img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="../assets/images/banner/1.jpg" alt="header-user">
                                 <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
                             </div>
                             <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
@@ -100,7 +100,7 @@
             <div class="page-sidebar">
                 <div class="sidebar custom-scrollbar">
                     <div class="sidebar-user text-center" id="iconDiv">
-                        <div><img class="img-60 rounded-circle lazyloaded blur-up" src="../assets/images/dashboard/man.png" alt="#">
+                        <div><img class="img-60 rounded-circle lazyloaded blur-up" src="../assets/images/banner/1.jpg" alt="#">
                         </div>
                         <h6 class="mt-3 f-14" id="companyName">JOHN</h6>
                         <p id="vendorName">Ux Designer</p>
